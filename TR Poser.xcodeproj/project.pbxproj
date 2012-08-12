@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52F8987B15D8766400AD9031 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8987A15D8766400AD9031 /* Cocoa.framework */; };
+		52F8988515D8766400AD9031 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F8988315D8766400AD9031 /* InfoPlist.strings */; };
+		52F8988715D8766400AD9031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8988615D8766400AD9031 /* main.m */; };
+		52F8988B15D8766400AD9031 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 52F8988915D8766400AD9031 /* Credits.rtf */; };
+		52F8988E15D8766400AD9031 /* TRDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8988D15D8766400AD9031 /* TRDocument.m */; };
+		52F8989115D8766500AD9031 /* TRDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F8988F15D8766500AD9031 /* TRDocument.xib */; };
+		52F8989415D8766500AD9031 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F8989215D8766500AD9031 /* MainMenu.xib */; };
+		52F8989C15D8766500AD9031 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8989B15D8766500AD9031 /* SenTestingKit.framework */; };
+		52F8989D15D8766500AD9031 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8987A15D8766400AD9031 /* Cocoa.framework */; };
+		52F898A515D8766500AD9031 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F898A315D8766500AD9031 /* InfoPlist.strings */; };
+		52F898A815D8766500AD9031 /* TR_PoserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898A715D8766500AD9031 /* TR_PoserTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52F8989E15D8766500AD9031 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52F8986D15D8766400AD9031 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52F8987515D8766400AD9031;
+			remoteInfo = "TR Poser";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		52F8987615D8766400AD9031 /* TR Poser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TR Poser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52F8987A15D8766400AD9031 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		52F8987D15D8766400AD9031 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		52F8987E15D8766400AD9031 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		52F8987F15D8766400AD9031 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		52F8988215D8766400AD9031 /* TR Poser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TR Poser-Info.plist"; sourceTree = "<group>"; };
+		52F8988415D8766400AD9031 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52F8988615D8766400AD9031 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52F8988815D8766400AD9031 /* TR Poser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TR Poser-Prefix.pch"; sourceTree = "<group>"; };
+		52F8988A15D8766400AD9031 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		52F8988C15D8766400AD9031 /* TRDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRDocument.h; sourceTree = "<group>"; };
+		52F8988D15D8766400AD9031 /* TRDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRDocument.m; sourceTree = "<group>"; };
+		52F8989015D8766500AD9031 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TRDocument.xib; sourceTree = "<group>"; };
+		52F8989315D8766500AD9031 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		52F8989A15D8766500AD9031 /* TR PoserTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TR PoserTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52F8989B15D8766500AD9031 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		52F898A215D8766500AD9031 /* TR PoserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TR PoserTests-Info.plist"; sourceTree = "<group>"; };
+		52F898A415D8766500AD9031 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52F898A615D8766500AD9031 /* TR_PoserTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TR_PoserTests.h; sourceTree = "<group>"; };
+		52F898A715D8766500AD9031 /* TR_PoserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TR_PoserTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52F8987315D8766400AD9031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F8987B15D8766400AD9031 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52F8989615D8766500AD9031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F8989C15D8766500AD9031 /* SenTestingKit.framework in Frameworks */,
+				52F8989D15D8766500AD9031 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52F8986B15D8766400AD9031 = {
+			isa = PBXGroup;
+			children = (
+				52F8988015D8766400AD9031 /* TR Poser */,
+				52F898A015D8766500AD9031 /* TR PoserTests */,
+				52F8987915D8766400AD9031 /* Frameworks */,
+				52F8987715D8766400AD9031 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52F8987715D8766400AD9031 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52F8987615D8766400AD9031 /* TR Poser.app */,
+				52F8989A15D8766500AD9031 /* TR PoserTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52F8987915D8766400AD9031 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52F8987A15D8766400AD9031 /* Cocoa.framework */,
+				52F8989B15D8766500AD9031 /* SenTestingKit.framework */,
+				52F8987C15D8766400AD9031 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52F8987C15D8766400AD9031 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52F8987D15D8766400AD9031 /* AppKit.framework */,
+				52F8987E15D8766400AD9031 /* CoreData.framework */,
+				52F8987F15D8766400AD9031 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		52F8988015D8766400AD9031 /* TR Poser */ = {
+			isa = PBXGroup;
+			children = (
+				52F8988C15D8766400AD9031 /* TRDocument.h */,
+				52F8988D15D8766400AD9031 /* TRDocument.m */,
+				52F8988F15D8766500AD9031 /* TRDocument.xib */,
+				52F8989215D8766500AD9031 /* MainMenu.xib */,
+				52F8988115D8766400AD9031 /* Supporting Files */,
+			);
+			path = "TR Poser";
+			sourceTree = "<group>";
+		};
+		52F8988115D8766400AD9031 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52F8988215D8766400AD9031 /* TR Poser-Info.plist */,
+				52F8988315D8766400AD9031 /* InfoPlist.strings */,
+				52F8988615D8766400AD9031 /* main.m */,
+				52F8988815D8766400AD9031 /* TR Poser-Prefix.pch */,
+				52F8988915D8766400AD9031 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52F898A015D8766500AD9031 /* TR PoserTests */ = {
+			isa = PBXGroup;
+			children = (
+				52F898A615D8766500AD9031 /* TR_PoserTests.h */,
+				52F898A715D8766500AD9031 /* TR_PoserTests.m */,
+				52F898A115D8766500AD9031 /* Supporting Files */,
+			);
+			path = "TR PoserTests";
+			sourceTree = "<group>";
+		};
+		52F898A115D8766500AD9031 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52F898A215D8766500AD9031 /* TR PoserTests-Info.plist */,
+				52F898A315D8766500AD9031 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52F8987515D8766400AD9031 /* TR Poser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52F898AB15D8766500AD9031 /* Build configuration list for PBXNativeTarget "TR Poser" */;
+			buildPhases = (
+				52F8987215D8766400AD9031 /* Sources */,
+				52F8987315D8766400AD9031 /* Frameworks */,
+				52F8987415D8766400AD9031 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TR Poser";
+			productName = "TR Poser";
+			productReference = 52F8987615D8766400AD9031 /* TR Poser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52F8989915D8766500AD9031 /* TR PoserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52F898AE15D8766500AD9031 /* Build configuration list for PBXNativeTarget "TR PoserTests" */;
+			buildPhases = (
+				52F8989515D8766500AD9031 /* Sources */,
+				52F8989615D8766500AD9031 /* Frameworks */,
+				52F8989715D8766500AD9031 /* Resources */,
+				52F8989815D8766500AD9031 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52F8989F15D8766500AD9031 /* PBXTargetDependency */,
+			);
+			name = "TR PoserTests";
+			productName = "TR PoserTests";
+			productReference = 52F8989A15D8766500AD9031 /* TR PoserTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52F8986D15D8766400AD9031 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TR;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Torsten Kammer";
+			};
+			buildConfigurationList = 52F8987015D8766400AD9031 /* Build configuration list for PBXProject "TR Poser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 52F8986B15D8766400AD9031;
+			productRefGroup = 52F8987715D8766400AD9031 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52F8987515D8766400AD9031 /* TR Poser */,
+				52F8989915D8766500AD9031 /* TR PoserTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52F8987415D8766400AD9031 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F8988515D8766400AD9031 /* InfoPlist.strings in Resources */,
+				52F8988B15D8766400AD9031 /* Credits.rtf in Resources */,
+				52F8989115D8766500AD9031 /* TRDocument.xib in Resources */,
+				52F8989415D8766500AD9031 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52F8989715D8766500AD9031 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F898A515D8766500AD9031 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52F8989815D8766500AD9031 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52F8987215D8766400AD9031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F8988715D8766400AD9031 /* main.m in Sources */,
+				52F8988E15D8766400AD9031 /* TRDocument.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52F8989515D8766500AD9031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F898A815D8766500AD9031 /* TR_PoserTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52F8989F15D8766500AD9031 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52F8987515D8766400AD9031 /* TR Poser */;
+			targetProxy = 52F8989E15D8766500AD9031 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52F8988315D8766400AD9031 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F8988415D8766400AD9031 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		52F8988915D8766400AD9031 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F8988A15D8766400AD9031 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		52F8988F15D8766500AD9031 /* TRDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F8989015D8766500AD9031 /* en */,
+			);
+			name = TRDocument.xib;
+			sourceTree = "<group>";
+		};
+		52F8989215D8766500AD9031 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F8989315D8766500AD9031 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		52F898A315D8766500AD9031 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F898A415D8766500AD9031 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52F898A915D8766500AD9031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		52F898AA15D8766500AD9031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		52F898AC15D8766500AD9031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TR Poser/TR Poser-Prefix.pch";
+				INFOPLIST_FILE = "TR Poser/TR Poser-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		52F898AD15D8766500AD9031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TR Poser/TR Poser-Prefix.pch";
+				INFOPLIST_FILE = "TR Poser/TR Poser-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		52F898AF15D8766500AD9031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TR Poser.app/Contents/MacOS/TR Poser";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TR Poser/TR Poser-Prefix.pch";
+				INFOPLIST_FILE = "TR PoserTests/TR PoserTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		52F898B015D8766500AD9031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TR Poser.app/Contents/MacOS/TR Poser";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TR Poser/TR Poser-Prefix.pch";
+				INFOPLIST_FILE = "TR PoserTests/TR PoserTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52F8987015D8766400AD9031 /* Build configuration list for PBXProject "TR Poser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52F898A915D8766500AD9031 /* Debug */,
+				52F898AA15D8766500AD9031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52F898AB15D8766500AD9031 /* Build configuration list for PBXNativeTarget "TR Poser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52F898AC15D8766500AD9031 /* Debug */,
+				52F898AD15D8766500AD9031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		52F898AE15D8766500AD9031 /* Build configuration list for PBXNativeTarget "TR PoserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52F898AF15D8766500AD9031 /* Debug */,
+				52F898B015D8766500AD9031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52F8986D15D8766400AD9031 /* Project object */;
+}

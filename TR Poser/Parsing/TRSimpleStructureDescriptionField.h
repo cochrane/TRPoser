@@ -16,5 +16,7 @@
 @property (nonatomic, readonly, retain) Class type;
 @property (nonatomic, readonly, assign) BOOL isSigned;
 @property (nonatomic, readonly, assign) NSUInteger bits;
+@property (nonatomic, readonly, assign) NSUInteger fixedArrayLength;
+@property (nonatomic, readonly, assign) NSUInteger countFieldBits;
 
 @end

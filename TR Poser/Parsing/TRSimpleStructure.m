@@ -14,6 +14,13 @@
 #import "TRInDataStream.h"
 #import "TROutDataStream.h"
 
+@interface TRSimpleStructure ()
+
+- (id)parseSingleValueForField:(TRSimpleStructureDescriptionField *)field fromStream:(TRInDataStream *)stream;
+- (void)writeSingleValue:(id)value forField:(TRSimpleStructureDescriptionField *)field toStream:(TROutDataStream *)stream;
+
+@end
+
 @implementation TRSimpleStructure
 
 + (TRSimpleStructureDescription *)structureDescription;
@@ -29,36 +36,51 @@
 	
 	for (TRSimpleStructureDescriptionField *field in self.class.structureDescription.fields)
 	{
-		if (field.type != nil)
+		if (field.fixedArrayLength != 0)
 		{
-			id object = [[field.type alloc] initFromDataStream:stream inLevel:self.level];
-			[self setValue:object forKey:field.name];
+			NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:field.fixedArrayLength];
+			
+			for (NSUInteger i = 0; i < field.fixedArrayLength; i++)
+				[result addObject:[self parseSingleValueForField:field fromStream:stream]];
+			
+			[self setValue:result forKey:field.name];
 		}
 		else
-		{
-			NSNumber *number = [stream readNumberWithBits:field.bits signed:field.isSigned];
-			[self setValue:number forKey:field.name];
-		}
+			[self setValue:[self parseSingleValueForField:field fromStream:stream] forKey:field.name];
 	}
 	
 	return self;
+}
+
+- (id)parseSingleValueForField:(TRSimpleStructureDescriptionField *)field fromStream:(TRInDataStream *)stream;
+{
+	if (field.type)
+		return [[field.type alloc] initFromDataStream:stream inLevel:self.level];
+	else
+		return [stream readNumberWithBits:field.bits signed:field.isSigned];
 }
 
 - (void)writeToStream:(TROutDataStream *)stream;
 {
 	for (TRSimpleStructureDescriptionField *field in self.class.structureDescription.fields)
 	{
-		if (field.type != nil)
+		if (field.fixedArrayLength != 0)
 		{
-			id object = [self valueForKey:field.name];
-			[object writeToStream:stream];
+			NSArray *elements = [self valueForKey:field.name];
+			for (NSUInteger i = 0; i < field.fixedArrayLength; i++)
+				[self writeSingleValue:[elements objectAtIndex:i] forField:field toStream:stream];
 		}
 		else
-		{
-			NSNumber *number = [self valueForKey:field.name];
-			[stream appendNumber:number bits:field.bits signed:field.isSigned];
-		}
+			[self writeSingleValue:[self valueForKey:field.name] forField:field toStream:stream];
 	}
+}
+
+- (void)writeSingleValue:(id)value forField:(TRSimpleStructureDescriptionField *)field toStream:(TROutDataStream *)stream;
+{
+	if (field.type)
+		[value writeToStream:stream];
+	else
+		[stream appendNumber:value bits:field.bits signed:field.isSigned];
 }
 
 @end

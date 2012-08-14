@@ -45,6 +45,17 @@
 			
 			[self setValue:result forKey:field.name];
 		}
+		else if (field.countFieldBits != 0)
+		{
+			NSUInteger length = [[stream readNumberWithBits:field.countFieldBits signed:NO] unsignedIntegerValue];
+			
+			NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:length];
+			
+			for (NSUInteger i = 0; i < length; i++)
+				[result addObject:[self parseSingleValueForField:field fromStream:stream]];
+			
+			[self setValue:result forKey:field.name];
+		}
 		else
 			[self setValue:[self parseSingleValueForField:field fromStream:stream] forKey:field.name];
 	}
@@ -69,6 +80,14 @@
 			NSArray *elements = [self valueForKey:field.name];
 			for (NSUInteger i = 0; i < field.fixedArrayLength; i++)
 				[self writeSingleValue:[elements objectAtIndex:i] forField:field toStream:stream];
+		}
+		else if (field.countFieldBits != 0)
+		{
+			NSArray *elements = [self valueForKey:field.name];
+			[stream appendNumber:@(elements.count) bits:field.countFieldBits signed:NO];
+			
+			for (id element in elements)
+				[self writeSingleValue:element forField:field toStream:stream];
 		}
 		else
 			[self writeSingleValue:[self valueForKey:field.name] forField:field toStream:stream];

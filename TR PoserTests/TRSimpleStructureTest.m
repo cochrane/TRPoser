@@ -35,6 +35,13 @@ struct FixedArrayTestStruct {
 	struct TestStruct array[2];
 } __attribute__((packed));
 
+// Length is variable in theory; in practice always 2.
+struct VariableArrayTestStruct {
+	uint16_t header;
+	uint16_t length;
+	struct TestStruct array[2];
+} __attribute__((packed));
+
 @interface TRSimpleStructureTest_TestClass : TRSimpleStructure
 
 @property (nonatomic, assign) NSUInteger dword;
@@ -84,6 +91,22 @@ struct FixedArrayTestStruct {
 + (TRSimpleStructureDescription *)structureDescription
 {
 	return [[TRSimpleStructureDescription alloc] initWithSource:@"bitu16 header; TRSimpleStructureTest_TestClass array[2]"];
+}
+
+@end
+
+@interface TRSimpleStructureTest_VariableArrayTestClass : TRSimpleStructure
+
+@property (nonatomic, assign) NSUInteger header;
+@property (nonatomic, retain) NSMutableArray *array;
+
+@end
+
+@implementation TRSimpleStructureTest_VariableArrayTestClass
+
++ (TRSimpleStructureDescription *)structureDescription
+{
+	return [[TRSimpleStructureDescription alloc] initWithSource:@"bitu16 header; TRSimpleStructureTest_TestClass array[bitu16]"];
 }
 
 @end
@@ -297,5 +320,94 @@ struct FixedArrayTestStruct {
 		STAssertEquals((NSInteger) test.array[i].negative, [[object.array objectAtIndex:i] negative], @"Read array negative value does not equal.");
 	}
 }
+
+- (void)testVariableArrayRead;
+{
+	struct VariableArrayTestStruct test = {
+		19,
+		2,
+		{ {
+			UINT16_MAX + 2,
+			128,
+			12,
+			259,
+			-42
+		},
+			{
+				UINT16_MAX - 2,
+				78,
+				89,
+				1024,
+				-1024
+			} }
+	};
+	
+	NSData *testData = [NSData dataWithBytes:&test length:sizeof(test)];
+	TRInDataStream *stream = [[TRInDataStream alloc] initWithData:testData];
+	
+	TRSimpleStructureTest_VariableArrayTestClass *object = [[TRSimpleStructureTest_VariableArrayTestClass alloc] initFromDataStream:stream inLevel:nil];
+	
+	STAssertEquals(stream.position, sizeof(test), @"Position is less than size of test data");
+	
+	STAssertEquals((NSUInteger) test.header, object.header, @"Read dword does not equal.");
+	
+	STAssertEquals((NSUInteger) test.length, object.array.count, @"Incorrect length field");
+	
+	for (NSUInteger i = 0; i < 2; i++)
+	{
+		STAssertEquals((NSUInteger) test.array[i].dword, [[object.array objectAtIndex:i] dword], @"Read array dword does not equal.");
+		STAssertEquals((NSUInteger) test.array[i].byte1, [[object.array objectAtIndex:i] byte1], @"Read array byte does not equal.");
+		STAssertEquals((NSUInteger) test.array[i].byte2, [[object.array objectAtIndex:i] byte2], @"Read array byte does not equal.");
+		STAssertEquals((NSUInteger) test.array[i].word, [[object.array objectAtIndex:i] word], @"Read array word does not equal.");
+		STAssertEquals((NSInteger) test.array[i].negative, [[object.array objectAtIndex:i] negative], @"Read array negative value does not equal.");
+	}
+}
+
+- (void)testVariableArrayWrite;
+{
+	TRSimpleStructureTest_TestClass *element1 = [[TRSimpleStructureTest_TestClass alloc] init];
+	
+	element1.dword = UINT16_MAX + 2;
+	element1.byte1 = 128;
+	element1.byte2 = 12;
+	element1.word = 259;
+	element1.negative = -42;
+	
+	TRSimpleStructureTest_TestClass *element2 = [[TRSimpleStructureTest_TestClass alloc] init];
+	
+	element2.dword = UINT16_MAX - 2;
+	element2.byte1 = 78;
+	element2.byte2 = 89;
+	element2.word = 1024;
+	element2.negative = -1024;
+	
+	TRSimpleStructureTest_VariableArrayTestClass *object = [[TRSimpleStructureTest_VariableArrayTestClass alloc] init];
+	object.header = 19;
+	object.array = [@[ element1, element2 ] mutableCopy];
+	
+	TROutDataStream *stream = [[TROutDataStream alloc] init];
+	[object writeToStream:stream];
+	
+	struct VariableArrayTestStruct test;
+	STAssertEquals(stream.length, sizeof(test), @"Length is not equal to test data");
+	
+	[stream.data getBytes:&test length:sizeof(test)];
+	
+	STAssertEquals(stream.length, sizeof(test), @"Position is less than size of test data");
+	
+	STAssertEquals((NSUInteger) test.header, object.header, @"Read dword does not equal.");
+	
+	STAssertEquals((NSUInteger) test.length, object.array.count, @"Incorrect length field");
+	
+	for (NSUInteger i = 0; i < 2; i++)
+	{
+		STAssertEquals((NSUInteger) test.array[i].dword, [[object.array objectAtIndex:i] dword], @"Read array dword does not equal.");
+		STAssertEquals((NSUInteger) test.array[i].byte1, [[object.array objectAtIndex:i] byte1], @"Read array byte does not equal.");
+		STAssertEquals((NSUInteger) test.array[i].byte2, [[object.array objectAtIndex:i] byte2], @"Read array byte does not equal.");
+		STAssertEquals((NSUInteger) test.array[i].word, [[object.array objectAtIndex:i] word], @"Read array word does not equal.");
+		STAssertEquals((NSInteger) test.array[i].negative, [[object.array objectAtIndex:i] negative], @"Read array negative value does not equal.");
+	}
+}
+
 
 @end

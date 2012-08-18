@@ -1,41 +1,29 @@
 //
-//  TRSimpleStructureDescriptionField.h
-//  TR Poser
+//  TR1SimpleStructureDescriptionItem.h
+//  
 //
 //  Created by Torsten Kammer on 14.08.12.
-//  Copyright (c) 2012 Torsten Kammer. All rights reserved.
+//
 //
 
-#import "TRStructureDescriptionItem.h"
-
-#import "TRStructureDescriptionPrimitiveType.h"
+#import <Foundation/Foundation.h>
 
 @class TRInDataStream;
 @class TROutDataStream;
 @class TRStructure;
 
-@interface TRStructureDescriptionField : TRStructureDescriptionItem
+@interface TRStructureDescriptionField : NSObject
 
+// This will create an instance of a subclass. Do not
+// call it from subclasses
 - (id)initWithString:(NSString *)fieldDescription;
 
-@property (nonatomic, readonly, copy) NSString *name;
-@property (nonatomic, readonly, assign) BOOL isPrimitive;
-
-// Only applicable for primitive types
-@property (nonatomic, readonly, assign) TRStructureDescriptionPrimitiveType primitiveType;
-
-// Only applicable for class types
-@property (nonatomic, readonly, assign) BOOL isVersioned;
-@property (nonatomic, readonly, copy) NSString *className;
-
-// For arrays
-@property (nonatomic, readonly, assign) NSUInteger fixedArrayLength;
-@property (nonatomic, readonly, assign) TRStructureDescriptionPrimitiveType countFieldType;
-@property (nonatomic, readonly, copy) NSString *lengthKeyPath;
-@property (nonatomic, readonly, assign) NSUInteger lengthDivisor;
-@property (nonatomic, readonly, assign) NSUInteger lengthFactor;
-
+// Subclasses should override either of these sets of
+// methods.
 - (void)parseFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure;
 - (void)writeToStream:(TROutDataStream *)stream fromObject:(TRStructure *)structure;
+
+- (void)parseFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure substreams:(NSDictionary *__autoreleasing*)substreams;
+- (void)writeToStream:(TROutDataStream *)stream fromObject:(TRStructure *)structure substreams:(NSDictionary *)substreams;
 
 @end

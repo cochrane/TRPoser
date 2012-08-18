@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TRStructureDescriptionItem.h"
+#import "TRStructureDescriptionField.h"
 
 #import "TRSTructureDescriptionPrimitiveType.h"
 
 @class TRStructure;
 
-@interface TRStructureDescriptionConstField : TRStructureDescriptionItem
+@interface TRStructureDescriptionConstField : TRStructureDescriptionField
 
 - (id)initWithString:(NSString *)fieldDescription;
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TRStructureDescriptionItem.h"
+#import "TRStructureDescriptionField.h"
 
-@interface TRStructureDescriptionDerivedProperty : TRStructureDescriptionItem
+@interface TRStructureDescriptionDerivedProperty : TRStructureDescriptionField
 
 @property (nonatomic, copy, readonly) NSString *objectKey;
 @property (nonatomic, copy, readonly) NSString *levelArrayKey;

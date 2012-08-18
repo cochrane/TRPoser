@@ -8,7 +8,7 @@
 
 #import "TRStructureDescription.h"
 
-#import "TRStructureDescriptionField.h"
+#import "TRStructureDescriptionValueField.h"
 #import "TRStructureDescriptionDerivedProperty.h"
 #import "TRStructureDescriptionFactor.h"
 

@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TRStructureDescriptionItem.h"
+#import "TRStructureDescriptionField.h"
 
 typedef enum {
 	TRStructureDescriptionFactor_Unsigned,
@@ -14,7 +14,7 @@ typedef enum {
 	TRStructureDescriptionFactor_Double,
 } TRStructureDescriptionFactor_Type ;
 
-@interface TRStructureDescriptionFactor : TRStructureDescriptionItem
+@interface TRStructureDescriptionFactor : TRStructureDescriptionField
 
 - (id)initWithString:(NSString *)fieldDescription;
 

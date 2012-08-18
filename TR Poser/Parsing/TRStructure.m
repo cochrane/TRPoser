@@ -9,7 +9,7 @@
 #import "TRStructure.h"
 
 #import "TRStructureDescription.h"
-#import "TRStructureDescriptionField.h"
+#import "TRStructureDescriptionValueField.h"
 #import "TRStructureDescriptionDerivedProperty.h"
 #import "TRStructureDescriptionFactor.h"
 
@@ -18,8 +18,8 @@
 
 @interface TRStructure ()
 
-- (id)parseSingleValueForField:(TRStructureDescriptionField *)field fromStream:(TRInDataStream *)stream;
-- (void)writeSingleValue:(id)value forField:(TRStructureDescriptionField *)field toStream:(TROutDataStream *)stream;
+- (id)parseSingleValueForField:(TRStructureDescriptionValueField *)field fromStream:(TRInDataStream *)stream;
+- (void)writeSingleValue:(id)value forField:(TRStructureDescriptionValueField *)field toStream:(TROutDataStream *)stream;
 
 + (void)prepareClassWithDescription:(TRStructureDescription *)description;
 
@@ -72,8 +72,15 @@ static NSMutableDictionary *structureDescriptions;
 	
 	_level = level;
 	
+	NSMutableDictionary *mutableSubstreams = [[NSMutableDictionary alloc] init];
 	for (TRStructureDescriptionField *field in self.class.structureDescription.fields)
-		[field parseFromStream:stream intoObject:self];
+	{
+		NSDictionary *additionalSubstreams = nil;
+		[field parseFromStream:stream intoObject:self substreams:&additionalSubstreams];
+		if (additionalSubstreams)
+			[mutableSubstreams addEntriesFromDictionary: additionalSubstreams];
+	}
+	if (substreams) *substreams = mutableSubstreams;
 	
 	return self;
 }
@@ -86,7 +93,7 @@ static NSMutableDictionary *structureDescriptions;
 {
 	for (TRStructureDescriptionField *field in self.class.structureDescription.fields)
 	{
-		[field writeToStream:stream fromObject:self];
+		[field writeToStream:stream fromObject:self substreams:substreams];
 	}
 }
 

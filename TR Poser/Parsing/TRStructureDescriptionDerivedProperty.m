@@ -13,7 +13,7 @@
 #import "TRStructureDescription.h"
 #import "TRStructure.h"
 
-static NSString *lineRegexpString = @"^@derived ([a-zA-Z][a-zA-Z0-9_]+)=([a-zA-Z][a-zA-Z0-9_]+)\\[([a-zA-Z][a-zA-Z0-9_]+)\\]$";
+static NSString *lineRegexpString = @"^@derived ([a-zA-Z][a-zA-Z0-9_]+)=([a-zA-Z][a-zA-Z0-9_.]+)\\[([a-zA-Z][a-zA-Z0-9_]+)\\]$";
 static NSRegularExpression *expression = nil;
 
 @interface TRStructureDescriptionDerivedProperty ()

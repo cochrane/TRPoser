@@ -171,6 +171,7 @@ static NSMutableCharacterSet *nameTerminatorSet;
 	else
 	{
 		Class type = self.isVersioned ? [structure.level versionedClassForName:self.className] : NSClassFromString(self.className);
+		NSAssert(type != nil, @"Could not find type for name %@ (versioned? %lu)", self.className, (NSUInteger) self.isVersioned);
 		return [[type alloc] initFromDataStream:stream inLevel:structure.level];
 	}
 }

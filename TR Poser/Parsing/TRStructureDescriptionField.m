@@ -18,13 +18,16 @@
 @property (nonatomic, readwrite, copy) NSString *name;
 @property (nonatomic, readwrite, assign) BOOL isPrimitive;
 
-@property (nonatomic, readwrite, assign) BOOL isSigned;
-@property (nonatomic, readwrite, assign) NSUInteger bits;
-@property (nonatomic, readwrite, assign) NSUInteger fixedArrayLength;
-@property (nonatomic, readwrite, assign) NSUInteger countFieldBits;
+@property (nonatomic, readwrite, assign) TRStructureDescriptionPrimitiveType primitiveType;
 
 @property (nonatomic, readwrite, assign) BOOL isVersioned;
 @property (nonatomic, readwrite, copy) NSString *className;
+
+@property (nonatomic, readwrite, assign) NSUInteger fixedArrayLength;
+@property (nonatomic, readwrite, assign) TRStructureDescriptionPrimitiveType countFieldType;
+@property (nonatomic, readwrite, copy) NSString *lengthKeyPath;
+@property (nonatomic, readwrite, assign) NSUInteger lengthDivisor;
+@property (nonatomic, readwrite, assign) NSUInteger lengthFactor;
 
 - (id)parseSingleValueFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure;
 - (void)writeSingleValue:(id)value toStream:(TROutDataStream *)stream;
@@ -49,20 +52,18 @@ static NSMutableCharacterSet *nameTerminatorSet;
 {
 	if (!(self = [super init])) return nil;
 	
+	//if ([fieldDescription hasPrefix:@"const"])
+	//	return [[TRStructureDescriptionConstField alloc] initWithString:fieldDescription];
+	
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 	formatter.numberStyle = NSNumberFormatterNoStyle;
 	
 	NSScanner *scanner = [NSScanner scannerWithString:fieldDescription];
-	if ([scanner scanString:@"bit" intoString:NULL])
+	TRStructureDescriptionPrimitiveType type;
+	if ([scanner scanPrimitiveType:&type])
 	{
 		self.isPrimitive = YES;
-		
-		self.isSigned = ![scanner scanString:@"u" intoString:NULL];
-		
-		NSString *bits;
-		[scanner scanCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:&bits];
-		
-		self.bits = bits.integerValue;
+		self.primitiveType = type;
 	}
 	else
 	{
@@ -85,23 +86,41 @@ static NSMutableCharacterSet *nameTerminatorSet;
 	if ([scanner scanString:@"[" intoString:NULL])
 	{
 		NSString *arrayLength;
-		if ([scanner scanString:@"bit" intoString:NULL])
+		TRStructureDescriptionPrimitiveType countFieldType;
+		if ([scanner scanPrimitiveType:&countFieldType])
 		{
-			// Uses size field that comes before
-			BOOL isUnsigned = [scanner scanString:@"u" intoString:NULL];
-			NSAssert(isUnsigned, @"Only unsigned length fields are supported, anything else needs more logic in line %@", fieldDescription);
-			
-			NSString *countFieldBits;
-			[scanner scanCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:&countFieldBits];
-			
-			self.countFieldBits = countFieldBits.integerValue;
+			self.countFieldType = countFieldType;
 		}
 		else if ([scanner scanCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:&arrayLength])
 		{
 			self.fixedArrayLength = arrayLength.integerValue;
 		}
 		else
-			return nil;
+		{
+			NSString *keyPath;
+			[scanner scanUpToString:@"]" intoString:&keyPath];
+			self.lengthKeyPath = keyPath;
+		}
+		
+		// Is there a factor?
+		self.lengthDivisor = 1;
+		self.lengthFactor = 1;
+		
+		NSInteger value = -12;
+		
+		if ([scanner scanString:@"*" intoString:NULL])
+		{
+			[scanner scanInteger:&value];
+			self.lengthFactor = value;
+		}
+		else if ([scanner scanString:@"/" intoString:NULL])
+		{
+			[scanner scanInteger:&value];
+			self.lengthDivisor = value;
+		}
+		
+		if (self.fixedArrayLength != 0)
+			self.fixedArrayLength = self.fixedArrayLength * self.lengthFactor / self.lengthDivisor;
 		
 		BOOL foundEndBracket = [scanner scanString:@"]" intoString:NULL];
 		NSAssert(foundEndBracket, @"array has to have end bracket. Line %@", fieldDescription);
@@ -121,9 +140,20 @@ static NSMutableCharacterSet *nameTerminatorSet;
 		
 		[structure setValue:result forKey:self.name];
 	}
-	else if (self.countFieldBits != 0)
+	else if (self.countFieldType != TRSDCP_invalid)
 	{
-		NSUInteger length = [[stream readNumberWithBits:self.countFieldBits signed:NO] unsignedIntegerValue];
+		NSUInteger length = [[stream readNumberOfPrimitiveType:self.countFieldType] unsignedIntegerValue] * self.lengthFactor / self.lengthDivisor;
+		
+		NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:length];
+		
+		for (NSUInteger i = 0; i < length; i++)
+			[result addObject:[self parseSingleValueFromStream:stream intoObject:structure]];
+		
+		[structure setValue:result forKey:self.name];
+	}
+	else if (self.lengthKeyPath != 0)
+	{
+		NSUInteger length = [[structure valueForKeyPath:@"lengthKeyPath"] unsignedIntegerValue] * self.lengthFactor / self.lengthDivisor;
 		
 		NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:length];
 		
@@ -139,7 +169,7 @@ static NSMutableCharacterSet *nameTerminatorSet;
 - (id)parseSingleValueFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure;
 {
 	if (self.isPrimitive)
-		return [stream readNumberWithBits:self.bits signed:self.isSigned];
+		return [stream readNumberOfPrimitiveType:self.primitiveType];
 	else
 	{
 		Class type = self.isVersioned ? [structure.level versionedClassForName:self.className] : NSClassFromString(self.className);
@@ -155,10 +185,24 @@ static NSMutableCharacterSet *nameTerminatorSet;
 		for (NSUInteger i = 0; i < self.fixedArrayLength; i++)
 			[self writeSingleValue:[elements objectAtIndex:i] toStream:stream];
 	}
-	else if (self.countFieldBits != 0)
+	else if (self.countFieldType != TRSDCP_invalid)
 	{
 		NSArray *elements = [structure valueForKey:self.name];
-		[stream appendNumber:@(elements.count) bits:self.countFieldBits signed:NO];
+		[stream appendNumber:@(elements.count * self.lengthDivisor / self.lengthFactor) ofPrimitiveType:self.countFieldType];
+		
+		for (id element in elements)
+			[self writeSingleValue:element toStream:stream];
+	}
+	else if (self.lengthKeyPath)
+	{
+		NSArray *elements = [structure valueForKey:self.name];
+		NSUInteger length = [[structure valueForKeyPath:@"lengthKeyPath"] unsignedIntegerValue];
+		
+		// Note: This may fail if the key path isn't settable. It is the
+		// subclass's duty to ensure that the key path is settable or holds the
+		// correct value.
+		if (length != elements.count * self.lengthDivisor / self.lengthFactor)
+			[structure setValue:@(length) forKeyPath:self.lengthKeyPath];
 		
 		for (id element in elements)
 			[self writeSingleValue:element toStream:stream];
@@ -170,7 +214,7 @@ static NSMutableCharacterSet *nameTerminatorSet;
 - (void)writeSingleValue:(id)value toStream:(TROutDataStream *)stream
 {
 	if (self.isPrimitive)
-		[stream appendNumber:value bits:self.bits signed:self.isSigned];
+		[stream appendNumber:value ofPrimitiveType:self.primitiveType];
 	else
 		[value writeToStream:stream];
 }

@@ -75,6 +75,7 @@
 			return @([self readFloat32]);
 		default:
 			[NSException raise:NSInvalidArgumentException format:@"Value %u is no primitive data type", type];
+			return nil; // Just to silence warning.
 	}
 }
 

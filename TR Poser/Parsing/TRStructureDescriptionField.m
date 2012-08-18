@@ -11,6 +11,7 @@
 #import "TRInDataStream.h"
 #import "TROutDataStream.h"
 #import "TRStructure.h"
+#import "TRStructureDescriptionConstField.h"
 #import "TR1Level.h"
 
 @interface TRStructureDescriptionField ()
@@ -52,11 +53,8 @@ static NSMutableCharacterSet *nameTerminatorSet;
 {
 	if (!(self = [super init])) return nil;
 	
-	//if ([fieldDescription hasPrefix:@"const"])
-	//	return [[TRStructureDescriptionConstField alloc] initWithString:fieldDescription];
-	
-	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-	formatter.numberStyle = NSNumberFormatterNoStyle;
+	if ([fieldDescription hasPrefix:@"const"])
+		return [[TRStructureDescriptionConstField alloc] initWithString:fieldDescription];
 	
 	NSScanner *scanner = [NSScanner scannerWithString:fieldDescription];
 	TRStructureDescriptionPrimitiveType type;

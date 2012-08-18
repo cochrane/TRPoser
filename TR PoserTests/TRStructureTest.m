@@ -160,6 +160,19 @@ struct FactorPropertyTestStruct {
 
 @end
 
+@interface TRSimpleStructureTest_ConstPropertyTestClass : TRStructure
+
+@end
+
+@implementation TRSimpleStructureTest_ConstPropertyTestClass
+
++ (NSString *)structureDescriptionSource;
+{
+	return @"const bit16=12";
+}
+
+@end
+
 #pragma mark -
 #pragma mark Test case
 
@@ -522,6 +535,37 @@ struct FactorPropertyTestStruct {
 	[stream.data getBytes:&test length:sizeof(test)];
 	
 	STAssertEquals(test.baseValue, (int16_t) 2, @"inverse scaling failed.");
+}
+
+- (void)testConstPropertyRead
+{
+	struct FactorPropertyTestStruct test = {
+		12
+	};
+	
+	NSData *testData = [NSData dataWithBytes:&test length:sizeof(test)];
+	TRInDataStream *stream = [[TRInDataStream alloc] initWithData:testData];
+	
+	TRSimpleStructureTest_ConstPropertyTestClass *object = [[TRSimpleStructureTest_ConstPropertyTestClass alloc] initFromDataStream:stream inLevel:nil];
+	
+	STAssertEquals(stream.position, sizeof(test), @"Length is not equal to test data");
+	
+	STAssertTrue(object != nil, @"Object was not properly created");
+}
+
+- (void)testConstPropertyWrite
+{
+	TRSimpleStructureTest_ConstPropertyTestClass *object = [[TRSimpleStructureTest_ConstPropertyTestClass alloc] init];
+	
+	TROutDataStream *stream = [[TROutDataStream alloc] init];
+	[object writeToStream:stream];
+	
+	struct FactorPropertyTestStruct test;
+	STAssertEquals(stream.length, sizeof(test), @"Length is not equal to test data");
+	
+	[stream.data getBytes:&test length:sizeof(test)];
+	
+	STAssertEquals(test.baseValue, (int16_t) 12, @"inverse scaling failed.");
 }
 
 @end

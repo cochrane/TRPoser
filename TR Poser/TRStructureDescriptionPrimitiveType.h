@@ -28,6 +28,7 @@ typedef enum {
 @interface NSScanner (ScanPrimitiveType)
 
 - (BOOL)scanPrimitiveType:(TRStructureDescriptionPrimitiveType *)type;
+- (BOOL)scanValueOfPrimitiveType:(TRStructureDescriptionPrimitiveType)type intoNumber:(NSNumber *__autoreleasing *)number;
 
 @end
 

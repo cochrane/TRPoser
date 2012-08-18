@@ -51,6 +51,27 @@
 		return NO;
 }
 
+- (BOOL)scanValueOfPrimitiveType:(TRStructureDescriptionPrimitiveType)type intoNumber:(NSNumber *__autoreleasing *)number;
+{
+	if (type == TRSDCP_float32)
+	{
+		float value;
+		BOOL result = [self scanFloat:&value];
+		if (result && number) *number = @(value);
+		return result;
+	}
+	else if (type == TRSDCP_invalid)
+	{
+		[NSException raise:NSInvalidArgumentException format:@"Value %u is no primitive data type", type];
+		return NO;
+	}
+	
+	NSInteger value;
+	BOOL result = [self scanInteger:&value];
+	if (result && number) *number = @(value);
+	return result;
+}
+
 @end
 
 @implementation TRInDataStream (ReadPrimitiveType)

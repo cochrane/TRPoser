@@ -74,6 +74,8 @@ static NSMutableCharacterSet *nameTerminatorSet;
 	// See if there is an array value.
 	self.arrayLength = [[TRStructureDescriptionArrayLength alloc] initWithScanner:scanner];
 	
+	NSAssert([scanner isAtEnd], @"Line %@ goes too long", fieldDescription);
+	
 	return self;
 }
 

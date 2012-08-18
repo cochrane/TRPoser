@@ -36,6 +36,8 @@
 	if (![scanner scanValueOfPrimitiveType:self.type intoNumber:&expectedValue]) return nil;
 	self.expectedValue = expectedValue;
 	
+	NSAssert([scanner isAtEnd], @"Line %@ goes too long", fieldDescription);
+	
 	return self;
 }
 - (void)parseFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure;

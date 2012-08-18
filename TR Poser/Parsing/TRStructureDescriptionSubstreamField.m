@@ -35,6 +35,8 @@
 	self.arrayLength = [[TRStructureDescriptionArrayLength alloc] initWithScanner:scanner];
 	NSAssert(self.arrayLength != nil, @"substream has to have array length.");
 	
+	NSAssert([scanner isAtEnd], @"Line %@ goes too long", fieldDescription);
+	
 	return self;
 }
 

@@ -36,7 +36,7 @@
 	NSUInteger numWords = [stream readUint32];
 	NSUInteger positionAtStart = stream.position;
 	
-	Class vertexClass = [self.level versionedClassForName:@"RoomVertex"];;
+	Class vertexClass = [self.level versionedClassForName:@"RoomVertex"];
 	
 	NSUInteger countOfVertices = [stream readUint16];
 	_vertices = [[NSMutableArray alloc] initWithCapacity:countOfVertices];

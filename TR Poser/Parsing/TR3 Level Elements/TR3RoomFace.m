@@ -12,6 +12,8 @@
 
 @implementation TR3RoomFace
 
+@synthesize isTwoSided;
+
 - (id)initFromDataStream:(TRInDataStream *)stream inRoom:(TR1Room *)room corners:(NSUInteger)corners;
 {
 	if (!(self = [super initFromDataStream:stream inRoom:room corners:corners])) return nil;

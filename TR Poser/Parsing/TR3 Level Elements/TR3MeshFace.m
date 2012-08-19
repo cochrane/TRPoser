@@ -12,6 +12,8 @@
 
 @implementation TR3MeshFace
 
+@synthesize isTwoSided;
+
 - (id)initFromDataStream:(TRInDataStream *)stream inMesh:(TR1Mesh *)mesh corners:(NSUInteger)corners isTextured:(BOOL)isTextured;
 {
 	if (!(self = [super initFromDataStream:stream inMesh:mesh corners:corners isTextured:isTextured])) return nil;

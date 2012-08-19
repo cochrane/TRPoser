@@ -25,7 +25,17 @@
 
 - (NSColor *)color
 {
-	return [NSColor colorWithCalibratedRed:(CGFloat) red / 255.0f green:(CGFloat) green / 255.0f blue:(CGFloat) blue / 255.0f alpha:1.0f];
+	return [NSColor colorWithCalibratedRed:(CGFloat) self.red / 255.0f green:(CGFloat) self.green / 255.0f blue:(CGFloat) self.blue / 255.0f alpha:1.0f];
+}
+
+- (void)setColor:(NSColor *)color
+{
+	NSColor *rgbColor = [color colorUsingColorSpace:[NSColorSpace genericRGBColorSpace]];
+	
+	self.red = rgbColor.redComponent * 255.0f;
+	self.green = rgbColor.greenComponent * 255.0f;
+	self.blue = rgbColor.blueComponent * 255.0f;
+	self.unused = 0;
 }
 
 @end

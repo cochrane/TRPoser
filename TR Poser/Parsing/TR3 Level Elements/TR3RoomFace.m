@@ -12,7 +12,7 @@
 
 @implementation TR3RoomFace
 
-- (id)initFromDataStream:(TRInDataStream *)stream inRoom:(TR1Room *)room corners:(NSUInteger)corners isTextured:(BOOL)isTextured;
+- (id)initFromDataStream:(TRInDataStream *)stream inRoom:(TR1Room *)room corners:(NSUInteger)corners;
 {
 	if (!(self = [super initFromDataStream:stream inRoom:room corners:corners])) return nil;
 	

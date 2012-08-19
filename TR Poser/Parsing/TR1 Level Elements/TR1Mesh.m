@@ -32,7 +32,7 @@
 		[_vertices addObject:[[TR1Vertex alloc] initFromDataStream:(TRInDataStream *)stream]];
 	
 	NSInteger normalCount = [stream readUint16];
-	if (normalCount != verticesCount)
+	if (normalCount != (NSInteger) verticesCount)
 	{
 		// Use internal lighting: An array of values follows
 		_lightIntensities = [[NSMutableArray alloc] initWithCapacity:verticesCount];

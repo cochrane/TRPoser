@@ -8,6 +8,8 @@
 
 #import "TROutDataStream.h"
 
+#import <zlib.h>
+
 @interface TROutDataStream ()
 {
 	NSMutableData *streamData;
@@ -100,6 +102,19 @@
 - (NSUInteger)length;
 {
 	return streamData.length;
+}
+
+- (NSData *)compressed
+{
+	NSUInteger maxCompressedLength = compressBound(streamData.length);
+	Bytef *destination = malloc(maxCompressedLength);
+	
+	NSUInteger destinationLength;
+	int result = compress(destination, &destinationLength, streamData.bytes, streamData.length);
+	
+	NSAssert(result == Z_OK, @"Compression result not ok, is %d", result);
+	
+	return [NSData dataWithBytesNoCopy:destination length:destinationLength];
 }
 
 @end

@@ -20,9 +20,6 @@
 
 @interface TRStructure ()
 
-- (id)parseSingleValueForField:(TRStructureDescriptionValueField *)field fromStream:(TRInDataStream *)stream;
-- (void)writeSingleValue:(id)value forField:(TRStructureDescriptionValueField *)field toStream:(TROutDataStream *)stream;
-
 + (void)prepareClassWithDescription:(TRStructureDescription *)description;
 
 @end

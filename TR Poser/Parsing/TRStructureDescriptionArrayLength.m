@@ -78,9 +78,17 @@
 	if (self.fixedLength != 0)
 		return self.fixedLength;
 	else if (self.countFieldType != TRSDCP_invalid)
-		return [[stream readNumberOfPrimitiveType:self.countFieldType] unsignedIntegerValue] * self.factor / self.divisor;
+	{
+		NSUInteger result = [[stream readNumberOfPrimitiveType:self.countFieldType] unsignedIntegerValue];
+		NSAssert((result * self.factor) % self.divisor == 0, @"Division by %lu not permissible.", self.divisor);
+		return result * self.factor / self.divisor;
+	}
 	else if (self.lengthKeyPath)
-		return [[object valueForKeyPath:self.lengthKeyPath] unsignedIntegerValue] * self.factor / self.divisor;
+	{
+		NSUInteger result = [[object valueForKeyPath:self.lengthKeyPath] unsignedIntegerValue] * self.factor / self.divisor;
+		NSAssert((result * self.factor) % self.divisor == 0, @"Division by %lu not permissible.", self.divisor);
+		return result * self.factor / self.divisor;
+	}
 	
 	else
 		return NSNotFound;

@@ -1,33 +1,32 @@
 //
-//  TR1MeshFace.m
+//  TR1RoomFace.m
 //  TR Poser
 //
-//  Created by Torsten Kammer on 13.08.12.
+//  Created by Torsten Kammer on 14.08.12.
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TR1MeshFace.h"
+#import "TR1RoomFace.h"
 
 #import "TRInDataStream.h"
 #import "TROutDataStream.h"
 
 #import "TR1Mesh.h"
-#import "TR1Level.h"
+#import "TR1Room.h"
 #import "TR1Texture.h"
 
-@implementation TR1MeshFace
+@implementation TR1RoomFace
 
 + (NSSet *)keyPathsForValuesAffectingTexture
 {
-	return [NSSet setWithObjects:@"surfaceIndex", @"isTextured", nil];
+	return [NSSet setWithObjects:@"room.level.textures", @"surfaceIndex", @"isTextured", nil];
 }
 
-- (id)initFromDataStream:(TRInDataStream *)stream inMesh:(TR1Mesh *)mesh corners:(NSUInteger)corners isTextured:(BOOL)isTextured;
+- (id)initFromDataStream:(TRInDataStream *)stream inRoom:(TR1Room *)room corners:(NSUInteger)corners;
 {
 	if (!(self = [super init])) return nil;
 	
-	_mesh = mesh;
-	self.isTextured = isTextured;
+	_room = room;
 	
 	_indices = [[NSMutableArray alloc] initWithCapacity:corners];
 	for (NSUInteger i = 0; i < corners; i++)
@@ -45,16 +44,6 @@
 	[stream appendUint16:self.surfaceIndex];
 }
 
-- (BOOL)hasAlpha;
-{
-	return NO;
-}
-
-- (NSUInteger)shininess
-{
-	return 0;
-}
-
 - (BOOL)isTwoSided;
 {
 	return NO;
@@ -62,15 +51,13 @@
 
 - (TR1Texture *)texture
 {
-	if (!self.isTextured) return nil;
-	return [[self.mesh.level valueForKey:@"textures"] objectAtIndex:self.surfaceIndex];
+	return [[self.room valueForKeyPath:@"level.textures"] objectAtIndex:self.surfaceIndex];
 }
 
 - (void)setTexture:(TR1Texture *)texture
 {
-	if (!self.isTextured) return;
-	
 	//self.surfaceIndex = texture.index;
 }
+
 
 @end

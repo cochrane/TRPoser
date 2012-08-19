@@ -13,17 +13,16 @@
 
 @class TR1Level;
 @class TR1MeshFace;
+@class TR1Vertex;
 
 @interface TR1Mesh : NSObject
 
-- (id)initFromDataStream:(TRInDataStream *)stream inLevel:(TR1Level *)level error:(NSError * __autoreleasing *)error;
+- (id)initFromDataStream:(TRInDataStream *)stream inLevel:(TR1Level *)level;
 - (void)writeToStream:(TROutDataStream *)stream;
 
 @property (nonatomic, weak, readonly) TR1Level *level;
 
-@property (nonatomic, assign) NSInteger collisionSphereX;
-@property (nonatomic, assign) NSInteger collisionSphereY;
-@property (nonatomic, assign) NSInteger collisionSphereZ;
+@property (nonatomic, retain) TR1Vertex *collisionSphereCenter;
 @property (nonatomic, assign) NSInteger collisionSphereRadius;
 
 @property (nonatomic, retain, readonly) NSMutableArray *vertices;

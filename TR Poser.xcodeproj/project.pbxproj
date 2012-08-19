@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		521F754A15DFFF3400AB0A73 /* TRLevelTest_GreatWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F754915DFFF3400AB0A73 /* TRLevelTest_GreatWall.m */; };
+		521F755015E00FDE00AB0A73 /* TRStructureDescriptionPrimitiveType.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F754F15E00FDE00AB0A73 /* TRStructureDescriptionPrimitiveType.m */; };
+		521F755315E0160600AB0A73 /* TRStructureDescriptionConstField.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F755215E0160600AB0A73 /* TRStructureDescriptionConstField.m */; };
+		521F755615E01F1700AB0A73 /* TRStructureDescriptionSubstreamField.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F755515E01F1600AB0A73 /* TRStructureDescriptionSubstreamField.m */; };
+		521F755915E0232000AB0A73 /* TRStructureSubstreamTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F755815E0232000AB0A73 /* TRStructureSubstreamTest.m */; };
+		521F755C15E028A400AB0A73 /* TRStructureDescriptionArrayLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F755B15E028A300AB0A73 /* TRStructureDescriptionArrayLength.m */; };
+		527539EC15E055B400AF4324 /* TR1AnimationCommandList.m in Sources */ = {isa = PBXBuildFile; fileRef = 527539EB15E055B300AF4324 /* TR1AnimationCommandList.m */; };
+		527539F315E05C3E00AF4324 /* TR1MeshTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 527539F215E05C3D00AF4324 /* TR1MeshTree.m */; };
+		527539F615E05D7000AF4324 /* TR1FrameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 527539F515E05D6F00AF4324 /* TR1FrameData.m */; };
+		527539F915E05E1C00AF4324 /* TR1Moveable.m in Sources */ = {isa = PBXBuildFile; fileRef = 527539F815E05E1A00AF4324 /* TR1Moveable.m */; };
+		52753A0115E0E65100AF4324 /* TR1Zone.m in Sources */ = {isa = PBXBuildFile; fileRef = 52753A0015E0E64F00AF4324 /* TR1Zone.m */; };
+		52753A0415E0E6E900AF4324 /* TR2Zone.m in Sources */ = {isa = PBXBuildFile; fileRef = 52753A0315E0E6E700AF4324 /* TR2Zone.m */; };
+		52753A0715E0E79700AF4324 /* TR1Lightmap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52753A0615E0E79400AF4324 /* TR1Lightmap.m */; };
+		52753A0A15E0E8B000AF4324 /* TR1SoundMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52753A0915E0E8AE00AF4324 /* TR1SoundMap.m */; };
+		52753A0D15E0E95300AF4324 /* TR2SoundMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52753A0C15E0E95000AF4324 /* TR2SoundMap.m */; };
+		52753A1015E0E9D200AF4324 /* TR1SoundDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 52753A0F15E0E9D000AF4324 /* TR1SoundDetail.m */; };
+		52D8D92A15DB85B300374481 /* TR1TextureVertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92915DB85B100374481 /* TR1TextureVertex.m */; };
+		52D8D92D15DB871A00374481 /* TR1Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92C15DB871800374481 /* TR1Camera.m */; };
+		52D8D93015DB87C800374481 /* TR1CinematicFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92F15DB87C500374481 /* TR1CinematicFrame.m */; };
+		52D8D93315DBA21C00374481 /* TR1SoundSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D93215DBA21900374481 /* TR1SoundSource.m */; };
+		52D8D93615DBA2C800374481 /* TR1SoundDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D93515DBA2C400374481 /* TR1SoundDetails.m */; };
+		52D8D93915DBA5C400374481 /* TR1Box.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D93815DBA5C100374481 /* TR1Box.m */; };
 		52F8987B15D8766400AD9031 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8987A15D8766400AD9031 /* Cocoa.framework */; };
 		52F8988515D8766400AD9031 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F8988315D8766400AD9031 /* InfoPlist.strings */; };
 		52F8988715D8766400AD9031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8988615D8766400AD9031 /* main.m */; };
@@ -18,6 +40,58 @@
 		52F8989D15D8766500AD9031 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8987A15D8766400AD9031 /* Cocoa.framework */; };
 		52F898A515D8766500AD9031 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F898A315D8766500AD9031 /* InfoPlist.strings */; };
 		52F898A815D8766500AD9031 /* TR_PoserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898A715D8766500AD9031 /* TR_PoserTests.m */; };
+		52F898B515D8769A00AD9031 /* TRInDataStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898B415D8769A00AD9031 /* TRInDataStream.m */; };
+		52F898BD15D8798100AD9031 /* TR1AnimatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898BC15D8798100AD9031 /* TR1AnimatedObject.m */; };
+		52F898C115D87B8D00AD9031 /* TR1Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898C015D87B8D00AD9031 /* TR1Texture.m */; };
+		52F898C515D87B9800AD9031 /* TR1StaticMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898C415D87B9800AD9031 /* TR1StaticMesh.m */; };
+		52F898C915D87BA700AD9031 /* TR1AnimationDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898C815D87BA700AD9031 /* TR1AnimationDispatch.m */; };
+		52F898CD15D87BB400AD9031 /* TR1Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898CC15D87BB400AD9031 /* TR1Animation.m */; };
+		52F898D115D87BC500AD9031 /* TR1SpriteTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898D015D87BC500AD9031 /* TR1SpriteTexture.m */; };
+		52F898D515D87BE400AD9031 /* TR1SpriteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898D415D87BE400AD9031 /* TR1SpriteSequence.m */; };
+		52F898D915D87BFA00AD9031 /* TR1StateChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898D815D87BF900AD9031 /* TR1StateChange.m */; };
+		52F898DD15D87C1600AD9031 /* TR1Mesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898DC15D87C1600AD9031 /* TR1Mesh.m */; };
+		52F898E115D87C2600AD9031 /* TR1Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898E015D87C2500AD9031 /* TR1Room.m */; };
+		52F898E515D87C3C00AD9031 /* TR1Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898E415D87C3C00AD9031 /* TR1Level.m */; };
+		52F898E915D87C5400AD9031 /* TR1MeshFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898E815D87C5400AD9031 /* TR1MeshFace.m */; };
+		52F898ED15D87C6F00AD9031 /* TR1RoomVertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898EC15D87C6F00AD9031 /* TR1RoomVertex.m */; };
+		52F898F515D87C8C00AD9031 /* TR1RoomPortal.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898F415D87C8B00AD9031 /* TR1RoomPortal.m */; };
+		52F898F915D87CA100AD9031 /* TR1StaticMeshInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898F815D87CA100AD9031 /* TR1StaticMeshInstance.m */; };
+		52F8990115D87CCF00AD9031 /* TR1MeshTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8990015D87CCE00AD9031 /* TR1MeshTreeNode.m */; };
+		52F8990515D87CE100AD9031 /* TR1AnimationFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8990415D87CE000AD9031 /* TR1AnimationFrame.m */; };
+		52F8991515D9551A00AD9031 /* TR1Vertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8991415D9551A00AD9031 /* TR1Vertex.m */; };
+		52F8991915D9560C00AD9031 /* TROutDataStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8991815D9560C00AD9031 /* TROutDataStream.m */; };
+		52F8991C15D95F9900AD9031 /* TR4MeshFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8991B15D95F9900AD9031 /* TR4MeshFace.m */; };
+		52F8992015D962C500AD9031 /* TR3MeshFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8991F15D962C500AD9031 /* TR3MeshFace.m */; };
+		52F8992415D979A400AD9031 /* TR1RoomSector.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8992315D979A400AD9031 /* TR1RoomSector.m */; };
+		52F8992815D97D0500AD9031 /* TR1RoomLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8992715D97D0400AD9031 /* TR1RoomLight.m */; };
+		52F8992C15D97E0A00AD9031 /* TR2RoomLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8992B15D97E0900AD9031 /* TR2RoomLight.m */; };
+		52F8993015D97F6D00AD9031 /* TR2RoomVertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8992F15D97F6D00AD9031 /* TR2RoomVertex.m */; };
+		52F8993415D9802C00AD9031 /* TR1RoomSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8993315D9802C00AD9031 /* TR1RoomSprite.m */; };
+		52F8993C15D9B60300AD9031 /* TR1RoomFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8993B15D9B60200AD9031 /* TR1RoomFace.m */; };
+		52F8994015D9B72400AD9031 /* TR3RoomFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8993F15D9B72400AD9031 /* TR3RoomFace.m */; };
+		52F8994415D9BB7200AD9031 /* TR2StaticMeshInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8994315D9BB7100AD9031 /* TR2StaticMeshInstance.m */; };
+		52F8994815D9DDEE00AD9031 /* TR1MeshPointer.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8994715D9DDED00AD9031 /* TR1MeshPointer.m */; };
+		52F8994C15D9DFB400AD9031 /* TR2Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8994B15D9DFB200AD9031 /* TR2Level.m */; };
+		52F8995015D9DFF900AD9031 /* TR2Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8994F15D9DFF800AD9031 /* TR2Room.m */; };
+		52F8995415D9E22E00AD9031 /* TR1Palette8.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8995315D9E22C00AD9031 /* TR1Palette8.m */; };
+		52F8995815D9E38400AD9031 /* TR2Palette16.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8995715D9E38200AD9031 /* TR2Palette16.m */; };
+		52F8995C15DA2E8100AD9031 /* TRPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8995B15DA2E7F00AD9031 /* TRPalette.m */; };
+		52F8996015DA393A00AD9031 /* TRTexturePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8995F15DA393900AD9031 /* TRTexturePage.m */; };
+		52F8996415DA3A2900AD9031 /* TR1TexturePage8.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8996315DA3A2700AD9031 /* TR1TexturePage8.m */; };
+		52F8996815DA3C3600AD9031 /* TR2TexturePage16.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8996715DA3C3400AD9031 /* TR2TexturePage16.m */; };
+		52F8996C15DA5A9E00AD9031 /* TR1FloorDataList.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8996B15DA5A9B00AD9031 /* TR1FloorDataList.m */; };
+		52F8997015DA780700AD9031 /* TRStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8996F15DA780400AD9031 /* TRStructure.m */; };
+		52F8997415DA782900AD9031 /* TRStructureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8997315DA782600AD9031 /* TRStructureDescription.m */; };
+		52F8997815DA79AB00AD9031 /* TRStructureDescriptionValueField.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8997715DA79A900AD9031 /* TRStructureDescriptionValueField.m */; };
+		52F8997C15DACA5700AD9031 /* TRStructureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8997B15DACA5700AD9031 /* TRStructureTest.m */; };
+		52F8998215DACDD700AD9031 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8998115DACDD600AD9031 /* libz.dylib */; };
+		52F8998315DACDE900AD9031 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8998115DACDD600AD9031 /* libz.dylib */; };
+		52F8998615DAE29500AD9031 /* TR1Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8998515DAE29100AD9031 /* TR1Item.m */; };
+		52F8998915DAE42E00AD9031 /* TR2Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8998815DAE42A00AD9031 /* TR2Item.m */; };
+		52F8998E15DAEAC600AD9031 /* TRStructureDescriptionField.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8998D15DAEAC100AD9031 /* TRStructureDescriptionField.m */; };
+		52F8999215DAEB0D00AD9031 /* TRStructureDescriptionDerivedProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8999115DAEB0800AD9031 /* TRStructureDescriptionDerivedProperty.m */; };
+		52FB7BB915DC414500DB1E72 /* TRStructureDescriptionFactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FB7BB815DC414500DB1E72 /* TRStructureDescriptionFactor.m */; };
+		52FB7BBD15DC425B00DB1E72 /* TR2Box.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FB7BBC15DC425B00DB1E72 /* TR2Box.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +105,50 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		521F754815DFFF3400AB0A73 /* TRLevelTest_GreatWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLevelTest_GreatWall.h; sourceTree = "<group>"; };
+		521F754915DFFF3400AB0A73 /* TRLevelTest_GreatWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLevelTest_GreatWall.m; sourceTree = "<group>"; };
+		521F754E15E00FDE00AB0A73 /* TRStructureDescriptionPrimitiveType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRStructureDescriptionPrimitiveType.h; path = ../TRStructureDescriptionPrimitiveType.h; sourceTree = "<group>"; };
+		521F754F15E00FDE00AB0A73 /* TRStructureDescriptionPrimitiveType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRStructureDescriptionPrimitiveType.m; path = ../TRStructureDescriptionPrimitiveType.m; sourceTree = "<group>"; };
+		521F755115E0160600AB0A73 /* TRStructureDescriptionConstField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionConstField.h; sourceTree = "<group>"; };
+		521F755215E0160600AB0A73 /* TRStructureDescriptionConstField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionConstField.m; sourceTree = "<group>"; };
+		521F755415E01F1500AB0A73 /* TRStructureDescriptionSubstreamField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionSubstreamField.h; sourceTree = "<group>"; };
+		521F755515E01F1600AB0A73 /* TRStructureDescriptionSubstreamField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionSubstreamField.m; sourceTree = "<group>"; };
+		521F755715E0232000AB0A73 /* TRStructureSubstreamTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureSubstreamTest.h; sourceTree = "<group>"; };
+		521F755815E0232000AB0A73 /* TRStructureSubstreamTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureSubstreamTest.m; sourceTree = "<group>"; };
+		521F755A15E028A200AB0A73 /* TRStructureDescriptionArrayLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionArrayLength.h; sourceTree = "<group>"; };
+		521F755B15E028A300AB0A73 /* TRStructureDescriptionArrayLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionArrayLength.m; sourceTree = "<group>"; };
+		527539EA15E055B200AF4324 /* TR1AnimationCommandList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1AnimationCommandList.h; sourceTree = "<group>"; };
+		527539EB15E055B300AF4324 /* TR1AnimationCommandList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1AnimationCommandList.m; sourceTree = "<group>"; };
+		527539F115E05C3C00AF4324 /* TR1MeshTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1MeshTree.h; sourceTree = "<group>"; };
+		527539F215E05C3D00AF4324 /* TR1MeshTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1MeshTree.m; sourceTree = "<group>"; };
+		527539F415E05D6E00AF4324 /* TR1FrameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1FrameData.h; sourceTree = "<group>"; };
+		527539F515E05D6F00AF4324 /* TR1FrameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1FrameData.m; sourceTree = "<group>"; };
+		527539F715E05E1900AF4324 /* TR1Moveable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Moveable.h; sourceTree = "<group>"; };
+		527539F815E05E1A00AF4324 /* TR1Moveable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Moveable.m; sourceTree = "<group>"; };
+		527539FF15E0E64D00AF4324 /* TR1Zone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Zone.h; sourceTree = "<group>"; };
+		52753A0015E0E64F00AF4324 /* TR1Zone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Zone.m; sourceTree = "<group>"; };
+		52753A0215E0E6E500AF4324 /* TR2Zone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2Zone.h; sourceTree = "<group>"; };
+		52753A0315E0E6E700AF4324 /* TR2Zone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2Zone.m; sourceTree = "<group>"; };
+		52753A0515E0E79300AF4324 /* TR1Lightmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Lightmap.h; sourceTree = "<group>"; };
+		52753A0615E0E79400AF4324 /* TR1Lightmap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Lightmap.m; sourceTree = "<group>"; };
+		52753A0815E0E8AB00AF4324 /* TR1SoundMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1SoundMap.h; sourceTree = "<group>"; };
+		52753A0915E0E8AE00AF4324 /* TR1SoundMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1SoundMap.m; sourceTree = "<group>"; };
+		52753A0B15E0E94E00AF4324 /* TR2SoundMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2SoundMap.h; sourceTree = "<group>"; };
+		52753A0C15E0E95000AF4324 /* TR2SoundMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2SoundMap.m; sourceTree = "<group>"; };
+		52753A0E15E0E9CE00AF4324 /* TR1SoundDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1SoundDetail.h; sourceTree = "<group>"; };
+		52753A0F15E0E9D000AF4324 /* TR1SoundDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1SoundDetail.m; sourceTree = "<group>"; };
+		52D8D92815DB85AF00374481 /* TR1TextureVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1TextureVertex.h; sourceTree = "<group>"; };
+		52D8D92915DB85B100374481 /* TR1TextureVertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1TextureVertex.m; sourceTree = "<group>"; };
+		52D8D92B15DB871600374481 /* TR1Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Camera.h; sourceTree = "<group>"; };
+		52D8D92C15DB871800374481 /* TR1Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Camera.m; sourceTree = "<group>"; };
+		52D8D92E15DB87C300374481 /* TR1CinematicFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1CinematicFrame.h; sourceTree = "<group>"; };
+		52D8D92F15DB87C500374481 /* TR1CinematicFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1CinematicFrame.m; sourceTree = "<group>"; };
+		52D8D93115DBA21600374481 /* TR1SoundSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1SoundSource.h; sourceTree = "<group>"; };
+		52D8D93215DBA21900374481 /* TR1SoundSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1SoundSource.m; sourceTree = "<group>"; };
+		52D8D93415DBA2C100374481 /* TR1SoundDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1SoundDetails.h; sourceTree = "<group>"; };
+		52D8D93515DBA2C400374481 /* TR1SoundDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1SoundDetails.m; sourceTree = "<group>"; };
+		52D8D93715DBA5BE00374481 /* TR1Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Box.h; sourceTree = "<group>"; };
+		52D8D93815DBA5C100374481 /* TR1Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Box.m; sourceTree = "<group>"; };
 		52F8987615D8766400AD9031 /* TR Poser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TR Poser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F8987A15D8766400AD9031 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52F8987D15D8766400AD9031 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -51,6 +169,108 @@
 		52F898A415D8766500AD9031 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52F898A615D8766500AD9031 /* TR_PoserTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TR_PoserTests.h; sourceTree = "<group>"; };
 		52F898A715D8766500AD9031 /* TR_PoserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TR_PoserTests.m; sourceTree = "<group>"; };
+		52F898B315D8769A00AD9031 /* TRInDataStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRInDataStream.h; path = "TR Poser/TRInDataStream.h"; sourceTree = "<group>"; };
+		52F898B415D8769A00AD9031 /* TRInDataStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRInDataStream.m; path = "TR Poser/TRInDataStream.m"; sourceTree = "<group>"; };
+		52F898BB15D8798100AD9031 /* TR1AnimatedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1AnimatedObject.h; sourceTree = "<group>"; };
+		52F898BC15D8798100AD9031 /* TR1AnimatedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1AnimatedObject.m; sourceTree = "<group>"; };
+		52F898BF15D87B8D00AD9031 /* TR1Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Texture.h; sourceTree = "<group>"; };
+		52F898C015D87B8D00AD9031 /* TR1Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Texture.m; sourceTree = "<group>"; };
+		52F898C315D87B9800AD9031 /* TR1StaticMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1StaticMesh.h; sourceTree = "<group>"; };
+		52F898C415D87B9800AD9031 /* TR1StaticMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1StaticMesh.m; sourceTree = "<group>"; };
+		52F898C715D87BA700AD9031 /* TR1AnimationDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1AnimationDispatch.h; sourceTree = "<group>"; };
+		52F898C815D87BA700AD9031 /* TR1AnimationDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1AnimationDispatch.m; sourceTree = "<group>"; };
+		52F898CB15D87BB400AD9031 /* TR1Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Animation.h; sourceTree = "<group>"; };
+		52F898CC15D87BB400AD9031 /* TR1Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Animation.m; sourceTree = "<group>"; };
+		52F898CF15D87BC500AD9031 /* TR1SpriteTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1SpriteTexture.h; sourceTree = "<group>"; };
+		52F898D015D87BC500AD9031 /* TR1SpriteTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1SpriteTexture.m; sourceTree = "<group>"; };
+		52F898D315D87BE400AD9031 /* TR1SpriteSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1SpriteSequence.h; sourceTree = "<group>"; };
+		52F898D415D87BE400AD9031 /* TR1SpriteSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1SpriteSequence.m; sourceTree = "<group>"; };
+		52F898D715D87BF900AD9031 /* TR1StateChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1StateChange.h; sourceTree = "<group>"; };
+		52F898D815D87BF900AD9031 /* TR1StateChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1StateChange.m; sourceTree = "<group>"; };
+		52F898DB15D87C1600AD9031 /* TR1Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Mesh.h; sourceTree = "<group>"; };
+		52F898DC15D87C1600AD9031 /* TR1Mesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Mesh.m; sourceTree = "<group>"; };
+		52F898DF15D87C2500AD9031 /* TR1Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Room.h; sourceTree = "<group>"; };
+		52F898E015D87C2500AD9031 /* TR1Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Room.m; sourceTree = "<group>"; };
+		52F898E315D87C3B00AD9031 /* TR1Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Level.h; sourceTree = "<group>"; };
+		52F898E415D87C3C00AD9031 /* TR1Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Level.m; sourceTree = "<group>"; };
+		52F898E715D87C5400AD9031 /* TR1MeshFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1MeshFace.h; sourceTree = "<group>"; };
+		52F898E815D87C5400AD9031 /* TR1MeshFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1MeshFace.m; sourceTree = "<group>"; };
+		52F898EB15D87C6F00AD9031 /* TR1RoomVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1RoomVertex.h; sourceTree = "<group>"; };
+		52F898EC15D87C6F00AD9031 /* TR1RoomVertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1RoomVertex.m; sourceTree = "<group>"; };
+		52F898F315D87C8B00AD9031 /* TR1RoomPortal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1RoomPortal.h; sourceTree = "<group>"; };
+		52F898F415D87C8B00AD9031 /* TR1RoomPortal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1RoomPortal.m; sourceTree = "<group>"; };
+		52F898F715D87CA100AD9031 /* TR1StaticMeshInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1StaticMeshInstance.h; sourceTree = "<group>"; };
+		52F898F815D87CA100AD9031 /* TR1StaticMeshInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1StaticMeshInstance.m; sourceTree = "<group>"; };
+		52F898FF15D87CCE00AD9031 /* TR1MeshTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1MeshTreeNode.h; sourceTree = "<group>"; };
+		52F8990015D87CCE00AD9031 /* TR1MeshTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1MeshTreeNode.m; sourceTree = "<group>"; };
+		52F8990315D87CE000AD9031 /* TR1AnimationFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1AnimationFrame.h; sourceTree = "<group>"; };
+		52F8990415D87CE000AD9031 /* TR1AnimationFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1AnimationFrame.m; sourceTree = "<group>"; };
+		52F8991315D9551A00AD9031 /* TR1Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Vertex.h; sourceTree = "<group>"; };
+		52F8991415D9551A00AD9031 /* TR1Vertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Vertex.m; sourceTree = "<group>"; };
+		52F8991715D9560C00AD9031 /* TROutDataStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TROutDataStream.h; sourceTree = "<group>"; };
+		52F8991815D9560C00AD9031 /* TROutDataStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TROutDataStream.m; sourceTree = "<group>"; };
+		52F8991A15D95F9900AD9031 /* TR4MeshFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4MeshFace.h; sourceTree = "<group>"; };
+		52F8991B15D95F9900AD9031 /* TR4MeshFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4MeshFace.m; sourceTree = "<group>"; };
+		52F8991E15D962C500AD9031 /* TR3MeshFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR3MeshFace.h; sourceTree = "<group>"; };
+		52F8991F15D962C500AD9031 /* TR3MeshFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR3MeshFace.m; sourceTree = "<group>"; };
+		52F8992215D979A400AD9031 /* TR1RoomSector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1RoomSector.h; sourceTree = "<group>"; };
+		52F8992315D979A400AD9031 /* TR1RoomSector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1RoomSector.m; sourceTree = "<group>"; };
+		52F8992615D97D0400AD9031 /* TR1RoomLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1RoomLight.h; sourceTree = "<group>"; };
+		52F8992715D97D0400AD9031 /* TR1RoomLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1RoomLight.m; sourceTree = "<group>"; };
+		52F8992A15D97E0900AD9031 /* TR2RoomLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2RoomLight.h; sourceTree = "<group>"; };
+		52F8992B15D97E0900AD9031 /* TR2RoomLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2RoomLight.m; sourceTree = "<group>"; };
+		52F8992E15D97F6D00AD9031 /* TR2RoomVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2RoomVertex.h; sourceTree = "<group>"; };
+		52F8992F15D97F6D00AD9031 /* TR2RoomVertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2RoomVertex.m; sourceTree = "<group>"; };
+		52F8993215D9802B00AD9031 /* TR1RoomSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1RoomSprite.h; sourceTree = "<group>"; };
+		52F8993315D9802C00AD9031 /* TR1RoomSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1RoomSprite.m; sourceTree = "<group>"; };
+		52F8993A15D9B60200AD9031 /* TR1RoomFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1RoomFace.h; sourceTree = "<group>"; };
+		52F8993B15D9B60200AD9031 /* TR1RoomFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1RoomFace.m; sourceTree = "<group>"; };
+		52F8993E15D9B72300AD9031 /* TR3RoomFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR3RoomFace.h; sourceTree = "<group>"; };
+		52F8993F15D9B72400AD9031 /* TR3RoomFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR3RoomFace.m; sourceTree = "<group>"; };
+		52F8994215D9BB7000AD9031 /* TR2StaticMeshInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2StaticMeshInstance.h; sourceTree = "<group>"; };
+		52F8994315D9BB7100AD9031 /* TR2StaticMeshInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2StaticMeshInstance.m; sourceTree = "<group>"; };
+		52F8994615D9DDEC00AD9031 /* TR1MeshPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1MeshPointer.h; sourceTree = "<group>"; };
+		52F8994715D9DDED00AD9031 /* TR1MeshPointer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1MeshPointer.m; sourceTree = "<group>"; };
+		52F8994A15D9DFB100AD9031 /* TR2Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2Level.h; sourceTree = "<group>"; };
+		52F8994B15D9DFB200AD9031 /* TR2Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2Level.m; sourceTree = "<group>"; };
+		52F8994E15D9DFF700AD9031 /* TR2Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2Room.h; sourceTree = "<group>"; };
+		52F8994F15D9DFF800AD9031 /* TR2Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2Room.m; sourceTree = "<group>"; };
+		52F8995215D9E22C00AD9031 /* TR1Palette8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Palette8.h; sourceTree = "<group>"; };
+		52F8995315D9E22C00AD9031 /* TR1Palette8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Palette8.m; sourceTree = "<group>"; };
+		52F8995615D9E38100AD9031 /* TR2Palette16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2Palette16.h; sourceTree = "<group>"; };
+		52F8995715D9E38200AD9031 /* TR2Palette16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2Palette16.m; sourceTree = "<group>"; };
+		52F8995A15DA2E7E00AD9031 /* TRPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRPalette.h; sourceTree = "<group>"; };
+		52F8995B15DA2E7F00AD9031 /* TRPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRPalette.m; sourceTree = "<group>"; };
+		52F8995E15DA393700AD9031 /* TRTexturePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTexturePage.h; sourceTree = "<group>"; };
+		52F8995F15DA393900AD9031 /* TRTexturePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTexturePage.m; sourceTree = "<group>"; };
+		52F8996215DA3A2500AD9031 /* TR1TexturePage8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1TexturePage8.h; sourceTree = "<group>"; };
+		52F8996315DA3A2700AD9031 /* TR1TexturePage8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1TexturePage8.m; sourceTree = "<group>"; };
+		52F8996615DA3C3300AD9031 /* TR2TexturePage16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2TexturePage16.h; sourceTree = "<group>"; };
+		52F8996715DA3C3400AD9031 /* TR2TexturePage16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2TexturePage16.m; sourceTree = "<group>"; };
+		52F8996A15DA5A9800AD9031 /* TR1FloorDataList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1FloorDataList.h; sourceTree = "<group>"; };
+		52F8996B15DA5A9B00AD9031 /* TR1FloorDataList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1FloorDataList.m; sourceTree = "<group>"; };
+		52F8996E15DA780200AD9031 /* TRStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructure.h; sourceTree = "<group>"; };
+		52F8996F15DA780400AD9031 /* TRStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructure.m; sourceTree = "<group>"; };
+		52F8997215DA782500AD9031 /* TRStructureDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescription.h; sourceTree = "<group>"; };
+		52F8997315DA782600AD9031 /* TRStructureDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescription.m; sourceTree = "<group>"; };
+		52F8997615DA79A600AD9031 /* TRStructureDescriptionValueField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionValueField.h; sourceTree = "<group>"; };
+		52F8997715DA79A900AD9031 /* TRStructureDescriptionValueField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionValueField.m; sourceTree = "<group>"; };
+		52F8997A15DACA5700AD9031 /* TRStructureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureTest.h; sourceTree = "<group>"; };
+		52F8997B15DACA5700AD9031 /* TRStructureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureTest.m; sourceTree = "<group>"; };
+		52F8998115DACDD600AD9031 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		52F8998415DAE28E00AD9031 /* TR1Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Item.h; sourceTree = "<group>"; };
+		52F8998515DAE29100AD9031 /* TR1Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Item.m; sourceTree = "<group>"; };
+		52F8998715DAE42700AD9031 /* TR2Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2Item.h; sourceTree = "<group>"; };
+		52F8998815DAE42A00AD9031 /* TR2Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2Item.m; sourceTree = "<group>"; };
+		52F8998C15DAEABE00AD9031 /* TRStructureDescriptionField.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionField.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; wrapsLines = 1; };
+		52F8998D15DAEAC100AD9031 /* TRStructureDescriptionField.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionField.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; wrapsLines = 1; };
+		52F8999015DAEB0500AD9031 /* TRStructureDescriptionDerivedProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionDerivedProperty.h; sourceTree = "<group>"; };
+		52F8999115DAEB0800AD9031 /* TRStructureDescriptionDerivedProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionDerivedProperty.m; sourceTree = "<group>"; };
+		52FB7BB715DC414500DB1E72 /* TRStructureDescriptionFactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionFactor.h; sourceTree = "<group>"; };
+		52FB7BB815DC414500DB1E72 /* TRStructureDescriptionFactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionFactor.m; sourceTree = "<group>"; };
+		52FB7BBB15DC425B00DB1E72 /* TR2Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2Box.h; sourceTree = "<group>"; };
+		52FB7BBC15DC425B00DB1E72 /* TR2Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2Box.m; sourceTree = "<group>"; };
+		52FB7BC315DD17EC00DB1E72 /* TRStructure overview.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = "TRStructure overview.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F8998215DACDD700AD9031 /* libz.dylib in Frameworks */,
 				52F8987B15D8766400AD9031 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +287,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F8998315DACDE900AD9031 /* libz.dylib in Frameworks */,
 				52F8989C15D8766500AD9031 /* SenTestingKit.framework in Frameworks */,
 				52F8989D15D8766500AD9031 /* Cocoa.framework in Frameworks */,
 			);
@@ -77,6 +299,8 @@
 		52F8986B15D8766400AD9031 = {
 			isa = PBXGroup;
 			children = (
+				52FB7BC315DD17EC00DB1E72 /* TRStructure overview.md */,
+				52F8998115DACDD600AD9031 /* libz.dylib */,
 				52F8988015D8766400AD9031 /* TR Poser */,
 				52F898A015D8766500AD9031 /* TR PoserTests */,
 				52F8987915D8766400AD9031 /* Frameworks */,
@@ -116,6 +340,8 @@
 		52F8988015D8766400AD9031 /* TR Poser */ = {
 			isa = PBXGroup;
 			children = (
+				52F898B215D8767C00AD9031 /* Data streams */,
+				52F898B115D8766A00AD9031 /* TR Level Data structures */,
 				52F8988C15D8766400AD9031 /* TRDocument.h */,
 				52F8988D15D8766400AD9031 /* TRDocument.m */,
 				52F8988F15D8766500AD9031 /* TRDocument.xib */,
@@ -143,6 +369,12 @@
 				52F898A615D8766500AD9031 /* TR_PoserTests.h */,
 				52F898A715D8766500AD9031 /* TR_PoserTests.m */,
 				52F898A115D8766500AD9031 /* Supporting Files */,
+				52F8997A15DACA5700AD9031 /* TRStructureTest.h */,
+				52F8997B15DACA5700AD9031 /* TRStructureTest.m */,
+				521F754815DFFF3400AB0A73 /* TRLevelTest_GreatWall.h */,
+				521F754915DFFF3400AB0A73 /* TRLevelTest_GreatWall.m */,
+				521F755715E0232000AB0A73 /* TRStructureSubstreamTest.h */,
+				521F755815E0232000AB0A73 /* TRStructureSubstreamTest.m */,
 			);
 			path = "TR PoserTests";
 			sourceTree = "<group>";
@@ -154,6 +386,160 @@
 				52F898A315D8766500AD9031 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52F898B115D8766A00AD9031 /* TR Level Data structures */ = {
+			isa = PBXGroup;
+			children = (
+				52F898BB15D8798100AD9031 /* TR1AnimatedObject.h */,
+				52F898BC15D8798100AD9031 /* TR1AnimatedObject.m */,
+				52F898CB15D87BB400AD9031 /* TR1Animation.h */,
+				52F898CC15D87BB400AD9031 /* TR1Animation.m */,
+				52F898C715D87BA700AD9031 /* TR1AnimationDispatch.h */,
+				52F898C815D87BA700AD9031 /* TR1AnimationDispatch.m */,
+				52F8990315D87CE000AD9031 /* TR1AnimationFrame.h */,
+				52F8990415D87CE000AD9031 /* TR1AnimationFrame.m */,
+				52D8D93715DBA5BE00374481 /* TR1Box.h */,
+				52D8D93815DBA5C100374481 /* TR1Box.m */,
+				52D8D92B15DB871600374481 /* TR1Camera.h */,
+				52D8D92C15DB871800374481 /* TR1Camera.m */,
+				52D8D92E15DB87C300374481 /* TR1CinematicFrame.h */,
+				52D8D92F15DB87C500374481 /* TR1CinematicFrame.m */,
+				52F8996A15DA5A9800AD9031 /* TR1FloorDataList.h */,
+				52F8996B15DA5A9B00AD9031 /* TR1FloorDataList.m */,
+				52F8998415DAE28E00AD9031 /* TR1Item.h */,
+				52F8998515DAE29100AD9031 /* TR1Item.m */,
+				52F898E315D87C3B00AD9031 /* TR1Level.h */,
+				52F898E415D87C3C00AD9031 /* TR1Level.m */,
+				52F898DB15D87C1600AD9031 /* TR1Mesh.h */,
+				52F898DC15D87C1600AD9031 /* TR1Mesh.m */,
+				52F898E715D87C5400AD9031 /* TR1MeshFace.h */,
+				52F898E815D87C5400AD9031 /* TR1MeshFace.m */,
+				52F898FF15D87CCE00AD9031 /* TR1MeshTreeNode.h */,
+				52F8990015D87CCE00AD9031 /* TR1MeshTreeNode.m */,
+				52F8994615D9DDEC00AD9031 /* TR1MeshPointer.h */,
+				52F8994715D9DDED00AD9031 /* TR1MeshPointer.m */,
+				52F8991315D9551A00AD9031 /* TR1Vertex.h */,
+				52F8991415D9551A00AD9031 /* TR1Vertex.m */,
+				52F898DF15D87C2500AD9031 /* TR1Room.h */,
+				52F898E015D87C2500AD9031 /* TR1Room.m */,
+				52F8993A15D9B60200AD9031 /* TR1RoomFace.h */,
+				52F8993B15D9B60200AD9031 /* TR1RoomFace.m */,
+				52F8992615D97D0400AD9031 /* TR1RoomLight.h */,
+				52F8992715D97D0400AD9031 /* TR1RoomLight.m */,
+				52F898F315D87C8B00AD9031 /* TR1RoomPortal.h */,
+				52F898F415D87C8B00AD9031 /* TR1RoomPortal.m */,
+				52F8992215D979A400AD9031 /* TR1RoomSector.h */,
+				52F8992315D979A400AD9031 /* TR1RoomSector.m */,
+				52F8993215D9802B00AD9031 /* TR1RoomSprite.h */,
+				52F8993315D9802C00AD9031 /* TR1RoomSprite.m */,
+				52F898EB15D87C6F00AD9031 /* TR1RoomVertex.h */,
+				52F898EC15D87C6F00AD9031 /* TR1RoomVertex.m */,
+				52D8D93415DBA2C100374481 /* TR1SoundDetails.h */,
+				52D8D93515DBA2C400374481 /* TR1SoundDetails.m */,
+				52D8D93115DBA21600374481 /* TR1SoundSource.h */,
+				52D8D93215DBA21900374481 /* TR1SoundSource.m */,
+				52F898D315D87BE400AD9031 /* TR1SpriteSequence.h */,
+				52F898D415D87BE400AD9031 /* TR1SpriteSequence.m */,
+				52F898CF15D87BC500AD9031 /* TR1SpriteTexture.h */,
+				52F898D015D87BC500AD9031 /* TR1SpriteTexture.m */,
+				52F898D715D87BF900AD9031 /* TR1StateChange.h */,
+				52F898D815D87BF900AD9031 /* TR1StateChange.m */,
+				52F898C315D87B9800AD9031 /* TR1StaticMesh.h */,
+				52F898C415D87B9800AD9031 /* TR1StaticMesh.m */,
+				52F898F715D87CA100AD9031 /* TR1StaticMeshInstance.h */,
+				52F898F815D87CA100AD9031 /* TR1StaticMeshInstance.m */,
+				52F898BF15D87B8D00AD9031 /* TR1Texture.h */,
+				52F898C015D87B8D00AD9031 /* TR1Texture.m */,
+				52D8D92815DB85AF00374481 /* TR1TextureVertex.h */,
+				52D8D92915DB85B100374481 /* TR1TextureVertex.m */,
+				527539FF15E0E64D00AF4324 /* TR1Zone.h */,
+				52753A0015E0E64F00AF4324 /* TR1Zone.m */,
+				52FB7BBB15DC425B00DB1E72 /* TR2Box.h */,
+				52FB7BBC15DC425B00DB1E72 /* TR2Box.m */,
+				52F8998715DAE42700AD9031 /* TR2Item.h */,
+				52F8998815DAE42A00AD9031 /* TR2Item.m */,
+				52F8994A15D9DFB100AD9031 /* TR2Level.h */,
+				52F8994B15D9DFB200AD9031 /* TR2Level.m */,
+				52F8994E15D9DFF700AD9031 /* TR2Room.h */,
+				52F8994F15D9DFF800AD9031 /* TR2Room.m */,
+				52F8992A15D97E0900AD9031 /* TR2RoomLight.h */,
+				52F8992B15D97E0900AD9031 /* TR2RoomLight.m */,
+				52F8992E15D97F6D00AD9031 /* TR2RoomVertex.h */,
+				52F8992F15D97F6D00AD9031 /* TR2RoomVertex.m */,
+				52F8994215D9BB7000AD9031 /* TR2StaticMeshInstance.h */,
+				52F8994315D9BB7100AD9031 /* TR2StaticMeshInstance.m */,
+				52753A0215E0E6E500AF4324 /* TR2Zone.h */,
+				52753A0315E0E6E700AF4324 /* TR2Zone.m */,
+				52F8993E15D9B72300AD9031 /* TR3RoomFace.h */,
+				52F8993F15D9B72400AD9031 /* TR3RoomFace.m */,
+				52F8991E15D962C500AD9031 /* TR3MeshFace.h */,
+				52F8991F15D962C500AD9031 /* TR3MeshFace.m */,
+				52F8991A15D95F9900AD9031 /* TR4MeshFace.h */,
+				52F8991B15D95F9900AD9031 /* TR4MeshFace.m */,
+				52F8995215D9E22C00AD9031 /* TR1Palette8.h */,
+				52F8995315D9E22C00AD9031 /* TR1Palette8.m */,
+				52F8995615D9E38100AD9031 /* TR2Palette16.h */,
+				52F8995715D9E38200AD9031 /* TR2Palette16.m */,
+				52F8995A15DA2E7E00AD9031 /* TRPalette.h */,
+				52F8995B15DA2E7F00AD9031 /* TRPalette.m */,
+				52F8995E15DA393700AD9031 /* TRTexturePage.h */,
+				52F8995F15DA393900AD9031 /* TRTexturePage.m */,
+				52F8996215DA3A2500AD9031 /* TR1TexturePage8.h */,
+				52F8996315DA3A2700AD9031 /* TR1TexturePage8.m */,
+				52F8996615DA3C3300AD9031 /* TR2TexturePage16.h */,
+				52F8996715DA3C3400AD9031 /* TR2TexturePage16.m */,
+				52F8996E15DA780200AD9031 /* TRStructure.h */,
+				52F8996F15DA780400AD9031 /* TRStructure.m */,
+				52F8997215DA782500AD9031 /* TRStructureDescription.h */,
+				52F8997315DA782600AD9031 /* TRStructureDescription.m */,
+				521F755A15E028A200AB0A73 /* TRStructureDescriptionArrayLength.h */,
+				521F755B15E028A300AB0A73 /* TRStructureDescriptionArrayLength.m */,
+				52F8998C15DAEABE00AD9031 /* TRStructureDescriptionField.h */,
+				52F8998D15DAEAC100AD9031 /* TRStructureDescriptionField.m */,
+				521F755415E01F1500AB0A73 /* TRStructureDescriptionSubstreamField.h */,
+				521F755515E01F1600AB0A73 /* TRStructureDescriptionSubstreamField.m */,
+				521F755115E0160600AB0A73 /* TRStructureDescriptionConstField.h */,
+				521F755215E0160600AB0A73 /* TRStructureDescriptionConstField.m */,
+				52F8997615DA79A600AD9031 /* TRStructureDescriptionValueField.h */,
+				52F8997715DA79A900AD9031 /* TRStructureDescriptionValueField.m */,
+				52F8999015DAEB0500AD9031 /* TRStructureDescriptionDerivedProperty.h */,
+				52F8999115DAEB0800AD9031 /* TRStructureDescriptionDerivedProperty.m */,
+				52FB7BB715DC414500DB1E72 /* TRStructureDescriptionFactor.h */,
+				52FB7BB815DC414500DB1E72 /* TRStructureDescriptionFactor.m */,
+				521F754E15E00FDE00AB0A73 /* TRStructureDescriptionPrimitiveType.h */,
+				521F754F15E00FDE00AB0A73 /* TRStructureDescriptionPrimitiveType.m */,
+				527539EA15E055B200AF4324 /* TR1AnimationCommandList.h */,
+				527539EB15E055B300AF4324 /* TR1AnimationCommandList.m */,
+				527539F115E05C3C00AF4324 /* TR1MeshTree.h */,
+				527539F215E05C3D00AF4324 /* TR1MeshTree.m */,
+				527539F415E05D6E00AF4324 /* TR1FrameData.h */,
+				527539F515E05D6F00AF4324 /* TR1FrameData.m */,
+				527539F715E05E1900AF4324 /* TR1Moveable.h */,
+				527539F815E05E1A00AF4324 /* TR1Moveable.m */,
+				52753A0515E0E79300AF4324 /* TR1Lightmap.h */,
+				52753A0615E0E79400AF4324 /* TR1Lightmap.m */,
+				52753A0815E0E8AB00AF4324 /* TR1SoundMap.h */,
+				52753A0915E0E8AE00AF4324 /* TR1SoundMap.m */,
+				52753A0B15E0E94E00AF4324 /* TR2SoundMap.h */,
+				52753A0C15E0E95000AF4324 /* TR2SoundMap.m */,
+				52753A0E15E0E9CE00AF4324 /* TR1SoundDetail.h */,
+				52753A0F15E0E9D000AF4324 /* TR1SoundDetail.m */,
+			);
+			name = "TR Level Data structures";
+			path = Parsing;
+			sourceTree = "<group>";
+		};
+		52F898B215D8767C00AD9031 /* Data streams */ = {
+			isa = PBXGroup;
+			children = (
+				52F898B315D8769A00AD9031 /* TRInDataStream.h */,
+				52F898B415D8769A00AD9031 /* TRInDataStream.m */,
+				52F8991715D9560C00AD9031 /* TROutDataStream.h */,
+				52F8991815D9560C00AD9031 /* TROutDataStream.m */,
+			);
+			name = "Data streams";
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +654,75 @@
 			files = (
 				52F8988715D8766400AD9031 /* main.m in Sources */,
 				52F8988E15D8766400AD9031 /* TRDocument.m in Sources */,
+				52F898B515D8769A00AD9031 /* TRInDataStream.m in Sources */,
+				52F898BD15D8798100AD9031 /* TR1AnimatedObject.m in Sources */,
+				52F898C115D87B8D00AD9031 /* TR1Texture.m in Sources */,
+				52F898C515D87B9800AD9031 /* TR1StaticMesh.m in Sources */,
+				52F898C915D87BA700AD9031 /* TR1AnimationDispatch.m in Sources */,
+				52F898CD15D87BB400AD9031 /* TR1Animation.m in Sources */,
+				52F898D115D87BC500AD9031 /* TR1SpriteTexture.m in Sources */,
+				52F898D515D87BE400AD9031 /* TR1SpriteSequence.m in Sources */,
+				52F898D915D87BFA00AD9031 /* TR1StateChange.m in Sources */,
+				52F898DD15D87C1600AD9031 /* TR1Mesh.m in Sources */,
+				52F898E115D87C2600AD9031 /* TR1Room.m in Sources */,
+				52F898E515D87C3C00AD9031 /* TR1Level.m in Sources */,
+				52F898E915D87C5400AD9031 /* TR1MeshFace.m in Sources */,
+				52F898ED15D87C6F00AD9031 /* TR1RoomVertex.m in Sources */,
+				52F898F515D87C8C00AD9031 /* TR1RoomPortal.m in Sources */,
+				52F898F915D87CA100AD9031 /* TR1StaticMeshInstance.m in Sources */,
+				52F8990115D87CCF00AD9031 /* TR1MeshTreeNode.m in Sources */,
+				52F8990515D87CE100AD9031 /* TR1AnimationFrame.m in Sources */,
+				52F8991515D9551A00AD9031 /* TR1Vertex.m in Sources */,
+				52F8991915D9560C00AD9031 /* TROutDataStream.m in Sources */,
+				52F8991C15D95F9900AD9031 /* TR4MeshFace.m in Sources */,
+				52F8992015D962C500AD9031 /* TR3MeshFace.m in Sources */,
+				52F8992415D979A400AD9031 /* TR1RoomSector.m in Sources */,
+				52F8992815D97D0500AD9031 /* TR1RoomLight.m in Sources */,
+				52F8992C15D97E0A00AD9031 /* TR2RoomLight.m in Sources */,
+				52F8993015D97F6D00AD9031 /* TR2RoomVertex.m in Sources */,
+				52F8993415D9802C00AD9031 /* TR1RoomSprite.m in Sources */,
+				52F8993C15D9B60300AD9031 /* TR1RoomFace.m in Sources */,
+				52F8994015D9B72400AD9031 /* TR3RoomFace.m in Sources */,
+				52F8994415D9BB7200AD9031 /* TR2StaticMeshInstance.m in Sources */,
+				52F8994815D9DDEE00AD9031 /* TR1MeshPointer.m in Sources */,
+				52F8994C15D9DFB400AD9031 /* TR2Level.m in Sources */,
+				52F8995015D9DFF900AD9031 /* TR2Room.m in Sources */,
+				52F8995415D9E22E00AD9031 /* TR1Palette8.m in Sources */,
+				52F8995815D9E38400AD9031 /* TR2Palette16.m in Sources */,
+				52F8995C15DA2E8100AD9031 /* TRPalette.m in Sources */,
+				52F8996015DA393A00AD9031 /* TRTexturePage.m in Sources */,
+				52F8996415DA3A2900AD9031 /* TR1TexturePage8.m in Sources */,
+				52F8996815DA3C3600AD9031 /* TR2TexturePage16.m in Sources */,
+				52F8996C15DA5A9E00AD9031 /* TR1FloorDataList.m in Sources */,
+				52F8997015DA780700AD9031 /* TRStructure.m in Sources */,
+				52F8997415DA782900AD9031 /* TRStructureDescription.m in Sources */,
+				52F8997815DA79AB00AD9031 /* TRStructureDescriptionValueField.m in Sources */,
+				52F8998615DAE29500AD9031 /* TR1Item.m in Sources */,
+				52F8998915DAE42E00AD9031 /* TR2Item.m in Sources */,
+				52F8998E15DAEAC600AD9031 /* TRStructureDescriptionField.m in Sources */,
+				52F8999215DAEB0D00AD9031 /* TRStructureDescriptionDerivedProperty.m in Sources */,
+				52D8D92A15DB85B300374481 /* TR1TextureVertex.m in Sources */,
+				52D8D92D15DB871A00374481 /* TR1Camera.m in Sources */,
+				52D8D93015DB87C800374481 /* TR1CinematicFrame.m in Sources */,
+				52D8D93315DBA21C00374481 /* TR1SoundSource.m in Sources */,
+				52D8D93615DBA2C800374481 /* TR1SoundDetails.m in Sources */,
+				52D8D93915DBA5C400374481 /* TR1Box.m in Sources */,
+				52FB7BB915DC414500DB1E72 /* TRStructureDescriptionFactor.m in Sources */,
+				52FB7BBD15DC425B00DB1E72 /* TR2Box.m in Sources */,
+				521F755015E00FDE00AB0A73 /* TRStructureDescriptionPrimitiveType.m in Sources */,
+				521F755315E0160600AB0A73 /* TRStructureDescriptionConstField.m in Sources */,
+				521F755615E01F1700AB0A73 /* TRStructureDescriptionSubstreamField.m in Sources */,
+				521F755C15E028A400AB0A73 /* TRStructureDescriptionArrayLength.m in Sources */,
+				527539EC15E055B400AF4324 /* TR1AnimationCommandList.m in Sources */,
+				527539F315E05C3E00AF4324 /* TR1MeshTree.m in Sources */,
+				527539F615E05D7000AF4324 /* TR1FrameData.m in Sources */,
+				527539F915E05E1C00AF4324 /* TR1Moveable.m in Sources */,
+				52753A0115E0E65100AF4324 /* TR1Zone.m in Sources */,
+				52753A0415E0E6E900AF4324 /* TR2Zone.m in Sources */,
+				52753A0715E0E79700AF4324 /* TR1Lightmap.m in Sources */,
+				52753A0A15E0E8B000AF4324 /* TR1SoundMap.m in Sources */,
+				52753A0D15E0E95300AF4324 /* TR2SoundMap.m in Sources */,
+				52753A1015E0E9D200AF4324 /* TR1SoundDetail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +731,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				52F898A815D8766500AD9031 /* TR_PoserTests.m in Sources */,
+				52F8997C15DACA5700AD9031 /* TRStructureTest.m in Sources */,
+				521F754A15DFFF3400AB0A73 /* TRLevelTest_GreatWall.m in Sources */,
+				521F755915E0232000AB0A73 /* TRStructureSubstreamTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +913,7 @@
 				52F898AD15D8766500AD9031 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52F898AE15D8766500AD9031 /* Build configuration list for PBXNativeTarget "TR PoserTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +922,7 @@
 				52F898B015D8766500AD9031 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

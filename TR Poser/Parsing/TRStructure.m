@@ -8,6 +8,8 @@
 
 #import "TRStructure.h"
 
+#import "TR2Level.h"
+
 #import "TRStructureDescription.h"
 #import "TRStructureDescriptionValueField.h"
 #import "TRStructureDescriptionDerivedProperty.h"

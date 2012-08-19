@@ -34,6 +34,11 @@
 	return self;
 }
 
+- (void)dealloc
+{
+	free(frameData);
+}
+
 - (void)writeToStream:(TROutDataStream *)stream;
 {
 	[stream appendUint32:(uint32_t) frameDataLength];

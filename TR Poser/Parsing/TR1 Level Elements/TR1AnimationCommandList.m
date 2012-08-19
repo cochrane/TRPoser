@@ -34,6 +34,11 @@
 	return self;
 }
 
+- (void)dealloc
+{
+	free(commands);
+}
+
 - (void)writeToStream:(TROutDataStream *)stream;
 {
 	[stream appendUint32:(uint32_t) numCommands];

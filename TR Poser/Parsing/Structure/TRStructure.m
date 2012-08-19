@@ -69,6 +69,8 @@ static NSMutableDictionary *structureDescriptions;
 {
 	if (!(self = [super init])) return nil;
 	
+	NSAssert(stream != nil, @"Have to have a stream!");
+	
 	_level = level;
 	
 	NSMutableDictionary *mutableSubstreams = [[NSMutableDictionary alloc] init];

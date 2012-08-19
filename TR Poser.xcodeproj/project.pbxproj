@@ -25,6 +25,11 @@
 		52753A1015E0E9D200AF4324 /* TR1SoundDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 52753A0F15E0E9D000AF4324 /* TR1SoundDetail.m */; };
 		52AA119915E18F5A00895F44 /* TRLevelTest_Caves.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA119815E18F5A00895F44 /* TRLevelTest_Caves.m */; };
 		52AA119D15E1983400895F44 /* TR1SampleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA119C15E1983400895F44 /* TR1SampleList.m */; };
+		52AA11A515E1A57400895F44 /* TR3Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA11A415E1A57400895F44 /* TR3Room.m */; };
+		52AA11A815E1A67400895F44 /* TR3RoomLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA11A715E1A67400895F44 /* TR3RoomLight.m */; };
+		52AA11AB15E1A8C900895F44 /* TR3RoomVertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA11AA15E1A8C900895F44 /* TR3RoomVertex.m */; };
+		52AA11AE15E1AB4E00895F44 /* TR3StaticMeshInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA11AD15E1AB4E00895F44 /* TR3StaticMeshInstance.m */; };
+		52AA11B115E1ACA700895F44 /* TR3Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA11B015E1ACA700895F44 /* TR3Level.m */; };
 		52D8D92A15DB85B300374481 /* TR1TextureVertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92915DB85B100374481 /* TR1TextureVertex.m */; };
 		52D8D92D15DB871A00374481 /* TR1Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92C15DB871800374481 /* TR1Camera.m */; };
 		52D8D93015DB87C800374481 /* TR1CinematicFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92F15DB87C500374481 /* TR1CinematicFrame.m */; };
@@ -142,6 +147,16 @@
 		52AA119815E18F5A00895F44 /* TRLevelTest_Caves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLevelTest_Caves.m; sourceTree = "<group>"; };
 		52AA119B15E1983400895F44 /* TR1SampleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1SampleList.h; sourceTree = "<group>"; };
 		52AA119C15E1983400895F44 /* TR1SampleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1SampleList.m; sourceTree = "<group>"; };
+		52AA11A315E1A57400895F44 /* TR3Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR3Room.h; sourceTree = "<group>"; };
+		52AA11A415E1A57400895F44 /* TR3Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR3Room.m; sourceTree = "<group>"; };
+		52AA11A615E1A67400895F44 /* TR3RoomLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR3RoomLight.h; sourceTree = "<group>"; };
+		52AA11A715E1A67400895F44 /* TR3RoomLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR3RoomLight.m; sourceTree = "<group>"; };
+		52AA11A915E1A8C900895F44 /* TR3RoomVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR3RoomVertex.h; sourceTree = "<group>"; };
+		52AA11AA15E1A8C900895F44 /* TR3RoomVertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR3RoomVertex.m; sourceTree = "<group>"; };
+		52AA11AC15E1AB4E00895F44 /* TR3StaticMeshInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR3StaticMeshInstance.h; sourceTree = "<group>"; };
+		52AA11AD15E1AB4E00895F44 /* TR3StaticMeshInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR3StaticMeshInstance.m; sourceTree = "<group>"; };
+		52AA11AF15E1ACA700895F44 /* TR3Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR3Level.h; sourceTree = "<group>"; };
+		52AA11B015E1ACA700895F44 /* TR3Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR3Level.m; sourceTree = "<group>"; };
 		52D8D92815DB85AF00374481 /* TR1TextureVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1TextureVertex.h; sourceTree = "<group>"; };
 		52D8D92915DB85B100374481 /* TR1TextureVertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1TextureVertex.m; sourceTree = "<group>"; };
 		52D8D92B15DB871600374481 /* TR1Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Camera.h; sourceTree = "<group>"; };
@@ -476,6 +491,16 @@
 				52F8993F15D9B72400AD9031 /* TR3RoomFace.m */,
 				52F8991E15D962C500AD9031 /* TR3MeshFace.h */,
 				52F8991F15D962C500AD9031 /* TR3MeshFace.m */,
+				52AA11A315E1A57400895F44 /* TR3Room.h */,
+				52AA11A415E1A57400895F44 /* TR3Room.m */,
+				52AA11A615E1A67400895F44 /* TR3RoomLight.h */,
+				52AA11A715E1A67400895F44 /* TR3RoomLight.m */,
+				52AA11A915E1A8C900895F44 /* TR3RoomVertex.h */,
+				52AA11AA15E1A8C900895F44 /* TR3RoomVertex.m */,
+				52AA11AC15E1AB4E00895F44 /* TR3StaticMeshInstance.h */,
+				52AA11AD15E1AB4E00895F44 /* TR3StaticMeshInstance.m */,
+				52AA11AF15E1ACA700895F44 /* TR3Level.h */,
+				52AA11B015E1ACA700895F44 /* TR3Level.m */,
 			);
 			path = "TR3 Level Elements";
 			sourceTree = "<group>";
@@ -774,6 +799,11 @@
 				52753A0D15E0E95300AF4324 /* TR2SoundMap.m in Sources */,
 				52753A1015E0E9D200AF4324 /* TR1SoundDetail.m in Sources */,
 				52AA119D15E1983400895F44 /* TR1SampleList.m in Sources */,
+				52AA11A515E1A57400895F44 /* TR3Room.m in Sources */,
+				52AA11A815E1A67400895F44 /* TR3RoomLight.m in Sources */,
+				52AA11AB15E1A8C900895F44 /* TR3RoomVertex.m in Sources */,
+				52AA11AE15E1AB4E00895F44 /* TR3StaticMeshInstance.m in Sources */,
+				52AA11B115E1ACA700895F44 /* TR3Level.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

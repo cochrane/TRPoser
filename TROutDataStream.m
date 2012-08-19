@@ -55,22 +55,41 @@
 	[self appendUint8Array:(uint8_t *) &value count:1];
 }
 
-- (void)appendUint32Array:(uint32_t *)array count:(NSUInteger)count;
+- (void)appendUint32Array:(const uint32_t *)array count:(NSUInteger)count;
 {
 	[self appendUint8Array:(uint8_t *) array count:count*4];
 }
 
-- (void)appendUint16Array:(uint16_t *)array count:(NSUInteger)count;
+- (void)appendUint16Array:(const uint16_t *)array count:(NSUInteger)count;
 {
 	[self appendUint8Array:(uint8_t *) array count:count*2];
 }
-- (void)appendUint8Array:(uint8_t *)array count:(NSUInteger)count;
+- (void)appendUint8Array:(const uint8_t *)array count:(NSUInteger)count;
 {
 	[streamData appendBytes:array length:count];
 }
-- (void)appendFloat32Array:(Float32 *)array count:(NSUInteger)count;
+- (void)appendFloat32Array:(const Float32 *)array count:(NSUInteger)count;
 {
 	[self appendUint8Array:(uint8_t *) array count:count*4];
+}
+
+- (void)appendData:(NSData *)data
+{
+	[streamData appendData:data];
+}
+
+- (void)appendStream:(TROutDataStream *)stream;
+{
+	[self appendData:stream.data];
+}
+
+
+
+- (void)appendUnusedBytes:(NSUInteger)bytes;
+{
+	uint8_t uninitialized[bytes];
+	
+	[self appendUint8Array:uninitialized count:bytes];
 }
 
 

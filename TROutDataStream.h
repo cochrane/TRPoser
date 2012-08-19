@@ -18,14 +18,15 @@
 - (void)appendInt16:(int16_t)value;
 - (void)appendInt8:(int8_t)value;
 
-- (void)appendUint32Array:(uint32_t *)array count:(NSUInteger)count;
-- (void)appendUint16Array:(uint16_t *)array count:(NSUInteger)count;
-- (void)appendUint8Array:(uint8_t *)array count:(NSUInteger)count;
-- (void)appendFloat32Array:(Float32 *)array count:(NSUInteger)count;
+- (void)appendUint32Array:(const uint32_t *)array count:(NSUInteger)count;
+- (void)appendUint16Array:(const uint16_t *)array count:(NSUInteger)count;
+- (void)appendUint8Array:(const uint8_t *)array count:(NSUInteger)count;
+- (void)appendFloat32Array:(const Float32 *)array count:(NSUInteger)count;
 
 - (NSData *)compressed;
 - (void)appendData:(NSData *)data;
 - (void)appendStream:(TROutDataStream *)stream;
+- (void)appendUnusedBytes:(NSUInteger)bytes;
 
 - (NSData *)data;
 - (NSUInteger)length;

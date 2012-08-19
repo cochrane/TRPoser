@@ -8,20 +8,6 @@
 
 #import "TR2Level.h"
 
-#import "TRInDataStream.h"
-#import "TROutDataStream.h"
-
-#import "TR1Animation.h"
-#import "TR1FloorDataList.h"
-#import "TR1Mesh.h"
-#import "TR1MeshPointer.h"
-#import "TR1Palette8.h"
-#import "TR1StateChange.h"
-#import "TR1TexturePage8.h"
-#import "TR2Palette16.h"
-#import "TR2Room.h"
-#import "TR2TexturePage16.h"
-
 @implementation TR2Level
 
 + (NSString *)structureDescriptionSource

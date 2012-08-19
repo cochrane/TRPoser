@@ -12,6 +12,8 @@
 
 - (id)initFromDataStream:(TRInDataStream *)stream;
 {
+	if (!(self = [super initFromDataStream:stream])) return nil;
+	
 	self.colorField = self.lighting2;
 	
 	return self;

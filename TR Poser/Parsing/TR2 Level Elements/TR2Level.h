@@ -14,9 +14,6 @@
 
 @interface TR2Level : TR1Level
 
-- (id)initFromDataStream:(TRInDataStream *)stream;
-- (void)writeToStream:(TROutDataStream *)stream;
-
 @property (nonatomic, retain) TR2Palette16 *palette16;
 @property (nonatomic, retain) NSMutableArray *textureTiles16;
 

@@ -28,8 +28,7 @@
 	bit32 z;\
 	bitu16 rotation;\
 	bitu16 intensity1;\
-	bitu16 objectID;\
-	@derived mesh=level.staticMeshes{objectID}";
+	bitu16 objectID;";
 }
 
 - (float)rotationInDegrees;

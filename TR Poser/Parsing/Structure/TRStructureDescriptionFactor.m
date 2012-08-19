@@ -22,7 +22,7 @@ static NSString *lineRegexpString = @"^@factor\\s*\
 ([a-zA-Z][a-zA-Z0-9_]+)\\s*\
 =\\s*\
 ([a-zA-Z][a-zA-Z0-9_]+)\\s*\
-\\*\\s*\
+(\\*|/)\\s*\
 ([0-9.eE]+)\\s*$";
 static NSRegularExpression *expression = nil;
 
@@ -161,7 +161,11 @@ static double FactorPropertyDouble(id self, SEL _cmd)
 	NSRange oldFieldRange = [components rangeAtIndex:3];
 	self.originalFieldName = [fieldDescription substringWithRange:oldFieldRange];
 	
-	NSRange factorRange = [components rangeAtIndex:4];
+	NSRange operatorRange = [components rangeAtIndex:4];
+	NSString *operator = [fieldDescription substringWithRange:operatorRange];
+	self.divide = [operator isEqual:@"/"];
+	
+	NSRange factorRange = [components rangeAtIndex:5];
 	NSString *factor = [fieldDescription substringWithRange:factorRange];
 	if (self.type == TRStructureDescriptionFactor_Double)
 		self.factor = @(factor.doubleValue);

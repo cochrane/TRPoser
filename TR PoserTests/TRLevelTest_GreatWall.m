@@ -36,7 +36,7 @@
 	return [[TRInDataStream alloc] initWithData:wallData];
 }
 
-- (void)testPlainLoading;
+- (void)testGreatWall;
 {
 	TRInDataStream *stream = [self greatWallData];
 	

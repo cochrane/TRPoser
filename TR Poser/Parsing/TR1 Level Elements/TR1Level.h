@@ -17,10 +17,14 @@
 @class TR1Lightmap;
 @class TR1Mesh;
 @class TR1Palette8;
+@class TR1SampleList;
 @class TR1SoundMap;
 @class TR1StaticMesh;
 
 @interface TR1Level : TRStructure
+
+- (id)initFromDataStream:(TRInDataStream *)stream;
+- (void)writeToStream:(TROutDataStream *)stream;
 
 - (NSUInteger)gameVersion;
 - (Class)versionedClassForName:(NSString *)classNameSuffix;
@@ -54,6 +58,7 @@
 @property (nonatomic, retain) NSData *demoData;
 @property (nonatomic, retain) TR1SoundMap *soundMap;
 @property (nonatomic, retain) NSMutableArray *soundDetails;
+@property (nonatomic, retain) TR1SampleList *samples;
 @property (nonatomic, retain) NSMutableArray *sampleIndices;
 
 // Not sure about this one

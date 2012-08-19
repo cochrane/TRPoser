@@ -67,31 +67,4 @@
 	return 2;
 }
 
-- (id)initFromDataStream:(TRInDataStream *)stream;
-{
-	NSDictionary *substreams = nil;
-	if (!(self = [super initFromDataStream:stream inLevel:self substreams:&substreams])) return nil;
-	
-	// Parse meshes
-	TRInDataStream *meshStream = [substreams objectForKey:@"meshData"];
-	for (TR1MeshPointer *meshPointer in self.meshPointers)
-	{
-		meshStream.position = meshPointer.meshStartOffset;
-		TR1Mesh *mesh = [[TR1Mesh alloc] initFromDataStream:meshStream inLevel:self];
-		meshPointer.mesh = mesh;
-	}
-	
-	return self;
-}
-- (void)writeToStream:(TROutDataStream *)stream;
-{
-	TROutDataStream *meshStream = [[TROutDataStream alloc] init];
-	for (TR1MeshPointer *meshPointer in self.meshPointers)
-	{
-		meshPointer.meshStartOffset = meshStream.length;
-		[meshPointer.mesh writeToStream:meshStream];
-	}
-	[super writeToStream:stream substreams:@{ @"meshData" : meshStream }];
-}
-
 @end

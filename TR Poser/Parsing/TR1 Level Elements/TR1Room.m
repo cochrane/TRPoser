@@ -152,12 +152,10 @@
 - (void)readGlobalLightState:(TRInDataStream *)stream;
 {
 	self.ambientIntensity1 = [stream readUint16];
-	self.lightMode = [stream readUint16];
 }
 - (void)writeGlobalLightState:(TROutDataStream *)stream;
 {
 	[stream appendUint16:(uint16_t) self.ambientIntensity1];
-	[stream appendUint16:(uint16_t) self.lightMode];
 }
 
 - (void)readRoomFooter:(TRInDataStream *)stream;

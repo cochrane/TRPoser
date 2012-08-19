@@ -23,6 +23,8 @@
 		52753A0A15E0E8B000AF4324 /* TR1SoundMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52753A0915E0E8AE00AF4324 /* TR1SoundMap.m */; };
 		52753A0D15E0E95300AF4324 /* TR2SoundMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52753A0C15E0E95000AF4324 /* TR2SoundMap.m */; };
 		52753A1015E0E9D200AF4324 /* TR1SoundDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 52753A0F15E0E9D000AF4324 /* TR1SoundDetail.m */; };
+		52AA119915E18F5A00895F44 /* TRLevelTest_Caves.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA119815E18F5A00895F44 /* TRLevelTest_Caves.m */; };
+		52AA119D15E1983400895F44 /* TR1SampleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA119C15E1983400895F44 /* TR1SampleList.m */; };
 		52D8D92A15DB85B300374481 /* TR1TextureVertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92915DB85B100374481 /* TR1TextureVertex.m */; };
 		52D8D92D15DB871A00374481 /* TR1Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92C15DB871800374481 /* TR1Camera.m */; };
 		52D8D93015DB87C800374481 /* TR1CinematicFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92F15DB87C500374481 /* TR1CinematicFrame.m */; };
@@ -136,6 +138,10 @@
 		52753A0C15E0E95000AF4324 /* TR2SoundMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2SoundMap.m; sourceTree = "<group>"; };
 		52753A0E15E0E9CE00AF4324 /* TR1SoundDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1SoundDetail.h; sourceTree = "<group>"; };
 		52753A0F15E0E9D000AF4324 /* TR1SoundDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1SoundDetail.m; sourceTree = "<group>"; };
+		52AA119715E18F5A00895F44 /* TRLevelTest_Caves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLevelTest_Caves.h; sourceTree = "<group>"; };
+		52AA119815E18F5A00895F44 /* TRLevelTest_Caves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLevelTest_Caves.m; sourceTree = "<group>"; };
+		52AA119B15E1983400895F44 /* TR1SampleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1SampleList.h; sourceTree = "<group>"; };
+		52AA119C15E1983400895F44 /* TR1SampleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1SampleList.m; sourceTree = "<group>"; };
 		52D8D92815DB85AF00374481 /* TR1TextureVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1TextureVertex.h; sourceTree = "<group>"; };
 		52D8D92915DB85B100374481 /* TR1TextureVertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1TextureVertex.m; sourceTree = "<group>"; };
 		52D8D92B15DB871600374481 /* TR1Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Camera.h; sourceTree = "<group>"; };
@@ -428,6 +434,8 @@
 				52753A0915E0E8AE00AF4324 /* TR1SoundMap.m */,
 				52753A0E15E0E9CE00AF4324 /* TR1SoundDetail.h */,
 				52753A0F15E0E9D000AF4324 /* TR1SoundDetail.m */,
+				52AA119B15E1983400895F44 /* TR1SampleList.h */,
+				52AA119C15E1983400895F44 /* TR1SampleList.m */,
 			);
 			path = "TR1 Level Elements";
 			sourceTree = "<group>";
@@ -559,6 +567,8 @@
 				521F754915DFFF3400AB0A73 /* TRLevelTest_GreatWall.m */,
 				521F755715E0232000AB0A73 /* TRStructureSubstreamTest.h */,
 				521F755815E0232000AB0A73 /* TRStructureSubstreamTest.m */,
+				52AA119715E18F5A00895F44 /* TRLevelTest_Caves.h */,
+				52AA119815E18F5A00895F44 /* TRLevelTest_Caves.m */,
 			);
 			path = "TR PoserTests";
 			sourceTree = "<group>";
@@ -763,6 +773,7 @@
 				52753A0A15E0E8B000AF4324 /* TR1SoundMap.m in Sources */,
 				52753A0D15E0E95300AF4324 /* TR2SoundMap.m in Sources */,
 				52753A1015E0E9D200AF4324 /* TR1SoundDetail.m in Sources */,
+				52AA119D15E1983400895F44 /* TR1SampleList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,6 +785,7 @@
 				52F8997C15DACA5700AD9031 /* TRStructureTest.m in Sources */,
 				521F754A15DFFF3400AB0A73 /* TRLevelTest_GreatWall.m in Sources */,
 				521F755915E0232000AB0A73 /* TRStructureSubstreamTest.m in Sources */,
+				52AA119915E18F5A00895F44 /* TRLevelTest_Caves.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

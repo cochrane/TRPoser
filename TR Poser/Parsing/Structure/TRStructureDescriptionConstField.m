@@ -11,7 +11,7 @@
 @interface TRStructureDescriptionConstField ()
 
 @property (nonatomic, assign, readwrite) TRStructureDescriptionPrimitiveType type;
-@property (nonatomic, copy, readwrite) NSNumber *expectedValue;
+@property (nonatomic, copy, readwrite) NSArray *expectedValues;
 
 @end
 
@@ -32,9 +32,18 @@
 	
 	if (![scanner scanString:@"=" intoString:NULL]) return nil;
 	
-	NSNumber *expectedValue = nil;
-	if (![scanner scanValueOfPrimitiveType:self.type intoNumber:&expectedValue]) return nil;
-	self.expectedValue = expectedValue;
+	NSMutableArray *expectedValues = [[NSMutableArray alloc] init];
+	NSNumber *firstValue = nil;
+	if (![scanner scanValueOfPrimitiveType:self.type intoNumber:&firstValue]) return nil;
+	[expectedValues addObject:firstValue];
+	
+	while([scanner scanString:@"," intoString:NULL])
+	{
+		NSNumber *nextValue = nil;
+		if (![scanner scanValueOfPrimitiveType:self.type intoNumber:&nextValue]) return nil;
+		[expectedValues addObject:nextValue];
+	}
+	self.expectedValues = expectedValues;
 	
 	NSAssert([scanner isAtEnd], @"Line %@ goes too long", fieldDescription);
 	
@@ -42,13 +51,16 @@
 }
 - (void)parseFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure;
 {
+	NSAssert(![stream isAtEnd], @"Stream should not yet be over here.");
+	
 	NSNumber *found = [stream readNumberOfPrimitiveType:self.type];
-	if (![found isEqual:self.expectedValue])
-		[NSException raise:NSInvalidArgumentException format:@"At location %lu expected value %@, got %@", stream.position, self.expectedValue, found];
+	NSUInteger index = [self.expectedValues indexOfObject:found];
+	if (index == NSNotFound)
+		[NSException raise:NSInvalidArgumentException format:@"At location %lu expected any one of %@, got %@", stream.position, self.expectedValues, found];
 }
 - (void)writeToStream:(TROutDataStream *)stream fromObject:(TRStructure *)structure;
 {
-	[stream appendNumber:self.expectedValue ofPrimitiveType:self.type];
+	[stream appendNumber:[self.expectedValues objectAtIndex:0] ofPrimitiveType:self.type];
 }
 
 @end

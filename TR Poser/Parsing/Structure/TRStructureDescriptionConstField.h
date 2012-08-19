@@ -17,7 +17,7 @@
 - (id)initWithString:(NSString *)fieldDescription;
 
 @property (nonatomic, assign, readonly) TRStructureDescriptionPrimitiveType type;
-@property (nonatomic, copy, readonly) NSNumber *expectedValue;
+@property (nonatomic, copy, readonly) NSArray *expectedValues;
 
 - (void)parseFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure;
 - (void)writeToStream:(TROutDataStream *)stream fromObject:(TRStructure *)structure;

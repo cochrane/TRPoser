@@ -121,32 +121,32 @@
 	for (TR1RoomSprite *sprite in self.sprites)
 		[sprite writeToStream:substream];
 	
-	[substream appendUint16:self.portals.count];
-	for (TR1RoomPortal *portal in self.portals)
-		[portal writeToStream:substream];
-	
-	[substream appendUint16:self.countOfSectorsZ];
-	[substream appendUint16:self.countOfSectorsX];
-	for (TR1RoomSector *sector in self.sectors)
-		[sector writeToStream:substream];
-	
-	[self writeGlobalLightState:substream];
-	
-	[substream appendUint16:self.lights.count];
-	for (TR1RoomLight *light in self.lights)
-		[light writeToStream:substream];
-
-	[substream appendUint16:self.staticMeshes.count];
-	for (TR1StaticMeshInstance *mesh in self.staticMeshes)
-		[mesh writeToStream:substream];
-	
-	[substream appendUint16:self.alternateRoomIndex];
-	[substream appendUint16:self.flags];
-	
-	[self writeRoomFooter:substream];
-	
-	[stream appendUint16:substream.length/2];
+	[stream appendUint32:substream.length/2];
 	[stream appendStream:substream];
+	
+	[stream appendUint16:self.portals.count];
+	for (TR1RoomPortal *portal in self.portals)
+		[portal writeToStream:stream];
+	
+	[stream appendUint16:self.countOfSectorsZ];
+	[stream appendUint16:self.countOfSectorsX];
+	for (TR1RoomSector *sector in self.sectors)
+		[sector writeToStream:stream];
+	
+	[self writeGlobalLightState:stream];
+	
+	[stream appendUint16:self.lights.count];
+	for (TR1RoomLight *light in self.lights)
+		[light writeToStream:stream];
+
+	[stream appendUint16:self.staticMeshes.count];
+	for (TR1StaticMeshInstance *mesh in self.staticMeshes)
+		[mesh writeToStream:stream];
+	
+	[stream appendUint16:self.alternateRoomIndex];
+	[stream appendUint16:self.flags];
+	
+	[self writeRoomFooter:stream];
 }
 
 - (void)readGlobalLightState:(TRInDataStream *)stream;

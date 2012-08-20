@@ -25,6 +25,8 @@
 
 - (void)writeToStream:(TROutDataStream *)stream;
 {
+	[super writeToStream:stream];
+	
 	[stream appendUint16:self.attributes];
 	[stream appendUint16:self.lighting2];
 }

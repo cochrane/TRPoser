@@ -9,6 +9,7 @@
 #import "TRLevelTest_GreatWall.h"
 
 #import "TRInDataStream.h"
+#import "TROutDataStream.h"
 #import "TR2Level.h"
 
 @implementation TRLevelTest_GreatWall
@@ -44,6 +45,28 @@
 	STAssertTrue(level != nil, @"Level was not loaded");
 	
 	STAssertTrue([stream isAtEnd], @"Did not read entire level");
+	
+	STAssertEquals((NSUInteger) 11, level.textureTiles8.count, @"Count of tex tiles (8 bit)");
+	STAssertEquals((NSUInteger) 11, level.textureTiles16.count, @"Count of tex tiles (16 bit)");
+	STAssertEquals((NSUInteger) 84, level.rooms.count, @"Count of rooms");
+	STAssertEquals((NSUInteger) 373, level.meshPointers.count, @"Count of mesh pointers");
+}
+
+- (void)testGreatWallTranscode
+{
+	TRInDataStream *originalStream = [self greatWallData];
+	
+	TR2Level *original = [[TR2Level alloc] initFromDataStream:originalStream];
+	
+	TROutDataStream *outStream = [[TROutDataStream alloc] init];
+	[original writeToStream:outStream];
+	
+	TRInDataStream *transcodedStream = [[TRInDataStream alloc] initWithData:outStream.data];
+	
+	TR2Level *level = [[TR2Level alloc] initFromDataStream:transcodedStream];
+	STAssertTrue(level != nil, @"Transcoded level was not loaded");
+	
+	STAssertTrue([transcodedStream isAtEnd], @"Did not read entire level");
 	
 	STAssertEquals((NSUInteger) 11, level.textureTiles8.count, @"Count of tex tiles (8 bit)");
 	STAssertEquals((NSUInteger) 11, level.textureTiles16.count, @"Count of tex tiles (16 bit)");

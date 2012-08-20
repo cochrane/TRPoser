@@ -38,11 +38,7 @@
 	[stream appendUint8Array:indices count:256*256];
 }
 
-- (NSUInteger)bitsPerPixel;
-{
-	return 32;
-}
-- (NSData *)pixels;
+- (NSData *)pixels32Bit;
 {
 	if (!transformedPixels)
 	{
@@ -62,10 +58,11 @@
 			}
 			else
 			{
-				[palette getColor:&rgba[i*4] atIndex:indices[0]];
-				rgba[i*4+3] = 255;
+				rgba[i*4+0] = 255;
+				[palette getColor:&rgba[i*4+1] atIndex:indices[0]];
 			}
 		}
+		transformedPixels = [NSData dataWithBytes:rgba length:sizeof(rgba)];
 	}
 	return transformedPixels;
 }

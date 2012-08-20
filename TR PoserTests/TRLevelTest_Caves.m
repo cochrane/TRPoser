@@ -54,6 +54,7 @@
 - (void)testCaves;
 {
 	TRInDataStream *stream = [self cavesData];
+	if (!stream) return; // No TR1 on this computer
 	
 	TR1Level *level = [[TR1Level alloc] initFromDataStream:stream];
 	STAssertTrue(level != nil, @"Level was not loaded");

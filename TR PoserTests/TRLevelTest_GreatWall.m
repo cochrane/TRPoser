@@ -40,6 +40,7 @@
 - (void)testGreatWall;
 {
 	TRInDataStream *stream = [self greatWallData];
+	if (!stream) return; // No TR2 on this computer
 	
 	TR2Level *level = [[TR2Level alloc] initFromDataStream:stream];
 	STAssertTrue(level != nil, @"Level was not loaded");
@@ -55,6 +56,7 @@
 - (void)testGreatWallTranscode
 {
 	TRInDataStream *originalStream = [self greatWallData];
+	if (!originalStream) return; // No TR2 on this computer
 	
 	TR2Level *original = [[TR2Level alloc] initFromDataStream:originalStream];
 	

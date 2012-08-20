@@ -54,6 +54,7 @@
 - (void)testJungle;
 {
 	TRInDataStream *stream = [self jungleData];
+	if (!stream) return; // No TR2 on this computer
 	
 	TR3Level *level = [[TR3Level alloc] initFromDataStream:stream];
 	STAssertTrue(level != nil, @"Level was not loaded");

@@ -20,8 +20,8 @@
 
 @property (nonatomic, weak) TR1Level *level;
 
-// Graphics data, as 16, 24 or 32 bits. This automatically generates one of the above from a paletted texture.
-@property (nonatomic, assign, readonly) NSUInteger bitsPerPixel;
-@property (nonatomic, copy, readonly) NSData *pixels;
+// Graphics data, as 32 bits ARGB. Automatically generated where the actual
+// bit value is lower, which means this method can be slow.
+- (NSData *)pixels32Bit;
 
 @end

@@ -23,11 +23,7 @@
 	
 }
 
-- (NSUInteger)bitsPerPixel;
-{
-	return 0;
-}
-- (NSData *)pixels;
+- (NSData *)pixels32Bit;
 {
 	return nil;
 }

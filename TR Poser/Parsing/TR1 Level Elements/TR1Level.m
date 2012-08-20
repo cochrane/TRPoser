@@ -69,6 +69,11 @@
 	return nil;
 }
 
+- (id)initWithData:(NSData *)data;
+{
+	return [self initFromDataStream:[[TRInDataStream alloc] initWithData:data]];
+}
+
 - (id)initFromDataStream:(TRInDataStream *)stream;
 {
 	NSDictionary *substreams = nil;

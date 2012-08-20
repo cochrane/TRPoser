@@ -24,6 +24,8 @@
 
 @interface TR1Level : TRStructure
 
+- (id)initWithData:(NSData *)data;
+
 - (id)initFromDataStream:(TRInDataStream *)stream;
 - (void)writeToStream:(TROutDataStream *)stream;
 

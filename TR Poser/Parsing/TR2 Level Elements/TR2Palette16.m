@@ -49,15 +49,20 @@
 	uint8_t result[256*256*4];
 	
 	const NSUInteger rowBytes = 256*4;
-	const NSUInteger squareColumns = 16;
-	const NSUInteger squareRowBytes = 16*rowBytes;
+	const NSUInteger squareEdge = 16;
+	const NSUInteger squareRowBytes = squareEdge*rowBytes;
+	const NSUInteger squareColumnBytes = squareEdge*4;
 	
 	for (NSUInteger row = 0, i = 0; row < 16; row++)
 	{
 		for (NSUInteger column = 0; column < 16; column++, i++)
 		{
-			vImage_Buffer square = { &result[row*squareRowBytes + column*squareColumns], 16, 16, rowBytes };
-			uint8_t color[4] = {(i == 0) ? 0 : 255, data[i*4+0], data[i*4+1], data[i*4+2]};
+			vImage_Buffer square = { &result[row*squareRowBytes + column*squareColumnBytes], 16, 16, rowBytes };
+			uint8_t color[4] = {(i == 0) ? 0 : 255,
+				data[i*4+0],
+				data[i*4+1],
+				data[i*4+2]
+			};
 			vImageBufferFill_ARGB8888(&square, color, 0);
 		}
 	}

@@ -96,4 +96,14 @@
 	[super writeToStream:stream substreams:@{ @"meshData" : meshStream }];
 }
 
+
+- (NSUInteger)countOfTextureTiles;
+{
+	return self.textureTiles8.count;
+}
+- (TRTexturePage *)objectInTextureTilesAtIndex:(NSUInteger)index;
+{
+	return [self.textureTiles8 objectAtIndex:index];
+}
+
 @end

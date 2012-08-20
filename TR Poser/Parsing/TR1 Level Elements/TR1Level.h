@@ -20,6 +20,7 @@
 @class TR1SampleList;
 @class TR1SoundMap;
 @class TR1StaticMesh;
+@class TRTexturePage;
 
 @interface TR1Level : TRStructure
 
@@ -63,5 +64,12 @@
 
 // Not sure about this one
 @property (nonatomic, assign) NSUInteger unused1;
+
+
+// Derived
+
+// Always returns the highest quality for every level.
+- (NSUInteger)countOfTextureTiles;
+- (TRTexturePage *)objectInTextureTilesAtIndex:(NSUInteger)index;
 
 @end

@@ -53,4 +53,13 @@
 	return 2;
 }
 
+- (NSUInteger)countOfTextureTiles;
+{
+	return self.textureTiles16.count;
+}
+- (TRTexturePage *)objectInTextureTilesAtIndex:(NSUInteger)index;
+{
+	return [self.textureTiles16 objectAtIndex:index];
+}
+
 @end

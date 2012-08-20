@@ -33,7 +33,7 @@
 	
 	return self;
 }
-- (void)writeToDataStream:(TROutDataStream *)stream;
+- (void)writeToStream:(TROutDataStream *)stream
 {
 	[stream appendUint8Array:indices count:256*256];
 }

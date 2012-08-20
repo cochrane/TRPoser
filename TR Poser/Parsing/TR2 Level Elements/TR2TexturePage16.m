@@ -30,7 +30,7 @@
 	return self;
 }
 
-- (void)writeToDataStream:(TROutDataStream *)stream;
+- (void)writeToStream:(TROutDataStream *)stream;
 {
 	[stream appendData:self.pixels];
 }

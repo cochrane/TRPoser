@@ -28,7 +28,7 @@
 	
 	return self;
 }
-- (void)writeToDataStream:(TROutDataStream *)stream
+- (void)writeToStream:(TROutDataStream *)stream;
 {
 	[stream appendUint8Array:data count:sizeof(data)];
 }

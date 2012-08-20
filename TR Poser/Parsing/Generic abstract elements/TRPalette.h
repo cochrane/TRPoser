@@ -15,7 +15,7 @@
 @interface TRPalette : NSObject
 
 - (id)initFromDataStream:(TRInDataStream *)stream;
-- (void)writeToDataStream:(TROutDataStream *)stream;
+- (void)writeToStream:(TROutDataStream *)stream;
 
 // Called from TRStructure code. Falls through to initFromDataStream:
 - (id)initFromDataStream:(TRInDataStream *)stream inLevel:(TR1Level *)level;

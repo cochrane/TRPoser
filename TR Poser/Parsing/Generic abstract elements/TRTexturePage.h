@@ -16,7 +16,7 @@
 @interface TRTexturePage : NSObject
 
 - (id)initFromDataStream:(TRInDataStream *)stream inLevel:(TR1Level *)level;
-- (void)writeToDataStream:(TROutDataStream *)stream;
+- (void)writeToStream:(TROutDataStream *)stream;
 
 @property (nonatomic, weak) TR1Level *level;
 

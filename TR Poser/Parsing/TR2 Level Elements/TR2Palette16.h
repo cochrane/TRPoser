@@ -13,7 +13,7 @@
 @interface TR2Palette16 : TRPalette
 
 - (id)initFromDataStream:(TRInDataStream *)stream;
-- (void)writeToDataStream:(TROutDataStream *)stream;
+- (void)writeToStream:(TROutDataStream *)stream;
 
 - (NSUInteger)countOfColors;
 - (NSColor *)objectInColorsAtIndex:(NSUInteger)index;

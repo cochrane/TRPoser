@@ -18,7 +18,7 @@
 	
 	return self;
 }
-- (void)writeToDataStream:(TROutDataStream *)stream;
+- (void)writeToStream:(TROutDataStream *)stream;
 {
 	
 }

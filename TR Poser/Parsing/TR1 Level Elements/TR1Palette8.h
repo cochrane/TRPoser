@@ -18,4 +18,6 @@
 - (NSColor *)objectInColorsAtIndex:(NSUInteger)index;
 - (void)getColor:(uint8_t *)rgb atIndex:(NSUInteger)index;
 
+- (NSData *)asTexturePage;
+
 @end

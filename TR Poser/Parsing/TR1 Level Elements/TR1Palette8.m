@@ -8,6 +8,8 @@
 
 #import "TR1Palette8.h"
 
+#import <Accelerate/Accelerate.h>
+
 #import "TRInDataStream.h"
 #import "TROutDataStream.h"
 
@@ -45,6 +47,27 @@
 - (void)getColor:(uint8_t *)rgb atIndex:(NSUInteger)index;
 {
 	memcpy(rgb, &data[index*3], 3);
+}
+
+- (NSData *)asTexturePage;
+{
+	uint8_t result[256*256+4];
+	
+	const NSUInteger rowBytes = 256*4;
+	const NSUInteger squareColumns = 16;
+	const NSUInteger squareRowBytes = 16*rowBytes;
+	
+	for (NSUInteger row = 0, i = 0; row < 16; row++)
+	{
+		for (NSUInteger column = 0; column < 16; column++, i++)
+		{
+			vImage_Buffer square = { &result[row*squareRowBytes + column*squareColumns], 16, 16, rowBytes };
+			uint8_t color[4] = {(i == 0) ? 0 : 255, data[i*3+0], data[i*3+1], data[i*3+2]};
+			vImageBufferFill_ARGB8888(&square, color, 0);
+		}
+	}
+	
+	return [NSData dataWithBytes:result length:sizeof(result)];
 }
 
 @end

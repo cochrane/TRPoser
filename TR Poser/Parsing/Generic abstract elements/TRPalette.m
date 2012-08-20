@@ -33,6 +33,10 @@
 {
 	return nil;
 }
+- (NSData *)asTexturePage;
+{
+	return nil;
+}
 
 
 @end

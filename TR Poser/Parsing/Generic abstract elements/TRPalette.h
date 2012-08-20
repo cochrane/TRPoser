@@ -24,4 +24,9 @@
 - (NSUInteger)countOfColors;
 - (NSColor *)objectInColorsAtIndex:(NSUInteger)index;
 
+// Creates a 256x256 ARGB image representation of this palette. It consists
+// of 16x16 squares of 16x16 pixels each, with index 0 being top left, and
+// so on.
+- (NSData *)asTexturePage;
+
 @end

@@ -8,6 +8,9 @@
 
 #import "TRDocument.h"
 
+#import "TR2Level.h"
+#import "TRRenderLevel.h"
+
 @implementation TRDocument
 
 - (id)init
@@ -54,6 +57,30 @@
 	NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
 	@throw exception;
 	return YES;
+}
+
+- (IBAction)loadLevel:(id)sender;
+{
+	NSOpenPanel *panel = [NSOpenPanel openPanel];
+	panel.allowedFileTypes = @[ @"phd", @"tr2", @"tr4" ];
+	[panel beginSheetModalForWindow:self.windowForSheet completionHandler:^(NSInteger result) {
+		if (result != NSOKButton) return;
+		
+		NSData *data = [NSData dataWithContentsOfURL:panel.URL];
+		NSAssert(data != nil, @"Can't find file %@", panel.URL);
+		TR2Level *level = [[TR2Level alloc] initWithData:data];
+		NSAssert(level != nil, @"Can't load level %@", panel.URL);
+		
+		TRRenderLevel *renderLevel = [[TRRenderLevel alloc] initWithLevel:level];
+		
+		CGImageRef image = [renderLevel textureImage];
+		CGImageRetain(image);
+		
+		NSImage *nsImage = [[NSImage alloc] initWithCGImage:image size:NSMakeSize(CGImageGetWidth(image), CGImageGetHeight(image))];
+		CFRelease(image);
+		
+		self.imageView.image = nsImage;
+	}];
 }
 
 @end

@@ -10,4 +10,8 @@
 
 @interface TRDocument : NSDocument
 
+@property IBOutlet NSImageView *imageView;
+
+- (IBAction)loadLevel:(id)sender;
+
 @end

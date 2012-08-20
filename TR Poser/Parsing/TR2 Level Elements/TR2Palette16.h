@@ -17,4 +17,6 @@
 
 - (NSColor *)objectInColorsAtIndex:(NSUInteger)index;
 
+- (NSData *)asTexturePage;
+
 @end

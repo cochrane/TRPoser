@@ -15,7 +15,6 @@
 - (id)initFromDataStream:(TRInDataStream *)stream;
 - (void)writeToStream:(TROutDataStream *)stream;
 
-- (NSUInteger)countOfColors;
 - (NSColor *)objectInColorsAtIndex:(NSUInteger)index;
 - (void)getColor:(uint8_t *)rgb atIndex:(NSUInteger)index;
 

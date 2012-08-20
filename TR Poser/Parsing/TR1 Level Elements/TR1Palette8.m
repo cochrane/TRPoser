@@ -33,10 +33,6 @@
 	[stream appendUint8Array:data count:sizeof(data)];
 }
 
-- (NSUInteger)countOfColors;
-{
-	return 256;
-}
 - (NSColor *)objectInColorsAtIndex:(NSUInteger)index;
 {
 	float red = ((float) data[index*3 + 0]) / ((float) UINT8_MAX);

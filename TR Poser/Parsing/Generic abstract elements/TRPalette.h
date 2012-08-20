@@ -20,6 +20,7 @@
 // Called from TRStructure code. Falls through to initFromDataStream:
 - (id)initFromDataStream:(TRInDataStream *)stream inLevel:(TR1Level *)level;
 
+// There are always 256 colors. This interface is just to be KVC compliant.
 - (NSUInteger)countOfColors;
 - (NSColor *)objectInColorsAtIndex:(NSUInteger)index;
 

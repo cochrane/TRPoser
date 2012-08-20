@@ -27,7 +27,7 @@
 
 - (NSUInteger)countOfColors;
 {
-	return 0;
+	return 256;
 }
 - (NSColor *)objectInColorsAtIndex:(NSUInteger)index;
 {

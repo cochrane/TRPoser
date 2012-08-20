@@ -46,7 +46,7 @@
 
 - (NSData *)asTexturePage;
 {
-	uint8_t result[256*256+4];
+	uint8_t result[256*256*4];
 	
 	const NSUInteger rowBytes = 256*4;
 	const NSUInteger squareColumns = 16;

@@ -29,5 +29,6 @@
 @property (nonatomic, assign) float rotationInDegrees;
 @property (nonatomic, assign) float rotationInRad;
 @property (nonatomic, weak) TR1StaticMesh *mesh;
+@property (nonatomic, weak) NSColor *color;
 
 @end

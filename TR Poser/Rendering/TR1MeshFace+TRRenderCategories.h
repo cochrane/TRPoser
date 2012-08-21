@@ -7,7 +7,9 @@
 //
 
 #import "TR1MeshFace.h"
+#import "TR1RoomFace.h"
 #import "TR1Vertex.h"
+#import "TR1RoomVertex.h"
 
 #import <SceneKit/SceneKit.h>
 
@@ -19,7 +21,20 @@
 
 @end
 
+@interface TR1RoomFace (TRRenderCategories)
+
+- (SCNVector3)positionAtCorner:(NSUInteger)index;
+- (SCNVector3)lightAtCorner:(NSUInteger)index;
+
+@end
+
 @interface TR1Vertex (TRRenderCategories)
+
+- (SCNVector3)sceneKitVector;
+
+@end
+
+@interface TR1RoomVertex (TRRenderCategories)
 
 - (SCNVector3)sceneKitVector;
 

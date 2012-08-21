@@ -8,6 +8,8 @@
 
 #import "TR3RoomFace.h"
 
+#import "TR1Texture.h"
+
 #import "TROutDataStream.h"
 
 @implementation TR3RoomFace
@@ -30,6 +32,11 @@
 		[stream appendUint16:number.unsignedShortValue];
 	
 	[stream appendUint16:(self.surfaceIndex & 0x7FFF) | self.isTwoSided << 15];
+}
+
+- (BOOL)hasAlpha
+{
+	return self.texture.hasAlpha;
 }
 
 @end

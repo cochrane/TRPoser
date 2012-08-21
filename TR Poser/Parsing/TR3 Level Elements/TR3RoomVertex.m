@@ -10,9 +10,9 @@
 
 @implementation TR3RoomVertex
 
-- (id)initFromDataStream:(TRInDataStream *)stream;
+- (id)initFromDataStream:(TRInDataStream *)stream inLevel:(TR1Level *)level;
 {
-	if (!(self = [super initFromDataStream:stream])) return nil;
+	if (!(self = [super initFromDataStream:stream inLevel:level])) return nil;
 	
 	self.colorField = self.lighting2;
 	

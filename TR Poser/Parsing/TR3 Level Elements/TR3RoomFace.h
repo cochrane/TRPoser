@@ -14,5 +14,6 @@
 - (void)writeToStream:(TROutDataStream *)stream;
 
 @property (nonatomic, assign, readwrite) BOOL isTwoSided;
+@property (nonatomic, assign, readonly) BOOL hasAlpha;
 
 @end

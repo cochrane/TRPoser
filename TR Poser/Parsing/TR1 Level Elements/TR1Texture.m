@@ -17,4 +17,9 @@
 	TR1TextureVertex vertices[4];";
 }
 
+- (BOOL)hasAlpha
+{
+	return NO;
+}
+
 @end

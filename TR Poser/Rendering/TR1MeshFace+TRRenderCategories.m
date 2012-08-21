@@ -9,6 +9,7 @@
 #import "TR1MeshFace+TRRenderCategories.h"
 
 #import "TR1Mesh.h"
+#import "TR1Room.h"
 
 @implementation TR1MeshFace (TRRenderCategories)
 
@@ -39,12 +40,42 @@
 
 @end
 
+@implementation TR1RoomFace (TRRenderCategories)
+
+- (SCNVector3)positionAtCorner:(NSUInteger)index;
+{
+	return [self.room.vertices[[self.indices[index] unsignedIntegerValue]] sceneKitVector];
+}
+- (SCNVector3)lightAtCorner:(NSUInteger)index;
+{
+	NSColor *color = [self.room.vertices[[self.indices[index] unsignedIntegerValue]] color];
+	
+	NSColor *rgbColor = [color colorUsingColorSpace:[NSColorSpace genericRGBColorSpace]];
+	SCNVector3 vector;
+	
+	[rgbColor getRed:&vector.x green:&vector.y blue:&vector.z alpha:NULL];
+	
+	return vector;
+}
+
+@end
+
 
 @implementation TR1Vertex (TRRenderCategories)
 
 - (SCNVector3)sceneKitVector;
 {
 	return SCNVector3Make((CGFloat) self.x / 1024.0, (CGFloat) self.y / 1024.0, (CGFloat) self.z / 1024.0);
+}
+
+@end
+
+
+@implementation TR1RoomVertex (TRRenderCategories)
+
+- (SCNVector3)sceneKitVector;
+{
+	return self.position.sceneKitVector;
 }
 
 @end

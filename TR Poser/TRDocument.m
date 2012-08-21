@@ -10,12 +10,12 @@
 
 #import "TR2Level.h"
 #import "TRRenderLevel.h"
-#import "TRRenderMesh.h"
+#import "TRRenderRoom.h"
 
 @interface TRDocument ()
 
 @property (nonatomic, retain) TRRenderLevel *renderLevel;
-@property (nonatomic, assign) NSUInteger currentMesh;
+@property (nonatomic, assign) NSUInteger currentRoom;
 
 @end
 
@@ -82,18 +82,18 @@
 		self.renderLevel = [[TRRenderLevel alloc] initWithLevel:level];
 		self.stepper.minValue = 0.0;
 		self.stepper.doubleValue = 0.0;
-		self.stepper.maxValue = [self.renderLevel.meshes count];
-		self.currentMesh = 100;
+		self.stepper.maxValue = [self.renderLevel.rooms count] - 1.0;
+		self.currentRoom = 0;
 	}];
 }
-- (IBAction)changeMesh:(id)sender;
+- (IBAction)changeRoom:(id)sender;
 {
-	self.currentMesh = [sender integerValue];
+	self.currentRoom = [sender integerValue];
 }
 
-- (void)setCurrentMesh:(NSUInteger)currentMesh
+- (void)setCurrentRoom:(NSUInteger)currentRoom
 {
-	_currentMesh = currentMesh;
+	_currentRoom = currentRoom;
 	
 	if (!self.sceneView.scene)
 	{
@@ -104,15 +104,15 @@
 		self.sceneView.scene.rootNode.light = light;
 	}
 	
-	TRRenderMesh *mesh = [self.renderLevel.meshes objectAtIndex:currentMesh];
-	SCNNode *newNode = [SCNNode nodeWithGeometry:mesh.meshGeometry];
+	TRRenderRoom *room = [self.renderLevel.rooms objectAtIndex:currentRoom];
+	SCNNode *newNode = [SCNNode nodeWithGeometry:room.roomGeometry];
 	
 	if (self.sceneView.scene.rootNode.childNodes.count != 0)
 		[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];
 	
 	[self.sceneView.scene.rootNode addChildNode:newNode];
 	
-	self.textField.stringValue = [NSString stringWithFormat:@"Mesh %lu of %lu", currentMesh, self.renderLevel.meshes.count];
+	self.textField.stringValue = [NSString stringWithFormat:@"Room %lu of %lu", currentRoom, self.renderLevel.rooms.count];
 }
 
 @end

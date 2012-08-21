@@ -48,10 +48,14 @@
 {
 	return NO;
 }
+- (BOOL)hasAlpha
+{
+	return NO;
+}
 
 - (TR1Texture *)texture
 {
-	return [[self.room valueForKeyPath:@"level.textures"] objectAtIndex:self.surfaceIndex];
+	return [[self.room valueForKeyPath:@"level.objectTextures"] objectAtIndex:self.surfaceIndex];
 }
 
 - (void)setTexture:(TR1Texture *)texture

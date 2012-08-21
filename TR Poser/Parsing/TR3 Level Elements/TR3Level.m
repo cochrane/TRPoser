@@ -53,5 +53,14 @@
 	return 3;
 }
 
+- (double)normalizeLightValue:(NSUInteger)value;
+{
+	// This came from vt, but all links there seem to have died.
+	return value / 32767.0;
+}
+- (NSUInteger)lightValueFromBrightness:(double)brightness
+{
+	return (NSUInteger) (brightness * 32767.0);
+}
 
 @end

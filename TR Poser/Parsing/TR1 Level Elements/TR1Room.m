@@ -41,7 +41,7 @@
 	NSUInteger countOfVertices = [stream readUint16];
 	_vertices = [[NSMutableArray alloc] initWithCapacity:countOfVertices];
 	for (NSUInteger i = 0; i < countOfVertices; i++)
-		[_vertices addObject:[[vertexClass alloc] initFromDataStream:stream]];
+		[_vertices addObject:[[vertexClass alloc] initFromDataStream:stream inLevel:self.level]];
 	
 	Class faceClass = [self.level versionedClassForName:@"RoomFace"];
 	

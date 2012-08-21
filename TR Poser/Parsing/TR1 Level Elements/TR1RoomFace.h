@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSMutableArray *indices;
 @property (nonatomic, assign) NSUInteger surfaceIndex;
 @property (nonatomic, assign, readonly) BOOL isTwoSided;
+@property (nonatomic, assign, readonly) BOOL hasAlpha;
 
 // Derived values
 @property (nonatomic, retain) TR1Texture *texture;

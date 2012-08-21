@@ -13,9 +13,9 @@
 
 @implementation TR2RoomVertex
 
-- (id)initFromDataStream:(TRInDataStream *)stream;
+- (id)initFromDataStream:(TRInDataStream *)stream inLevel:(TR1Level *)level;
 {
-	if (!(self = [super initFromDataStream:stream])) return nil;
+	if (!(self = [super initFromDataStream:stream inLevel:level])) return nil;
 	
 	self.attributes = [stream readUint16];
 	self.lighting2 = [stream readUint16];

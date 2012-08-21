@@ -22,6 +22,7 @@
 @property (nonatomic, readonly) CGImageRef textureImage;
 
 @property (nonatomic, copy, readonly) NSArray *meshes;
+@property (nonatomic, copy, readonly) NSArray *rooms;
 
 - (void)getTextureCoords:(CGPoint *)fourPoints forObjectTexture:(TR1Texture *)texture;
 - (CGPoint)textureCoordsForColorIndex:(NSUInteger)colorIndex;

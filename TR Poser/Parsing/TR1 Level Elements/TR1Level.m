@@ -111,4 +111,13 @@
 	return [self.textureTiles8 objectAtIndex:index];
 }
 
+- (double)normalizeLightValue:(NSUInteger)value;
+{
+	return 1.0 - ((double) value + 1.0) / 8192.0;
+}
+- (NSUInteger)lightValueFromBrightness:(double)brightness
+{
+	return (NSUInteger) (8192.0 * (1.0 - brightness) + 1.0);
+}
+
 @end

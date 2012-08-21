@@ -16,4 +16,6 @@
 @property (nonatomic, assign) NSUInteger tileIndex;
 @property (nonatomic, copy) NSArray *vertices;
 
+@property (nonatomic, assign, readonly) BOOL hasAlpha;
+
 @end

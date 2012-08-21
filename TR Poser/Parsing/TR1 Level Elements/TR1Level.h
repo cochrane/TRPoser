@@ -74,4 +74,7 @@
 - (NSUInteger)countOfTextureTiles;
 - (TRTexturePage *)objectInTextureTilesAtIndex:(NSUInteger)index;
 
+- (double)normalizeLightValue:(NSUInteger)value;
+- (NSUInteger)lightValueFromBrightness:(double)brightness;
+
 @end

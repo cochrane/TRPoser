@@ -16,6 +16,6 @@
 @property IBOutlet NSTextField *textField;
 
 - (IBAction)loadLevel:(id)sender;
-- (IBAction)changeMesh:(id)sender;
+- (IBAction)changeRoom:(id)sender;
 
 @end

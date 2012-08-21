@@ -11,6 +11,7 @@
 #import <Accelerate/Accelerate.h>
 
 #import "TRRenderMesh.h"
+#import "TRRenderRoom.h"
 #import "TRTexturePage.h"
 #import "TR1Level.h"
 #import "TR1MeshPointer.h"
@@ -27,6 +28,7 @@
 }
 
 @property (nonatomic, copy, readwrite) NSArray *meshes;
+@property (nonatomic, copy, readwrite) NSArray *rooms;
 
 @property (nonatomic, readwrite, retain) SCNMaterial *meshInternalLightingMaterial;
 @property (nonatomic, readwrite, retain) SCNMaterial *meshExternalLightingMaterial;
@@ -36,6 +38,7 @@
 - (void)setupTexture;
 - (void)setupMaterials;
 - (void)setupMeshes;
+- (void)setupRooms;
 
 @end
 
@@ -51,6 +54,7 @@
 	[self setupTexture];
 	[self setupMaterials];
 	[self setupMeshes];
+	[self setupRooms];
 	
 	return self;
 }
@@ -154,6 +158,19 @@
 	
 	self.meshes = meshes;
 }
+- (void)setupRooms
+{
+	NSMutableArray *rooms = [[NSMutableArray alloc] initWithCapacity:self.level.rooms.count];
+	
+	for (TR1Room *room in self.level.rooms)
+	{
+		TRRenderRoom *renderRoom = [[TRRenderRoom alloc] initWithRoom:room inRenderLevel:self];
+		[rooms addObject:renderRoom];
+	}
+	
+	self.rooms = rooms;
+}
+
 
 - (void)getTextureCoords:(CGPoint *)fourPoints forObjectTexture:(TR1Texture *)texture;
 {

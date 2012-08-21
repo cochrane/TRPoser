@@ -45,17 +45,11 @@
 		SCNVector3 *positions = malloc(sizeof(SCNVector3) * numVertices);
 		SCNVector3 *normals = self.mesh.usesInternalLighting ? NULL : malloc(sizeof(SCNVector3) * numVertices);
 		SCNVector3 *colors = self.mesh.usesInternalLighting ? malloc(sizeof(SCNVector3) * numVertices) : NULL;
-		
-		NSUInteger coloredRectanglesStart = 0;
-		NSUInteger coloredTrianglesStart = 0;
-		NSUInteger texturedRectanglesStart = 0;
-		NSUInteger texturedTrianglesStart = 0;
-		
+				
 		NSUInteger doublesidedTriangles = 0;
 		NSUInteger alphaTriangles = 0;
 		
 		NSUInteger i = 0;
-		coloredRectanglesStart = i;
 		for (TR1MeshFace *face in self.mesh.coloredRectangles)
 		{
 			if (face.isTwoSided) doublesidedTriangles += 2;
@@ -72,7 +66,6 @@
 					colors[i] = [face lightAtCorner:j];
 			}
 		}
-		coloredTrianglesStart = i;
 		for (TR1MeshFace *face in self.mesh.coloredTriangles)
 		{
 			if (face.isTwoSided) doublesidedTriangles += 1;
@@ -89,7 +82,6 @@
 					colors[i] = [face lightAtCorner:j];
 			}
 		}
-		texturedRectanglesStart = i;
 		for (TR1MeshFace *face in self.mesh.texturedRectangles)
 		{
 			if (face.isTwoSided) doublesidedTriangles += 2;
@@ -109,7 +101,6 @@
 					colors[i] = [face lightAtCorner:j];
 			}
 		}
-		texturedTrianglesStart = i;
 		for (TR1MeshFace *face in self.mesh.texturedTriangles)
 		{
 			if (face.isTwoSided) doublesidedTriangles += 1;
@@ -167,7 +158,7 @@
 		NSUInteger triangleCount = self.mesh.coloredRectangles.count * 2 + self.mesh.coloredTriangles.count + self.mesh.texturedRectangles.count * 2 + self.mesh.texturedTriangles.count + doublesidedTriangles;
 		NSUInteger standardTriangleCount = triangleCount - alphaTriangles;
 		
-		uint16_t *standardElements = malloc(sizeof(NSUInteger) * standardTriangleCount * 3);
+		uint16_t *standardElements = malloc(sizeof(uint16_t) * standardTriangleCount * 3);
 		uint16_t *alphaElements = (alphaTriangles > 0) ? malloc(sizeof(NSUInteger) * alphaTriangles * 3) : NULL;
 		
 		NSUInteger index = 0, element = 0;

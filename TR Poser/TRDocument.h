@@ -12,10 +12,7 @@
 @interface TRDocument : NSDocument
 
 @property IBOutlet SCNView *sceneView;
-@property IBOutlet NSStepper *stepper;
-@property IBOutlet NSTextField *textField;
 
 - (IBAction)loadLevel:(id)sender;
-- (IBAction)changeRoom:(id)sender;
 
 @end

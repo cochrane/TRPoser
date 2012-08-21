@@ -26,4 +26,6 @@
 // do with it?
 - (SCNNode *)createNodeWithStaticGeometry;
 
+@property (nonatomic, assign, readonly) SCNVector3 offset;
+
 @end

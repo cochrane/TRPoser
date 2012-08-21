@@ -226,4 +226,9 @@
 	return node;
 }
 
+- (SCNVector3)offset
+{
+	return SCNVector3Make(self.room.x / 1024.0, 0.0, self.room.z / 1024.0);
+}
+
 @end

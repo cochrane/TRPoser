@@ -15,7 +15,6 @@
 @interface TRDocument ()
 
 @property (nonatomic, retain) TRRenderLevel *renderLevel;
-@property (nonatomic, assign) NSUInteger currentRoom;
 
 @end
 
@@ -79,40 +78,25 @@
 		TR2Level *level = [[TR2Level alloc] initWithData:data];
 		NSAssert(level != nil, @"Can't load level %@", panel.URL);
 		
+		if (!self.sceneView.scene)
+		{
+			self.sceneView.scene = [SCNScene scene];
+			// Turn on the lights!
+			SCNLight *light = [SCNLight light];
+			light.type = SCNLightTypeDirectional;
+			self.sceneView.scene.rootNode.light = light;
+		}
+		
 		self.renderLevel = [[TRRenderLevel alloc] initWithLevel:level];
-		self.stepper.minValue = 0.0;
-		self.stepper.doubleValue = 0.0;
-		self.stepper.maxValue = [self.renderLevel.rooms count] - 1.0;
-		self.currentRoom = 0;
-	}];
-}
-- (IBAction)changeRoom:(id)sender;
-{
-	self.currentRoom = [sender integerValue];
-}
+		
+		SCNNode *newNode = [self.renderLevel createLevelNode];
+		
+		if (self.sceneView.scene.rootNode.childNodes.count != 0)
+			[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];
+		
+		[self.sceneView.scene.rootNode addChildNode:newNode];
 
-- (void)setCurrentRoom:(NSUInteger)currentRoom
-{
-	_currentRoom = currentRoom;
-	
-	if (!self.sceneView.scene)
-	{
-		self.sceneView.scene = [SCNScene scene];
-		// Turn on the lights!
-		SCNLight *light = [SCNLight light];
-		light.type = SCNLightTypeDirectional;
-		self.sceneView.scene.rootNode.light = light;
-	}
-	
-	TRRenderRoom *room = [self.renderLevel.rooms objectAtIndex:currentRoom];
-	SCNNode *newNode = [room createNodeWithStaticGeometry];
-	
-	if (self.sceneView.scene.rootNode.childNodes.count != 0)
-		[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];
-	
-	[self.sceneView.scene.rootNode addChildNode:newNode];
-	
-	self.textField.stringValue = [NSString stringWithFormat:@"Room %lu of %lu", currentRoom, self.renderLevel.rooms.count];
+	}];
 }
 
 @end

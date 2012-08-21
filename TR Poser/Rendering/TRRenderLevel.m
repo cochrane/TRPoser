@@ -208,4 +208,20 @@
 					   (CGFloat) pixelY / (CGFloat) (pagesHigh * 256));
 }
 
+- (SCNNode *)createLevelNode;
+{
+	SCNNode *levelNode = [SCNNode node];
+	
+	for (TRRenderRoom *room in self.rooms)
+	{
+		SCNNode *node = [room createNodeWithStaticGeometry];
+		SCNVector3 offset = room.offset;
+		
+		node.position = offset;
+		[levelNode addChildNode:node];
+	}
+	
+	return levelNode;
+}
+
 @end

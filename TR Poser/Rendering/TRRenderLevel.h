@@ -32,4 +32,6 @@
 @property (nonatomic, readonly, retain) SCNMaterial *meshAlphaInternalLightingMaterial;
 @property (nonatomic, readonly, retain) SCNMaterial *meshAlphaExternalLightingMaterial;
 
+- (SCNNode *)createLevelNode;
+
 @end

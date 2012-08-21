@@ -63,7 +63,7 @@
 - (TR1Texture *)texture
 {
 	if (!self.isTextured) return nil;
-	return [[self.mesh.level valueForKey:@"textures"] objectAtIndex:self.surfaceIndex];
+	return [[self.mesh.level valueForKey:@"objectTextures"] objectAtIndex:self.surfaceIndex];
 }
 
 - (void)setTexture:(TR1Texture *)texture
@@ -71,6 +71,24 @@
 	if (!self.isTextured) return;
 	
 	//self.surfaceIndex = texture.index;
+}
+
+- (NSUInteger)colorIndex8
+{
+	return self.surfaceIndex & 0x00FF;
+}
+- (NSUInteger)colorIndex16
+{
+	return (self.surfaceIndex & 0xFF00) >> 8;
+}
+
+- (void)setColorIndex8:(NSUInteger)colorIndex8
+{
+	self.surfaceIndex = (self.surfaceIndex & 0xFF00) | (colorIndex8 & 0x00FF);
+}
+- (void)setColorIndex16:(NSUInteger)colorIndex16
+{
+	self.surfaceIndex = (self.surfaceIndex & 0x00FF) | ((colorIndex16 & 0x00FF) << 8);
 }
 
 @end

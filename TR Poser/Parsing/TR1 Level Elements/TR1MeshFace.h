@@ -31,5 +31,7 @@
 
 // Derived values
 @property (nonatomic, retain) TR1Texture *texture;
+@property (nonatomic, assign) NSUInteger colorIndex8;
+@property (nonatomic, assign) NSUInteger colorIndex16;
 
 @end

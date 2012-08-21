@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <SceneKit/SceneKit.h>
+
 @class TR1Level;
 @class TR1Texture;
 
@@ -19,8 +21,14 @@
 
 @property (nonatomic, readonly) CGImageRef textureImage;
 
-//- (void)getTextureCoords:(float *)sixteenFloats forObjectTexture:(TR1Texture *)texture;
+@property (nonatomic, copy, readonly) NSArray *meshes;
 
-//- (NSImage *)combinedTexture;
+- (void)getTextureCoords:(CGPoint *)fourPoints forObjectTexture:(TR1Texture *)texture;
+- (CGPoint)textureCoordsForColorIndex:(NSUInteger)colorIndex;
+
+@property (nonatomic, readonly, retain) SCNMaterial *meshInternalLightingMaterial;
+@property (nonatomic, readonly, retain) SCNMaterial *meshExternalLightingMaterial;
+@property (nonatomic, readonly, retain) SCNMaterial *meshAlphaInternalLightingMaterial;
+@property (nonatomic, readonly, retain) SCNMaterial *meshAlphaExternalLightingMaterial;
 
 @end

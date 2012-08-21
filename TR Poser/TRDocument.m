@@ -10,6 +10,14 @@
 
 #import "TR2Level.h"
 #import "TRRenderLevel.h"
+#import "TRRenderMesh.h"
+
+@interface TRDocument ()
+
+@property (nonatomic, retain) TRRenderLevel *renderLevel;
+@property (nonatomic, assign) NSUInteger currentMesh;
+
+@end
 
 @implementation TRDocument
 
@@ -71,16 +79,40 @@
 		TR2Level *level = [[TR2Level alloc] initWithData:data];
 		NSAssert(level != nil, @"Can't load level %@", panel.URL);
 		
-		TRRenderLevel *renderLevel = [[TRRenderLevel alloc] initWithLevel:level];
-		
-		CGImageRef image = [renderLevel textureImage];
-		CGImageRetain(image);
-		
-		NSImage *nsImage = [[NSImage alloc] initWithCGImage:image size:NSMakeSize(CGImageGetWidth(image), CGImageGetHeight(image))];
-		CFRelease(image);
-		
-		self.imageView.image = nsImage;
+		self.renderLevel = [[TRRenderLevel alloc] initWithLevel:level];
+		self.stepper.minValue = 0.0;
+		self.stepper.doubleValue = 0.0;
+		self.stepper.maxValue = [self.renderLevel.meshes count];
+		self.currentMesh = 100;
 	}];
+}
+- (IBAction)changeMesh:(id)sender;
+{
+	self.currentMesh = [sender integerValue];
+}
+
+- (void)setCurrentMesh:(NSUInteger)currentMesh
+{
+	_currentMesh = currentMesh;
+	
+	if (!self.sceneView.scene)
+	{
+		self.sceneView.scene = [SCNScene scene];
+		// Turn on the lights!
+		SCNLight *light = [SCNLight light];
+		light.type = SCNLightTypeDirectional;
+		self.sceneView.scene.rootNode.light = light;
+	}
+	
+	TRRenderMesh *mesh = [self.renderLevel.meshes objectAtIndex:currentMesh];
+	SCNNode *newNode = [SCNNode nodeWithGeometry:mesh.meshGeometry];
+	
+	if (self.sceneView.scene.rootNode.childNodes.count != 0)
+		[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];
+	
+	[self.sceneView.scene.rootNode addChildNode:newNode];
+	
+	self.textField.stringValue = [NSString stringWithFormat:@"Mesh %lu of %lu", currentMesh, self.renderLevel.meshes.count];
 }
 
 @end

@@ -37,4 +37,6 @@
 @property (readonly, nonatomic, assign) NSUInteger number;
 @property (readonly, nonatomic, assign) BOOL usesInternalLighting;
 
+- (double)normalizeLightValue:(NSUInteger)lightValue;
+
 @end

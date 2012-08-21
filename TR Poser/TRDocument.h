@@ -7,11 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <SceneKit/SceneKit.h>
 
 @interface TRDocument : NSDocument
 
-@property IBOutlet NSImageView *imageView;
+@property IBOutlet SCNView *sceneView;
+@property IBOutlet NSStepper *stepper;
+@property IBOutlet NSTextField *textField;
 
 - (IBAction)loadLevel:(id)sender;
+- (IBAction)changeMesh:(id)sender;
 
 @end

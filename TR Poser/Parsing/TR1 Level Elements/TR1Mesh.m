@@ -121,4 +121,9 @@
 	return (self.lightIntensities != nil) && (self.normals == nil);
 }
 
+- (double)normalizeLightValue:(NSUInteger)value;
+{
+	return 1.0f - ((double) value + 1.0f) / 8192.0f;
+}
+
 @end

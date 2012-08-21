@@ -9,6 +9,7 @@
 #import "TRDocument.h"
 
 #import "TR2Level.h"
+#import "TR2RoomVertex.h"
 #import "TRRenderLevel.h"
 #import "TRRenderRoom.h"
 
@@ -40,6 +41,12 @@
 {
 	[super windowControllerDidLoadNib:aController];
 	// Add any code here that needs to be executed once the windowController has loaded the document's window.
+	
+	self.sceneView.scene = [SCNScene scene];
+	// Turn on the lights!
+	SCNLight *light = [SCNLight light];
+	light.type = SCNLightTypeDirectional;
+	self.sceneView.scene.rootNode.light = light;
 }
 
 + (BOOL)autosavesInPlace
@@ -78,15 +85,6 @@
 		TR2Level *level = [[TR2Level alloc] initWithData:data];
 		NSAssert(level != nil, @"Can't load level %@", panel.URL);
 		
-		if (!self.sceneView.scene)
-		{
-			self.sceneView.scene = [SCNScene scene];
-			// Turn on the lights!
-			SCNLight *light = [SCNLight light];
-			light.type = SCNLightTypeDirectional;
-			self.sceneView.scene.rootNode.light = light;
-		}
-		
 		self.renderLevel = [[TRRenderLevel alloc] initWithLevel:level];
 		
 		SCNNode *newNode = [self.renderLevel createLevelNode];
@@ -97,6 +95,46 @@
 		[self.sceneView.scene.rootNode addChildNode:newNode];
 
 	}];
+}
+- (IBAction)saveLevel:(id)sender;
+{
+	NSSavePanel *panel = [NSSavePanel savePanel];
+	panel.allowedFileTypes = @[ @"phd", @"tr2", @"tr4" ];
+	[panel beginSheetModalForWindow:self.windowForSheet completionHandler:^(NSInteger result){
+		if (result != NSOKButton) return;
+		
+		NSData *data = [self.renderLevel.level writeToData];
+		[data writeToURL:panel.URL atomically:YES];
+	}];
+}
+
+- (IBAction)setAllLightingTo:(id)sender;
+{
+	if (!self.renderLevel)
+	{
+		NSBeep();
+		return;
+	}
+	
+	TR1Level *level = self.renderLevel.level;
+	self.renderLevel = nil;
+	
+	NSUInteger lighting = self.lightValueTextfield.integerValue;
+	
+	[level enumerateRoomVertices:^(TR1RoomVertex *v) {
+		TR2RoomVertex *vert = (TR2RoomVertex *) v;
+		vert.lighting1 = lighting;
+		vert.lighting2 = lighting;
+	}];
+	
+	self.renderLevel = [[TRRenderLevel alloc] initWithLevel:level];
+	
+	SCNNode *newNode = [self.renderLevel createLevelNode];
+	
+	if (self.sceneView.scene.rootNode.childNodes.count != 0)
+		[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];
+	
+	[self.sceneView.scene.rootNode addChildNode:newNode];
 }
 
 @end

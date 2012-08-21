@@ -12,7 +12,11 @@
 @interface TRDocument : NSDocument
 
 @property IBOutlet SCNView *sceneView;
+@property IBOutlet NSTextField *lightValueTextfield;
 
 - (IBAction)loadLevel:(id)sender;
+- (IBAction)saveLevel:(id)sender;
+
+- (IBAction)setAllLightingTo:(id)sender;
 
 @end

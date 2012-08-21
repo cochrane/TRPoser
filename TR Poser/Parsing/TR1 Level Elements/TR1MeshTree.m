@@ -18,6 +18,22 @@
 	bit32 offsetZ;";
 }
 
-@dynamic push, pop;
+- (void)setPop:(BOOL)pop
+{
+	self.flags = (self.flags & 0xFFFE) | (pop << 0);
+}
+- (BOOL)pop
+{
+	return (self.flags & 0x0001) != 0;
+}
+
+- (void)setPush:(BOOL)push
+{
+	self.flags = (self.flags & 0xFFFD) | (push << 1);
+}
+- (BOOL)push
+{
+	return (self.flags & 0x0002) != 0;
+}
 
 @end

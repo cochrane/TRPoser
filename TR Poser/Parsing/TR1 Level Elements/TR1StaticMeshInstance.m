@@ -9,6 +9,7 @@
 #import "TR1StaticMeshInstance.h"
 
 #import "TR1Level.h"
+#import "TR1StaticMesh.h"
 
 @implementation TR1StaticMeshInstance
 
@@ -56,6 +57,13 @@
 		self.rotation = 3 << 14;
 }
 
-@dynamic mesh;
+- (void)setMesh:(TR1StaticMesh *)mesh
+{
+	self.objectID = mesh.objectID;
+}
+- (TR1StaticMesh *)mesh
+{
+	return [self.level staticMeshWithObjectID:self.objectID];
+}
 
 @end

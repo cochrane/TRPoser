@@ -201,7 +201,23 @@
 		
 		SCNVector3 offset = SCNVector3Make((CGFloat) (instance.x - self.room.x) / 1024.0, (CGFloat) instance.y / 1024.0, (CGFloat) (instance.z - self.room.z) / 1024.0);
 		
-		SCNNode *meshNode = [SCNNode nodeWithGeometry:mesh.meshGeometry];
+		SCNGeometry *meshGeometry = mesh.meshGeometry;
+		NSColor *color = instance.color;
+		if (color != nil)
+		{
+			SCNGeometry *coloredGeometry = [meshGeometry copy];
+			
+			for (NSUInteger i = 0; i < meshGeometry.materials.count; i++)
+			{
+				SCNMaterial *coloredMaterial = [meshGeometry.materials[i] copy];
+				coloredMaterial.multiply.contents = color;
+				[coloredGeometry replaceMaterialAtIndex:i withMaterial:coloredMaterial];
+			}
+			
+			meshGeometry = coloredGeometry;
+		}
+		
+		SCNNode *meshNode = [SCNNode nodeWithGeometry:meshGeometry];
 		meshNode.position = offset;
 		meshNode.rotation = SCNVector4Make(0.0, 1.0, 0.0, instance.rotationInRad);
 		

@@ -71,7 +71,6 @@
 		52F898ED15D87C6F00AD9031 /* TR1RoomVertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898EC15D87C6F00AD9031 /* TR1RoomVertex.m */; };
 		52F898F515D87C8C00AD9031 /* TR1RoomPortal.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898F415D87C8B00AD9031 /* TR1RoomPortal.m */; };
 		52F898F915D87CA100AD9031 /* TR1StaticMeshInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F898F815D87CA100AD9031 /* TR1StaticMeshInstance.m */; };
-		52F8990115D87CCF00AD9031 /* TR1MeshTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8990015D87CCE00AD9031 /* TR1MeshTreeNode.m */; };
 		52F8990515D87CE100AD9031 /* TR1AnimationFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8990415D87CE000AD9031 /* TR1AnimationFrame.m */; };
 		52F8991515D9551A00AD9031 /* TR1Vertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8991415D9551A00AD9031 /* TR1Vertex.m */; };
 		52F8991915D9560C00AD9031 /* TROutDataStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8991815D9560C00AD9031 /* TROutDataStream.m */; };
@@ -243,8 +242,6 @@
 		52F898F415D87C8B00AD9031 /* TR1RoomPortal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1RoomPortal.m; sourceTree = "<group>"; };
 		52F898F715D87CA100AD9031 /* TR1StaticMeshInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1StaticMeshInstance.h; sourceTree = "<group>"; };
 		52F898F815D87CA100AD9031 /* TR1StaticMeshInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1StaticMeshInstance.m; sourceTree = "<group>"; };
-		52F898FF15D87CCE00AD9031 /* TR1MeshTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1MeshTreeNode.h; sourceTree = "<group>"; };
-		52F8990015D87CCE00AD9031 /* TR1MeshTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1MeshTreeNode.m; sourceTree = "<group>"; };
 		52F8990315D87CE000AD9031 /* TR1AnimationFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1AnimationFrame.h; sourceTree = "<group>"; };
 		52F8990415D87CE000AD9031 /* TR1AnimationFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1AnimationFrame.m; sourceTree = "<group>"; };
 		52F8991315D9551A00AD9031 /* TR1Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Vertex.h; sourceTree = "<group>"; };
@@ -435,8 +432,6 @@
 				52F898DC15D87C1600AD9031 /* TR1Mesh.m */,
 				52F898E715D87C5400AD9031 /* TR1MeshFace.h */,
 				52F898E815D87C5400AD9031 /* TR1MeshFace.m */,
-				52F898FF15D87CCE00AD9031 /* TR1MeshTreeNode.h */,
-				52F8990015D87CCE00AD9031 /* TR1MeshTreeNode.m */,
 				52F8994615D9DDEC00AD9031 /* TR1MeshPointer.h */,
 				52F8994715D9DDED00AD9031 /* TR1MeshPointer.m */,
 				52F8991315D9551A00AD9031 /* TR1Vertex.h */,
@@ -795,7 +790,6 @@
 				52F898ED15D87C6F00AD9031 /* TR1RoomVertex.m in Sources */,
 				52F898F515D87C8C00AD9031 /* TR1RoomPortal.m in Sources */,
 				52F898F915D87CA100AD9031 /* TR1StaticMeshInstance.m in Sources */,
-				52F8990115D87CCF00AD9031 /* TR1MeshTreeNode.m in Sources */,
 				52F8990515D87CE100AD9031 /* TR1AnimationFrame.m in Sources */,
 				52F8991515D9551A00AD9031 /* TR1Vertex.m in Sources */,
 				52F8991915D9560C00AD9031 /* TROutDataStream.m in Sources */,

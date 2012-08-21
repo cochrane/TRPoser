@@ -12,6 +12,7 @@
 @class TROutDataStream;
 
 @class TR1Level;
+@class TR1RoomVertex;
 
 @interface TR1Room : NSObject
 
@@ -56,5 +57,7 @@
 
 - (void)readRoomFooter:(TRInDataStream *)stream;
 - (void)writeRoomFooter:(TROutDataStream *)stream;
+
+- (void)enumerateRoomVertices:(void (^)(TR1RoomVertex *))iterator;
 
 @end

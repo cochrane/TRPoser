@@ -13,6 +13,7 @@
 
 #import "TR1MeshPointer.h"
 #import "TR1Mesh.h"
+#import "TR1Room.h"
 #import "TR1StaticMesh.h"
 
 @interface TR1Level ()
@@ -80,6 +81,12 @@
 {
 	return [self initFromDataStream:[[TRInDataStream alloc] initWithData:data]];
 }
+- (NSData *)writeToData;
+{
+	TROutDataStream *stream = [[TROutDataStream alloc] init];
+	[self writeToStream:stream];
+	return stream.data;
+}
 
 - (id)initFromDataStream:(TRInDataStream *)stream;
 {
@@ -134,6 +141,12 @@
 - (NSUInteger)lightValueFromBrightness:(double)brightness
 {
 	return (NSUInteger) (8192.0 * (1.0 - brightness) + 1.0);
+}
+
+- (void)enumerateRoomVertices:(void (^)(TR1RoomVertex *))iterator;
+{
+	for (TR1Room *room in self.rooms)
+		[room enumerateRoomVertices:iterator];
 }
 
 @end

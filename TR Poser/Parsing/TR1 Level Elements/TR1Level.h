@@ -17,6 +17,7 @@
 @class TR1Lightmap;
 @class TR1Mesh;
 @class TR1Palette8;
+@class TR1RoomVertex;
 @class TR1SampleList;
 @class TR1SoundMap;
 @class TR1StaticMesh;
@@ -25,6 +26,7 @@
 @interface TR1Level : TRStructure
 
 - (id)initWithData:(NSData *)data;
+- (NSData *)writeToData;
 
 - (id)initFromDataStream:(TRInDataStream *)stream;
 - (void)writeToStream:(TROutDataStream *)stream;
@@ -77,5 +79,7 @@
 
 - (double)normalizeLightValue:(NSUInteger)value;
 - (NSUInteger)lightValueFromBrightness:(double)brightness;
+
+- (void)enumerateRoomVertices:(void (^)(TR1RoomVertex *))iterator;
 
 @end

@@ -167,4 +167,10 @@
 	
 }
 
+- (void)enumerateRoomVertices:(void (^)(TR1RoomVertex *))iterator;
+{
+	for (TR1RoomVertex *vertex in self.vertices)
+		iterator(vertex);
+}
+
 @end

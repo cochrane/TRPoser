@@ -136,11 +136,15 @@
 
 - (double)normalizeLightValue:(NSUInteger)value;
 {
-	return 1.0 - ((double) value + 1.0) / 8192.0;
+	// This strictly contradicts the TRosettaStone.
+	// In its defense, this formula actually works.
+	// It was found by experimentation. Future improvements
+	// are possible and welcome!
+	return 1.0 - fmax(value - 4096.0, 0) / 4096.0;
 }
 - (NSUInteger)lightValueFromBrightness:(double)brightness
 {
-	return (NSUInteger) (8192.0 * (1.0 - brightness) + 1.0);
+	return (NSUInteger) (brightness * 4096.0) + 4096;
 }
 
 - (void)enumerateRoomVertices:(void (^)(TR1RoomVertex *))iterator;

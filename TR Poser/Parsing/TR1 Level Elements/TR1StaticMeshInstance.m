@@ -85,7 +85,7 @@
 	if (self.intensity1 == UINT16_MAX) return nil;
 	
 	float lightValue = [self.level normalizeLightValue:self.intensity1];
-	return [NSColor colorWithDeviceWhite:lightValue alpha:1.0];
+	return [NSColor colorWithCalibratedWhite:lightValue alpha:1.0];
 }
 
 @end

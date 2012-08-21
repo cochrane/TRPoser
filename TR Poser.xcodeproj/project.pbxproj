@@ -38,6 +38,7 @@
 		52B6A27815E2CF64007EFC77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B6A27715E2CF64007EFC77 /* QuartzCore.framework */; };
 		52B6A27B15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A27A15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m */; };
 		52B6A29615E3E801007EFC77 /* TRRenderRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A29515E3E801007EFC77 /* TRRenderRoom.m */; };
+		52B6A2A115E44B6C007EFC77 /* TRRenderMoveable.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A2A015E44B6C007EFC77 /* TRRenderMoveable.m */; };
 		52D8D92A15DB85B300374481 /* TR1TextureVertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92915DB85B100374481 /* TR1TextureVertex.m */; };
 		52D8D92D15DB871A00374481 /* TR1Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92C15DB871800374481 /* TR1Camera.m */; };
 		52D8D93015DB87C800374481 /* TR1CinematicFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D92F15DB87C500374481 /* TR1CinematicFrame.m */; };
@@ -178,6 +179,8 @@
 		52B6A27A15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TR1MeshFace+TRRenderCategories.m"; sourceTree = "<group>"; };
 		52B6A29415E3E801007EFC77 /* TRRenderRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderRoom.h; sourceTree = "<group>"; };
 		52B6A29515E3E801007EFC77 /* TRRenderRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRenderRoom.m; sourceTree = "<group>"; };
+		52B6A29F15E44B6C007EFC77 /* TRRenderMoveable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderMoveable.h; sourceTree = "<group>"; };
+		52B6A2A015E44B6C007EFC77 /* TRRenderMoveable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRenderMoveable.m; sourceTree = "<group>"; };
 		52D8D92815DB85AF00374481 /* TR1TextureVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1TextureVertex.h; sourceTree = "<group>"; };
 		52D8D92915DB85B100374481 /* TR1TextureVertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1TextureVertex.m; sourceTree = "<group>"; };
 		52D8D92B15DB871600374481 /* TR1Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Camera.h; sourceTree = "<group>"; };
@@ -349,6 +352,8 @@
 				52B6A27A15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m */,
 				52B6A29415E3E801007EFC77 /* TRRenderRoom.h */,
 				52B6A29515E3E801007EFC77 /* TRRenderRoom.m */,
+				52B6A29F15E44B6C007EFC77 /* TRRenderMoveable.h */,
+				52B6A2A015E44B6C007EFC77 /* TRRenderMoveable.m */,
 			);
 			path = Rendering;
 			sourceTree = "<group>";
@@ -853,6 +858,7 @@
 				52B6A27315E2CF50007EFC77 /* TRRenderMesh.m in Sources */,
 				52B6A27B15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m in Sources */,
 				52B6A29615E3E801007EFC77 /* TRRenderRoom.m in Sources */,
+				52B6A2A115E44B6C007EFC77 /* TRRenderMoveable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

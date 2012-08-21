@@ -30,7 +30,7 @@
 }
 - (SCNVector3)lightAtCorner:(NSUInteger)index;
 {
-	NSAssert(!self.mesh.usesInternalLighting, @"Can't return light value if not internal lighting.");
+	NSAssert(self.mesh.usesInternalLighting, @"Can't return light value if not internal lighting.");
 
 	double lightValue = [self.mesh.lightIntensities[[self.indices[index] unsignedIntegerValue]] doubleValue];
 	

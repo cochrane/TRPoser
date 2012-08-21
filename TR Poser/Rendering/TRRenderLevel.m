@@ -172,6 +172,12 @@
 			vertex.yPixel + pageRow*256
 		};
 		
+		if (vertex.xCoordinate < 128) pixels[0]++;
+		else pixels[0]--;
+		
+		if (vertex.yCoordinate < 128) pixels[1]++;
+		else pixels[1]--;
+		
 		fourPoints[i++] = CGPointMake((CGFloat) pixels[0] / (CGFloat) (pagesWide*256), (CGFloat) pixels[1] / (CGFloat) (pagesHigh*256));
 	}
 }

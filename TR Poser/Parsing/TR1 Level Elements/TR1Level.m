@@ -13,6 +13,13 @@
 
 #import "TR1MeshPointer.h"
 #import "TR1Mesh.h"
+#import "TR1StaticMesh.h"
+
+@interface TR1Level ()
+
+@property (nonatomic, readonly, retain) NSMutableDictionary *staticMeshesByObjectID;
+
+@end
 
 @implementation TR1Level
 
@@ -88,6 +95,11 @@
 		meshPointer.mesh = mesh;
 	}
 	
+	// Set up things by key
+	_staticMeshesByObjectID = [[NSMutableDictionary alloc] initWithCapacity:self.staticMeshes.count];
+	for (TR1StaticMesh *mesh in self.staticMeshes)
+		[_staticMeshesByObjectID setObject:mesh forKey:@(mesh.objectID)];
+	
 	return self;
 }
 - (void)writeToStream:(TROutDataStream *)stream;
@@ -101,6 +113,10 @@
 	[super writeToStream:stream substreams:@{ @"meshData" : meshStream }];
 }
 
+- (TR1StaticMesh *)staticMeshWithObjectID:(NSUInteger)objectID;
+{
+	return [self.staticMeshesByObjectID objectForKey:@(objectID)];
+}
 
 - (NSUInteger)countOfTextureTiles;
 {

@@ -69,6 +69,7 @@
 
 
 // Derived
+- (TR1StaticMesh *)staticMeshWithObjectID:(NSUInteger)objectID;
 
 // Always returns the highest quality for every level.
 - (NSUInteger)countOfTextureTiles;

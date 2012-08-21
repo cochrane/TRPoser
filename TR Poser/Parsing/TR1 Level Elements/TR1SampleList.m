@@ -26,7 +26,7 @@
 	if (!(self = [super init])) return nil;
 
 	numSamples = [stream readUint32];
-	samples = malloc(numSamples * sizeof(uint16_t));
+	samples = malloc(numSamples * sizeof(uint8_t));
 	[stream readUint8Array:samples count:numSamples];
 	
 	return self;

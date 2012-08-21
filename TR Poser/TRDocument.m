@@ -105,7 +105,7 @@
 	}
 	
 	TRRenderRoom *room = [self.renderLevel.rooms objectAtIndex:currentRoom];
-	SCNNode *newNode = [SCNNode nodeWithGeometry:room.roomGeometry];
+	SCNNode *newNode = [room createNodeWithStaticGeometry];
 	
 	if (self.sceneView.scene.rootNode.childNodes.count != 0)
 		[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];

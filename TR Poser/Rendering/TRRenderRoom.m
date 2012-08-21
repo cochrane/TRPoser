@@ -11,7 +11,10 @@
 #import "TR1Room.h"
 #import "TR1RoomFace.h"
 #import "TR1MeshFace+TRRenderCategories.h"
+#import "TR1StaticMesh.h"
+#import "TR1StaticMeshInstance.h"
 #import "TRRenderLevel.h"
+#import "TRRenderMesh.h"
 
 @interface TRRenderRoom ()
 {
@@ -185,6 +188,26 @@
 		roomGeometry = geometry;
 	}
 	return roomGeometry;
+}
+
+- (SCNNode *)createNodeWithStaticGeometry;
+{
+	SCNNode *node = [SCNNode nodeWithGeometry:self.roomGeometry];
+	
+	for (TR1StaticMeshInstance *instance in self.room.staticMeshes)
+	{
+		TR1StaticMesh *staticMesh = instance.mesh;
+		TRRenderMesh *mesh = [self.level.meshes objectAtIndex:staticMesh.meshIndex];
+		
+		SCNVector3 offset = SCNVector3Make((CGFloat) (instance.x - self.room.x) / 1024.0, (CGFloat) instance.y / 1024.0, (CGFloat) (instance.z - self.room.z) / 1024.0);
+		
+		SCNNode *meshNode = [SCNNode nodeWithGeometry:mesh.meshGeometry];
+		meshNode.position = offset;
+		meshNode.rotation = SCNVector4Make(0.0, 1.0, 0.0, instance.rotationInRad);
+		
+		[node addChildNode:meshNode];
+	}
+	return node;
 }
 
 @end

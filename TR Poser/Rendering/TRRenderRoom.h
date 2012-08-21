@@ -19,6 +19,11 @@
 @property (nonatomic, retain) TR1Room *room;
 @property (nonatomic, retain) TRRenderLevel *level;
 
+// Returns the same geometry every time; it can and will be shared.
 - (SCNGeometry *)roomGeometry;
+
+// Returns a new node every time. Who knows what you might want to
+// do with it?
+- (SCNNode *)createNodeWithStaticGeometry;
 
 @end

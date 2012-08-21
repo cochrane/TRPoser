@@ -111,10 +111,22 @@
 //	self.meshInternalLightingMaterial.specular.contents = [NSColor blackColor];
 //	self.meshInternalLightingMaterial.emission.contents = (__bridge id) textureImage;
 	self.meshInternalLightingMaterial.diffuse.contents = (__bridge id) textureImage;
+	self.meshInternalLightingMaterial.diffuse.minificationFilter = SCNLinearFiltering;
+	self.meshInternalLightingMaterial.diffuse.magnificationFilter = SCNLinearFiltering;
+	self.meshInternalLightingMaterial.diffuse.mipFilter = SCNLinearFiltering;
+	self.meshInternalLightingMaterial.diffuse.wrapS = SCNRepeat;
+	self.meshInternalLightingMaterial.diffuse.wrapT = SCNRepeat;
+	self.meshInternalLightingMaterial.lightingModelName = SCNLightingModelConstant;
 	self.meshInternalLightingMaterial.locksAmbientWithDiffuse = YES;
 	
 	self.meshExternalLightingMaterial = [SCNMaterial material];
 	self.meshExternalLightingMaterial.diffuse.contents = (__bridge id) textureImage;
+	self.meshExternalLightingMaterial.diffuse.minificationFilter = SCNLinearFiltering;
+	self.meshExternalLightingMaterial.diffuse.magnificationFilter = SCNLinearFiltering;
+	self.meshExternalLightingMaterial.diffuse.mipFilter = SCNLinearFiltering;
+	self.meshExternalLightingMaterial.diffuse.wrapS = SCNRepeat;
+	self.meshExternalLightingMaterial.diffuse.wrapT = SCNRepeat;
+	self.meshExternalLightingMaterial.lightingModelName = SCNLightingModelConstant;
 	self.meshExternalLightingMaterial.locksAmbientWithDiffuse = YES;
 	
 	self.meshAlphaInternalLightingMaterial = [SCNMaterial material];

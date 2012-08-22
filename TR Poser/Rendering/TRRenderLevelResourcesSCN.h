@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "TRRenderLevelResources.h"
 
 #import <SceneKit/SceneKit.h>
 
@@ -16,11 +16,7 @@
 @class TRRenderLevelSCN;
 @class TRRenderMoveableDescription;
 
-@interface TRRenderLevelResourcesSCN : NSObject
-
-- (id)initWithLevel:(TR1Level *)aLevel;
-
-@property (nonatomic, retain) TR1Level *level;
+@interface TRRenderLevelResourcesSCN : TRRenderLevelResources
 
 @property (nonatomic, readonly) CGImageRef textureImage;
 

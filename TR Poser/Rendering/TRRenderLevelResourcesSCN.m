@@ -14,6 +14,7 @@
 #import "TRRenderMoveableDescription.h"
 #import "TRRenderRoomGeometrySCN.h"
 #import "TRRenderLevelSCN.h"
+#import "TRRenderTexture.h"
 #import "TRTexturePage.h"
 #import "TR1Level.h"
 #import "TR1MeshPointer.h"
@@ -24,10 +25,7 @@
 
 @interface TRRenderLevelResourcesSCN ()
 {
-	BOOL usePalettePage;
 	CGImageRef textureImage;
-	NSUInteger pagesWide;
-	NSUInteger pagesHigh;
 }
 
 @property (nonatomic, copy, readwrite) NSArray *meshes;
@@ -39,7 +37,6 @@
 @property (nonatomic, readwrite, retain) SCNMaterial *meshAlphaInternalLightingMaterial;
 @property (nonatomic, readwrite, retain) SCNMaterial *meshAlphaExternalLightingMaterial;
 
-- (void)setupTexture;
 - (void)setupMaterials;
 - (void)setupMeshes;
 - (void)setupRooms;
@@ -53,10 +50,8 @@
 
 - (id)initWithLevel:(TR1Level *)aLevel;
 {
-	if (!(self = [super init])) return nil;
+	if (!(self = [super initWithLevel:aLevel])) return nil;
 	
-	self.level = aLevel;
-	[self setupTexture];
 	[self setupMaterials];
 	[self setupMeshes];
 	[self setupRooms];
@@ -67,56 +62,14 @@
 
 - (void)dealloc
 {
-	CGImageRelease(textureImage);
-}
-
-- (void)setupTexture;
-{
-	NSMutableArray *texturePages32 = [[NSMutableArray alloc] initWithCapacity:self.level.textureTiles8.count];
-	if (self.level.palette8)
-	{
-		usePalettePage = YES;
-		[texturePages32 addObject:[self.level.palette8 asTexturePage]];
-	}
-	
-	for (TRTexturePage *page in [self.level valueForKey:@"textureTiles"])
-		[texturePages32 addObject:[page pixels32Bit]];
-
-	pagesWide = sqrt((double) texturePages32.count);
-	pagesHigh = ceil( (double) texturePages32.count / (double) pagesWide);
-
-	const NSUInteger rowBytes = pagesWide * 256 * 4;
-	const NSUInteger pageRowBytes = rowBytes * 256;
-	const NSUInteger pageColumnBytes = 256*4;
-
-	uint8_t *result = calloc(pagesHigh*pagesWide, 256*256*4);
-	for (NSUInteger row = 0, i = 0; row < pagesHigh; row++)
-	{
-		for (NSUInteger col = 0; col < pagesWide; col++, i++)
-		{
-			if (i >= texturePages32.count) break;
-			
-			uint8_t *output = &(result[row*pageRowBytes + col*pageColumnBytes]);
-			const uint8_t *original = [texturePages32[i] bytes];
-			
-			for (NSUInteger j = 0; j < 256; j++)
-				memcpy(&(output[j*rowBytes]), &(original[j*256*4]), 256*4);
-		}
-	}
-	CFDataRef imageData = CFDataCreateWithBytesNoCopy(kCFAllocatorDefault, result, pagesHigh*pagesWide*256*256*4, kCFAllocatorMalloc);
-	CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData(imageData);
-	CFRelease(imageData);
-	CGColorSpaceRef deviceRGB = CGColorSpaceCreateDeviceRGB();
-	
-	textureImage = CGImageCreate(pagesWide*256, pagesHigh*256, 8, 32, rowBytes, deviceRGB, kCGImageAlphaFirst, dataProvider, NULL, YES, kCGRenderingIntentDefault);
-	CGColorSpaceRelease(deviceRGB);
-	CGDataProviderRelease(dataProvider);
+	if (textureImage)
+		CGImageRelease(textureImage);
 }
 
 - (void)setupMaterials
 {
 	self.meshInternalLightingMaterial = [SCNMaterial material];
-	self.meshInternalLightingMaterial.diffuse.contents = (__bridge id) textureImage;
+	self.meshInternalLightingMaterial.diffuse.contents = (__bridge id) self.textureImage;
 	self.meshInternalLightingMaterial.diffuse.minificationFilter = SCNLinearFiltering;
 	self.meshInternalLightingMaterial.diffuse.magnificationFilter = SCNLinearFiltering;
 	self.meshInternalLightingMaterial.diffuse.mipFilter = SCNLinearFiltering;
@@ -127,7 +80,7 @@
 	
 	self.meshExternalLightingMaterial = [SCNMaterial material];
 	self.meshExternalLightingMaterial.ambient.contents = [NSColor whiteColor];
-	self.meshExternalLightingMaterial.diffuse.contents = (__bridge id) textureImage;
+	self.meshExternalLightingMaterial.diffuse.contents = (__bridge id) self.textureImage;
 	self.meshExternalLightingMaterial.diffuse.minificationFilter = SCNLinearFiltering;
 	self.meshExternalLightingMaterial.diffuse.magnificationFilter = SCNLinearFiltering;
 	self.meshExternalLightingMaterial.diffuse.mipFilter = SCNLinearFiltering;
@@ -142,10 +95,10 @@
 //	self.meshAlphaInternalLightingMaterial.specular.contents = [NSColor blackColor];
 //	self.meshAlphaInternalLightingMaterial.emission.contents = (__bridge id) textureImage;
 	self.meshAlphaInternalLightingMaterial.transparencyMode = SCNTransparencyModeRGBZero;
-	self.meshAlphaInternalLightingMaterial.diffuse.contents = (__bridge id) textureImage;
+	self.meshAlphaInternalLightingMaterial.diffuse.contents = (__bridge id) self.textureImage;
 	
 	self.meshAlphaExternalLightingMaterial = [SCNMaterial material];
-	self.meshAlphaExternalLightingMaterial.diffuse.contents = (__bridge id) textureImage;
+	self.meshAlphaExternalLightingMaterial.diffuse.contents = (__bridge id) self.textureImage;
 	self.meshAlphaExternalLightingMaterial.transparencyMode = SCNTransparencyModeRGBZero;
 }
 
@@ -155,7 +108,7 @@
 	
 	for (TR1MeshPointer *meshPointer in self.level.meshPointers)
 	{
-		TRRenderMeshSCN *renderMesh = [[TRRenderMeshSCN alloc] initWithMesh:meshPointer.mesh inRenderLevel:self];
+		TRRenderMeshSCN *renderMesh = [[TRRenderMeshSCN alloc] initWithMesh:meshPointer.mesh resources:self];
 		[meshes addObject:renderMesh];
 	}
 	
@@ -186,41 +139,48 @@
 	
 	self.moveablesByObjectID = moveables;
 }
+- (CGImageRef)textureImage
+{
+	if (textureImage == NULL)
+	{
+		NSData *image = [self.renderTexture create32BitData];
+		CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFDataRef) image);
+		CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+		
+		textureImage = CGImageCreate(self.renderTexture.width,
+									 self.renderTexture.height,
+									 8, 32,
+									 self.renderTexture.width * 4,
+									 colorSpace,
+									 kCGImageAlphaFirst,
+									 dataProvider,
+									 NULL,
+									 YES,
+									 kCGRenderingIntentDefault);
+		
+		CGDataProviderRelease(dataProvider);
+		CGColorSpaceRelease(colorSpace);
+	}
+	return textureImage;
+}
 
 - (void)getTextureCoords:(CGPoint *)fourPoints forObjectTexture:(TR1Texture *)texture;
 {
-	NSUInteger page = texture.tileIndex;
-	if (usePalettePage)
-		page += 1;
-	
-	NSUInteger pageRow = page / pagesWide;
-	NSUInteger pageCol = page % pagesWide;
-	
 	NSUInteger i = 0;
 	for (TR1TextureVertex *vertex in texture.vertices)
 	{
-		NSUInteger pixels[2] = {
-			vertex.xPixel + pageCol*256,
-			vertex.yPixel + pageRow*256
-		};
+		float coords[2];
+		[self.renderTexture getTextureCoords:coords forTexture:texture corner:i];
 		
-		if (vertex.xCoordinate < 128) pixels[0]++;
-		else pixels[0]--;
-		
-		if (vertex.yCoordinate < 128) pixels[1]++;
-		else pixels[1]--;
-		
-		fourPoints[i++] = CGPointMake((CGFloat) pixels[0] / (CGFloat) (pagesWide*256), (CGFloat) pixels[1] / (CGFloat) (pagesHigh*256));
+		fourPoints[i++] = CGPointMake(coords[0], coords[1]);
 	}
 }
 
 - (CGPoint)textureCoordsForColorIndex:(NSUInteger)colorIndex;
 {
-	NSUInteger pixelX = 8 + (colorIndex % 16)*16;
-	NSUInteger pixelY = 8 + (colorIndex / 16)*16;
-	
-	return CGPointMake((CGFloat) pixelX / (CGFloat) (pagesWide * 256),
-					   (CGFloat) pixelY / (CGFloat) (pagesHigh * 256));
+	float coords[2];
+	[self.renderTexture getTextureCoords:coords forColorIndex:colorIndex];
+	return CGPointMake(coords[0], coords[1]);
 }
 
 - (TRRenderLevelSCN *)createRenderLevel;

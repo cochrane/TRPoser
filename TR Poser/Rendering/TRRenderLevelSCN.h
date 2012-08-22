@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
 
-@class TRRenderLevelResources;
+@class TRRenderLevelResourcesSCN;
 
 @interface TRRenderLevelSCN : NSObject
 
-- (id)initWithResources:(TRRenderLevelResources *)resources;
+- (id)initWithResources:(TRRenderLevelResourcesSCN *)resources;
 
-@property (nonatomic, retain, readonly) TRRenderLevelResources *resources;
+@property (nonatomic, retain, readonly) TRRenderLevelResourcesSCN *resources;
 @property (nonatomic, retain, readonly) SCNNode *rootNode;
 @property (nonatomic, retain, readonly) NSArray *rooms;
 @property (nonatomic, retain, readonly) NSArray *moveables;

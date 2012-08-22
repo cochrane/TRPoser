@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TRRenderLevelResources.h"
+#import "TRRenderLevelResourcesSCN.h"
 
 #import <Accelerate/Accelerate.h>
 
@@ -22,7 +22,7 @@
 #import "TR1Texture.h"
 #import "TR1TextureVertex.h"
 
-@interface TRRenderLevelResources ()
+@interface TRRenderLevelResourcesSCN ()
 {
 	BOOL usePalettePage;
 	CGImageRef textureImage;
@@ -47,7 +47,7 @@
 
 @end
 
-@implementation TRRenderLevelResources
+@implementation TRRenderLevelResourcesSCN
 
 @synthesize textureImage=textureImage;
 

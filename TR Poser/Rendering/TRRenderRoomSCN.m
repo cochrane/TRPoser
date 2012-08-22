@@ -6,26 +6,26 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TRRenderRoom.h"
+#import "TRRenderRoomSCN.h"
 
 #import "TRRenderRoomGeometrySCN.h"
 #import "TR1Room.h"
 #import "TR1RoomFace.h"
 #import "TR1RoomLight.h"
-#import "TR1MeshFace+TRRenderCategories.h"
+#import "TRRenderCategoriesSCN.h"
 #import "TR1StaticMesh.h"
 #import "TR1StaticMeshInstance.h"
 #import "TRRenderLevelResourcesSCN.h"
 #import "TRRenderMeshSCN.h"
 
-@interface TRRenderRoom ()
+@interface TRRenderRoomSCN ()
 {
 	SCNNode *node;
 }
 
 @end
 
-@implementation TRRenderRoom
+@implementation TRRenderRoomSCN
 
 - (id)initWithRoomGeometry:(TRRenderRoomGeometrySCN *)room;
 {

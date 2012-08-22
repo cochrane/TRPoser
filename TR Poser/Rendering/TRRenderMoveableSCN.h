@@ -13,9 +13,9 @@
 @class TRRenderMoveableDescription;
 @class TRRenderMoveableDescriptionNode;
 @class TRRenderMoveableNode;
-@class TRRenderRoom;
+@class TRRenderRoomSCN;
 
-@interface TRRenderMoveable : NSObject
+@interface TRRenderMoveableSCN : NSObject
 
 - (id)initWithDescription:(TRRenderMoveableDescription *)description;
 
@@ -25,7 +25,7 @@
 
 @property (nonatomic, assign) SCNVector3 offset;
 @property (nonatomic, assign) double rotation;
-@property (nonatomic, retain) TRRenderRoom *room;
+@property (nonatomic, retain) TRRenderRoomSCN *room;
 
 @property (nonatomic, retain, readonly) SCNNode *sceneRoot;
 
@@ -36,7 +36,7 @@
 
 @interface TRRenderMoveableNode : NSObject
 
-- (id)initWithDescription:(TRRenderMoveableDescriptionNode *)node partOf:(TRRenderMoveable *)moveable;
+- (id)initWithDescription:(TRRenderMoveableDescriptionNode *)node partOf:(TRRenderMoveableSCN *)moveable;
 
 @property (nonatomic, copy, readonly) NSArray *children;
 

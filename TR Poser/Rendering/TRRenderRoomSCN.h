@@ -13,7 +13,7 @@
 @class TRRenderRoomGeometrySCN;
 @class TR1Room;
 
-@interface TRRenderRoom : NSObject
+@interface TRRenderRoomSCN : NSObject
 
 - (id)initWithRoomGeometry:(TRRenderRoomGeometrySCN *)room;
 

@@ -9,8 +9,8 @@
 #import "TRRenderLevelSCN.h"
 
 #import "TRRenderLevelResourcesSCN.h"
-#import "TRRenderRoom.h"
-#import "TRRenderMoveable.h"
+#import "TRRenderRoomSCN.h"
+#import "TRRenderMoveableSCN.h"
 #import "TR1Level.h"
 #import "TR1Item.h"
 
@@ -32,7 +32,7 @@
 	NSMutableArray *rooms = [[NSMutableArray alloc] initWithCapacity:resources.rooms.count];
 	for (TRRenderRoomGeometrySCN *geometry in resources.rooms)
 	{
-		TRRenderRoom *room = [[TRRenderRoom alloc] initWithRoomGeometry:geometry];
+		TRRenderRoomSCN *room = [[TRRenderRoomSCN alloc] initWithRoomGeometry:geometry];
 		[rooms addObject:room];
 	}
 	_rooms = [rooms copy];
@@ -44,9 +44,9 @@
 		if (!description)
 			continue; // Object ID could be pointing to sprite or similar.
 		
-		TRRenderMoveable *moveable = [[TRRenderMoveable alloc] initWithDescription:description];
+		TRRenderMoveableSCN *moveable = [[TRRenderMoveableSCN alloc] initWithDescription:description];
 		
-		TRRenderRoom *parentRoom = [_rooms objectAtIndex:item.roomIndex];
+		TRRenderRoomSCN *parentRoom = [_rooms objectAtIndex:item.roomIndex];
 		moveable.offset = SCNVector3Make((CGFloat) item.x / 1024.0 - parentRoom.offset.x,
 										 (CGFloat) item.y / 1024.0 - parentRoom.offset.y,
 										 (CGFloat) item.z / 1024.0 - parentRoom.offset.z);
@@ -66,7 +66,7 @@
 	
 	rootNode = [SCNNode node];
 	
-	for (TRRenderRoom *room in self.rooms)
+	for (TRRenderRoomSCN *room in self.rooms)
 	{
 		SCNNode *node = room.node;
 		SCNVector3 offset = room.offset;

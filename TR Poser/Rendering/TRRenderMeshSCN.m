@@ -11,7 +11,7 @@
 #import "TR1Mesh.h"
 #import "TR1MeshFace.h"
 #import "TRRenderLevelResourcesSCN.h"
-#import "TR1MeshFace+TRRenderCategories.h"
+#import "TRRenderCategoriesSCN.h"
 
 @interface TRRenderMeshSCN ()
 

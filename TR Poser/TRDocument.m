@@ -12,7 +12,7 @@
 #import "TR2RoomVertex.h"
 #import "TRRenderLevelSCN.h"
 #import "TRRenderLevelResourcesSCN.h"
-#import "TRRenderMoveable.h"
+#import "TRRenderMoveableSCN.h"
 #import "TRRenderMoveableDescription.h"
 
 @interface TRDocument ()

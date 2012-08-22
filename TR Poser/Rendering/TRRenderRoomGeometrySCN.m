@@ -10,7 +10,7 @@
 
 #import "TR1Room.h"
 #import "TR1RoomFace.h"
-#import "TR1MeshFace+TRRenderCategories.h"
+#import "TRRenderCategoriesSCN.h"
 #import "TRRenderLevelResourcesSCN.h"
 
 @interface TRRenderRoomGeometrySCN ()

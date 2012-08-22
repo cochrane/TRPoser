@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TRRenderMoveable.h"
+#import "TRRenderMoveableSCN.h"
 
 #import "TR1Animation.h"
 #import "TRFrame.h"
@@ -16,16 +16,16 @@
 #import "TRRenderMeshSCN.h"
 #import "TRRenderMoveableDescription.h"
 #import "TRRenderLevelResourcesSCN.h"
-#import "TRRenderRoom.h"
+#import "TRRenderRoomSCN.h"
 
-@interface TRRenderMoveable ()
+@interface TRRenderMoveableSCN ()
 {
 	SCNNode *sceneRoot;
 }
 
 @end
 
-@implementation TRRenderMoveable
+@implementation TRRenderMoveableSCN
 
 - (id)initWithDescription:(TRRenderMoveableDescription *)description;
 {
@@ -72,7 +72,7 @@
 	return sceneRoot;
 }
 
-- (void)setRoom:(TRRenderRoom *)room
+- (void)setRoom:(TRRenderRoomSCN *)room
 {
 	if (_room)
 		[self.sceneRoot removeFromParentNode];
@@ -114,7 +114,7 @@
 	return [NSSet setWithObjects:@"rotationX", @"rotationY", @"rotationZ", @"offset", nil];
 }
 
-- (id)initWithDescription:(TRRenderMoveableDescriptionNode *)node partOf:(TRRenderMoveable *)moveable;
+- (id)initWithDescription:(TRRenderMoveableDescriptionNode *)node partOf:(TRRenderMoveableSCN *)moveable;
 {
 	if (!(self = [super init])) return nil;
 	

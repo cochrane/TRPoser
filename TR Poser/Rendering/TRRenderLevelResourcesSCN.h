@@ -12,7 +12,7 @@
 
 @class TR1Level;
 @class TR1Texture;
-@class TRRenderRoom;
+@class TRRenderRoomSCN;
 @class TRRenderLevelSCN;
 @class TRRenderMoveableDescription;
 

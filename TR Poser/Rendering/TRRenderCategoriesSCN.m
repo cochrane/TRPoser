@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TR1MeshFace+TRRenderCategories.h"
+#import "TRRenderCategoriesSCN.h"
 
 #import "TR1Mesh.h"
 #import "TR1Room.h"

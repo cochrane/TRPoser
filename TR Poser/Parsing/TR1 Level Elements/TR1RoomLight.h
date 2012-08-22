@@ -20,4 +20,7 @@
 @property (nonatomic, assign) NSUInteger intensity1;
 @property (nonatomic, assign) NSUInteger fade1;
 
+// Derived
+@property (nonatomic, weak) NSColor *color;
+
 @end

@@ -11,6 +11,7 @@
 #import "TRRenderRoomGeometry.h"
 #import "TR1Room.h"
 #import "TR1RoomFace.h"
+#import "TR1RoomLight.h"
 #import "TR1MeshFace+TRRenderCategories.h"
 #import "TR1StaticMesh.h"
 #import "TR1StaticMeshInstance.h"
@@ -70,6 +71,30 @@
 		
 		[node addChildNode:meshNode];
 	}
+	
+	// Lighting
+	SCNLight *light = [SCNLight light];
+	light.type = SCNLightTypeAmbient;
+	light.color = self.room.roomColor;
+	node.light = light;
+	
+	for (TR1RoomLight *light in self.room.lights)
+	{
+		SCNLight *roomLight = [SCNLight light];
+		roomLight.type = SCNLightTypeOmni;
+		roomLight.color = light.color;
+		[roomLight setAttribute:@0 forKey:SCNLightAttenuationStartKey];
+		[roomLight setAttribute:@(light.fade1 / 0x7FFF) forKey:SCNLightAttenuationEndKey];
+		[roomLight setAttribute:@1 forKey:SCNLightAttenuationFalloffExponentKey];
+		
+		SCNNode *lightNode = [SCNNode node];
+		lightNode.light = roomLight;
+		lightNode.position = SCNVector3Make(light.x / 1024.0,
+											light.y / 1024.0,
+											light.z / 1024.0);
+		[node addChildNode:lightNode];
+	}
+	
 	return node;
 }
 

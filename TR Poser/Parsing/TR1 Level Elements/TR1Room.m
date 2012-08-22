@@ -173,4 +173,19 @@
 		iterator(vertex);
 }
 
+- (void)setRoomColor:(NSColor *)color
+{
+	NSColorSpace *graySpace = [NSColorSpace genericGrayColorSpace];
+	NSColor *grayScaleColor = [color colorUsingColorSpace:graySpace];
+	
+	float lightValue = [grayScaleColor whiteComponent];
+	self.ambientIntensity1 = [self.level lightValueFromBrightness:lightValue];
+}
+
+- (NSColor *)roomColor
+{
+	float lightValue = [self.level normalizeLightValue:self.ambientIntensity1];
+	return [NSColor colorWithDeviceWhite:lightValue alpha:1.0];
+}
+
 @end

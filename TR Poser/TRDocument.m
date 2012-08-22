@@ -49,10 +49,6 @@
 	// Add any code here that needs to be executed once the windowController has loaded the document's window.
 	
 	self.sceneView.scene = [SCNScene scene];
-	// Turn on the lights!
-	SCNLight *light = [SCNLight light];
-	light.type = SCNLightTypeDirectional;
-	self.sceneView.scene.rootNode.light = light;
 }
 
 + (BOOL)autosavesInPlace

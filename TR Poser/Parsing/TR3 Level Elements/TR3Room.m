@@ -37,5 +37,4 @@
 	[stream appendUint8:(uint8_t) self.unknown2];
 }
 
-
 @end

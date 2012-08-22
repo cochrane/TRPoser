@@ -13,7 +13,7 @@
 #import "TR1Level.h"
 #import "TR1Moveable.h"
 
-#import "TRRenderMesh.h"
+#import "TRRenderMeshSCN.h"
 #import "TRRenderMoveableDescription.h"
 #import "TRRenderLevelResources.h"
 #import "TRRenderRoom.h"
@@ -118,9 +118,9 @@
 {
 	if (!(self = [super init])) return nil;
 	
-	self.offset = node.offset;
+	self.offset = SCNVector3Make(node.offsetX, node.offsetY, node.offsetZ);
 	TRRenderLevelResources *resources = moveable.description.level;
-	TRRenderMesh *mesh = [[resources meshes] objectAtIndex:node.meshIndex];
+	TRRenderMeshSCN *mesh = [[resources meshes] objectAtIndex:node.meshIndex];
 	_node = [SCNNode nodeWithGeometry:mesh.meshGeometry];
 	[_node bind:@"transform" toObject:self withKeyPath:@"transformation" options:nil];
 	

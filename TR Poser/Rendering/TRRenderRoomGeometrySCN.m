@@ -6,21 +6,21 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TRRenderRoomGeometry.h"
+#import "TRRenderRoomGeometrySCN.h"
 
 #import "TR1Room.h"
 #import "TR1RoomFace.h"
 #import "TR1MeshFace+TRRenderCategories.h"
 #import "TRRenderLevelResources.h"
 
-@interface TRRenderRoomGeometry ()
+@interface TRRenderRoomGeometrySCN ()
 {
 	SCNGeometry *roomGeometry;
 }
 
 @end
 
-@implementation TRRenderRoomGeometry
+@implementation TRRenderRoomGeometrySCN
 
 - (id)initWithRoom:(TR1Room *)room inRenderLevel:(TRRenderLevelResources *)level;
 {

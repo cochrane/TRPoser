@@ -10,7 +10,7 @@
 
 #import "TR2Level.h"
 #import "TR2RoomVertex.h"
-#import "TRRenderLevel.h"
+#import "TRRenderLevelSCN.h"
 #import "TRRenderLevelResources.h"
 #import "TRRenderMoveable.h"
 #import "TRRenderMoveableDescription.h"
@@ -18,7 +18,7 @@
 @interface TRDocument ()
 
 @property (nonatomic, retain) TRRenderLevelResources *renderLevelResources;
-@property (nonatomic, retain) TRRenderLevel *renderLevel;
+@property (nonatomic, retain) TRRenderLevelSCN *renderLevel;
 
 - (void)setupLevelWithURL:(NSURL *)url;
 - (void)setupGraphicsWithLevel:(TR1Level *)level;
@@ -110,7 +110,7 @@
 - (void)setupGraphicsWithLevel:(TR1Level *)level;
 {
 	self.renderLevelResources = [[TRRenderLevelResources alloc] initWithLevel:level];
-	self.renderLevel = [[TRRenderLevel alloc] initWithResources:self.renderLevelResources];
+	self.renderLevel = [[TRRenderLevelSCN alloc] initWithResources:self.renderLevelResources];
 	
 	if (self.sceneView.scene.rootNode.childNodes.count != 0)
 		[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];

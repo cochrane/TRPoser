@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TRRenderMesh.h"
+#import "TRRenderMeshSCN.h"
 
 #import "TR1Mesh.h"
 #import "TR1MeshFace.h"
 #import "TRRenderLevelResources.h"
 #import "TR1MeshFace+TRRenderCategories.h"
 
-@interface TRRenderMesh ()
+@interface TRRenderMeshSCN ()
 
 @property (nonatomic, retain, readwrite) TR1Mesh *mesh;
 @property (nonatomic, weak, readwrite) TRRenderLevelResources *level;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation TRRenderMesh
+@implementation TRRenderMeshSCN
 
 - (id)initWithMesh:(TR1Mesh *)mesh inRenderLevel:(TRRenderLevelResources *)level;
 {

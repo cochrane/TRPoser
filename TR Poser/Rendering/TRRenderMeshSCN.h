@@ -12,7 +12,7 @@
 @class TR1Mesh;
 @class TRRenderLevelResources;
 
-@interface TRRenderMesh : NSObject
+@interface TRRenderMeshSCN : NSObject
 
 - (id)initWithMesh:(TR1Mesh *)mesh inRenderLevel:(TRRenderLevelResources *)level;
 

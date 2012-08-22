@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TRRenderLevel.h"
+#import "TRRenderLevelSCN.h"
 
 #import "TRRenderLevelResources.h"
 #import "TRRenderRoom.h"
@@ -14,14 +14,14 @@
 #import "TR1Level.h"
 #import "TR1Item.h"
 
-@interface TRRenderLevel ()
+@interface TRRenderLevelSCN ()
 {
 	SCNNode *rootNode;
 }
 
 @end
 
-@implementation TRRenderLevel
+@implementation TRRenderLevelSCN
 
 - (id)initWithResources:(TRRenderLevelResources *)resources;
 {
@@ -30,7 +30,7 @@
 	_resources = resources;
 	
 	NSMutableArray *rooms = [[NSMutableArray alloc] initWithCapacity:resources.rooms.count];
-	for (TRRenderRoomGeometry *geometry in resources.rooms)
+	for (TRRenderRoomGeometrySCN *geometry in resources.rooms)
 	{
 		TRRenderRoom *room = [[TRRenderRoom alloc] initWithRoomGeometry:geometry];
 		[rooms addObject:room];

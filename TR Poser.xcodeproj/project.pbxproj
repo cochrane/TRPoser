@@ -38,7 +38,7 @@
 		52B6A27315E2CF50007EFC77 /* TRRenderMeshSCN.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A27215E2CF50007EFC77 /* TRRenderMeshSCN.m */; };
 		52B6A27615E2CF5E007EFC77 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B6A27515E2CF5E007EFC77 /* SceneKit.framework */; };
 		52B6A27815E2CF64007EFC77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B6A27715E2CF64007EFC77 /* QuartzCore.framework */; };
-		52B6A27B15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A27A15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m */; };
+		52B6A27B15E2E1A7007EFC77 /* TRRenderCategoriesSCN.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A27A15E2E1A7007EFC77 /* TRRenderCategoriesSCN.m */; };
 		52B6A29615E3E801007EFC77 /* TRRenderRoomSCN.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A29515E3E801007EFC77 /* TRRenderRoomSCN.m */; };
 		52B6A2A115E44B6C007EFC77 /* TRRenderMoveableSCN.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A2A015E44B6C007EFC77 /* TRRenderMoveableSCN.m */; };
 		52B6A2A815E4575F007EFC77 /* TRRenderRoomGeometrySCN.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A2A715E4575E007EFC77 /* TRRenderRoomGeometrySCN.m */; };
@@ -183,8 +183,8 @@
 		52B6A27215E2CF50007EFC77 /* TRRenderMeshSCN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRenderMeshSCN.m; sourceTree = "<group>"; };
 		52B6A27515E2CF5E007EFC77 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		52B6A27715E2CF64007EFC77 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		52B6A27915E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TR1MeshFace+TRRenderCategories.h"; sourceTree = "<group>"; };
-		52B6A27A15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TR1MeshFace+TRRenderCategories.m"; sourceTree = "<group>"; };
+		52B6A27915E2E1A7007EFC77 /* TRRenderCategoriesSCN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderCategoriesSCN.h; sourceTree = "<group>"; };
+		52B6A27A15E2E1A7007EFC77 /* TRRenderCategoriesSCN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRenderCategoriesSCN.m; sourceTree = "<group>"; };
 		52B6A29415E3E801007EFC77 /* TRRenderRoomSCN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderRoomSCN.h; sourceTree = "<group>"; };
 		52B6A29515E3E801007EFC77 /* TRRenderRoomSCN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRenderRoomSCN.m; sourceTree = "<group>"; };
 		52B6A29F15E44B6C007EFC77 /* TRRenderMoveableSCN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderMoveableSCN.h; sourceTree = "<group>"; };
@@ -360,8 +360,8 @@
 				526B670115E238ED00CAE40D /* TRRenderLevelResourcesSCN.m */,
 				52B6A27115E2CF50007EFC77 /* TRRenderMeshSCN.h */,
 				52B6A27215E2CF50007EFC77 /* TRRenderMeshSCN.m */,
-				52B6A27915E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.h */,
-				52B6A27A15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m */,
+				52B6A27915E2E1A7007EFC77 /* TRRenderCategoriesSCN.h */,
+				52B6A27A15E2E1A7007EFC77 /* TRRenderCategoriesSCN.m */,
 				52B6A29415E3E801007EFC77 /* TRRenderRoomSCN.h */,
 				52B6A29515E3E801007EFC77 /* TRRenderRoomSCN.m */,
 				52B6A29F15E44B6C007EFC77 /* TRRenderMoveableSCN.h */,
@@ -875,7 +875,7 @@
 				52AA11B115E1ACA700895F44 /* TR3Level.m in Sources */,
 				526B670215E238ED00CAE40D /* TRRenderLevelResourcesSCN.m in Sources */,
 				52B6A27315E2CF50007EFC77 /* TRRenderMeshSCN.m in Sources */,
-				52B6A27B15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m in Sources */,
+				52B6A27B15E2E1A7007EFC77 /* TRRenderCategoriesSCN.m in Sources */,
 				52B6A29615E3E801007EFC77 /* TRRenderRoomSCN.m in Sources */,
 				52B6A2A115E44B6C007EFC77 /* TRRenderMoveableSCN.m in Sources */,
 				52B6A2A815E4575F007EFC77 /* TRRenderRoomGeometrySCN.m in Sources */,

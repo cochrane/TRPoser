@@ -73,13 +73,13 @@
 	[elements addObject:[SCNGeometryElement geometryElementWithData:[indices subdataWithRange:NSMakeRange(0,
 																										   opaqueCount*sizeof(uint16_t))]
 													  primitiveType:SCNGeometryPrimitiveTypeTriangles
-													 primitiveCount:opaqueCount*3
+													 primitiveCount:opaqueCount/3
 													  bytesPerIndex:2]];
 	if (alphaCount > 0)
 		[elements addObject:[SCNGeometryElement geometryElementWithData:[indices subdataWithRange:NSMakeRange(opaqueCount*sizeof(uint16_t),
 																											   alphaCount*sizeof(uint16_t))]
 														  primitiveType:SCNGeometryPrimitiveTypeTriangles
-														 primitiveCount:opaqueCount*3
+														 primitiveCount:alphaCount/3
 														  bytesPerIndex:2]];
 	
 	geometry = [SCNGeometry geometryWithSources:sources elements:elements];

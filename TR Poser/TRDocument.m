@@ -18,7 +18,7 @@
 @interface TRDocument ()
 
 @property (nonatomic, retain) TRRenderLevelResources *renderLevelResources;
-@property (nonatomic, assign) NSUInteger selectedMoveable;
+@property (nonatomic, retain) TRRenderLevel *renderLevel;
 
 - (void)setupLevelWithURL:(NSURL *)url;
 - (void)setupGraphicsWithLevel:(TR1Level *)level;
@@ -101,11 +101,6 @@
 	}];
 }
 
-- (IBAction)setSelectedMesh:(id)sender
-{
-	self.selectedMoveable = [sender integerValue];
-}
-
 - (void)setupLevelWithURL:(NSURL *)url;
 {
 	NSData *data = [NSData dataWithContentsOfURL:url];
@@ -119,27 +114,12 @@
 - (void)setupGraphicsWithLevel:(TR1Level *)level;
 {
 	self.renderLevelResources = [[TRRenderLevelResources alloc] initWithLevel:level];
-	
-	self.selectedMoveable = 0;
-	
-	self.stepper.minValue = 0.0;
-	self.stepper.doubleValue = 0.0;
-	self.stepper.maxValue = self.renderLevelResources.meshes.count - 1;
-}
-
-- (void)setSelectedMoveable:(NSUInteger)selectedMoveable
-{
-	_selectedMoveable = selectedMoveable;
-	
-	TRRenderMoveableDescription *description = self.renderLevelResources.moveables[selectedMoveable];
-	
-	TRRenderMoveable *moveable = [[TRRenderMoveable alloc] initWithDescription:description];
+	self.renderLevel = [[TRRenderLevel alloc] initWithResources:self.renderLevelResources];
 	
 	if (self.sceneView.scene.rootNode.childNodes.count != 0)
 		[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];
 	
-	[self.sceneView.scene.rootNode addChildNode:moveable.rootNode.node];
-	self.currentNumber.stringValue = [NSString stringWithFormat:@"Moveable %lu of %lu", selectedMoveable, self.renderLevelResources.moveables.count];
+	[self.sceneView.scene.rootNode addChildNode:self.renderLevel.rootNode];
 }
 
 @end

@@ -12,12 +12,8 @@
 @interface TRDocument : NSDocument
 
 @property IBOutlet SCNView *sceneView;
-@property IBOutlet NSStepper *stepper;
-@property IBOutlet NSTextField *currentNumber;
 
 - (IBAction)loadLevel:(id)sender;
 - (IBAction)saveLevel:(id)sender;
-
-- (IBAction)setSelectedMesh:(id)sender;
 
 @end

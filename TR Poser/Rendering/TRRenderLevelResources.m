@@ -6,12 +6,13 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
-#import "TRRenderLevel.h"
+#import "TRRenderLevelResources.h"
 
 #import <Accelerate/Accelerate.h>
 
 #import "TRRenderMesh.h"
-#import "TRRenderRoom.h"
+#import "TRRenderRoomGeometry.h"
+#import "TRRenderLevel.h"
 #import "TRTexturePage.h"
 #import "TR1Level.h"
 #import "TR1MeshPointer.h"
@@ -19,7 +20,7 @@
 #import "TR1Texture.h"
 #import "TR1TextureVertex.h"
 
-@interface TRRenderLevel ()
+@interface TRRenderLevelResources ()
 {
 	BOOL usePalettePage;
 	CGImageRef textureImage;
@@ -42,7 +43,7 @@
 
 @end
 
-@implementation TRRenderLevel
+@implementation TRRenderLevelResources
 
 @synthesize textureImage=textureImage;
 
@@ -164,13 +165,12 @@
 	
 	for (TR1Room *room in self.level.rooms)
 	{
-		TRRenderRoom *renderRoom = [[TRRenderRoom alloc] initWithRoom:room inRenderLevel:self];
+		TRRenderRoomGeometry *renderRoom = [[TRRenderRoomGeometry alloc] initWithRoom:room inRenderLevel:self];
 		[rooms addObject:renderRoom];
 	}
 	
 	self.rooms = rooms;
 }
-
 
 - (void)getTextureCoords:(CGPoint *)fourPoints forObjectTexture:(TR1Texture *)texture;
 {
@@ -208,20 +208,9 @@
 					   (CGFloat) pixelY / (CGFloat) (pagesHigh * 256));
 }
 
-- (SCNNode *)createLevelNode;
+- (TRRenderLevel *)createRenderLevel;
 {
-	SCNNode *levelNode = [SCNNode node];
-	
-	for (TRRenderRoom *room in self.rooms)
-	{
-		SCNNode *node = [room createNodeWithStaticGeometry];
-		SCNVector3 offset = room.offset;
-		
-		node.position = offset;
-		[levelNode addChildNode:node];
-	}
-	
-	return levelNode;
+	return [[TRRenderLevel alloc] initWithResources:self];
 }
 
 @end

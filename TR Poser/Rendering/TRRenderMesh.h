@@ -10,14 +10,14 @@
 #import <SceneKit/SceneKit.h>
 
 @class TR1Mesh;
-@class TRRenderLevel;
+@class TRRenderLevelResources;
 
 @interface TRRenderMesh : NSObject
 
-- (id)initWithMesh:(TR1Mesh *)mesh inRenderLevel:(TRRenderLevel *)level;
+- (id)initWithMesh:(TR1Mesh *)mesh inRenderLevel:(TRRenderLevelResources *)level;
 
 @property (nonatomic, retain, readonly) TR1Mesh *mesh;
-@property (nonatomic, weak, readonly) TRRenderLevel *level;
+@property (nonatomic, weak, readonly) TRRenderLevelResources *level;
 
 - (SCNGeometry *)meshGeometry;
 

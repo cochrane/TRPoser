@@ -10,20 +10,20 @@
 
 #import "TR1Mesh.h"
 #import "TR1MeshFace.h"
-#import "TRRenderLevel.h"
+#import "TRRenderLevelResources.h"
 #import "TR1MeshFace+TRRenderCategories.h"
 
 @interface TRRenderMesh ()
 
 @property (nonatomic, retain, readwrite) TR1Mesh *mesh;
-@property (nonatomic, weak, readwrite) TRRenderLevel *level;
+@property (nonatomic, weak, readwrite) TRRenderLevelResources *level;
 @property (nonatomic, retain) SCNGeometry *geometry;
 
 @end
 
 @implementation TRRenderMesh
 
-- (id)initWithMesh:(TR1Mesh *)mesh inRenderLevel:(TRRenderLevel *)level;
+- (id)initWithMesh:(TR1Mesh *)mesh inRenderLevel:(TRRenderLevelResources *)level;
 {
 	if (!(self = [super init])) return nil;
 	

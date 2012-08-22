@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SceneKit/SceneKit.h>
+
+@class TRRenderLevelResources;
 
 @interface TRRenderLevel : NSObject
+
+- (id)initWithResources:(TRRenderLevelResources *)resources;
+
+@property (nonatomic, retain, readonly) TRRenderLevelResources *resources;
+@property (nonatomic, retain, readonly) SCNNode *rootNode;
+@property (nonatomic, retain, readonly) NSArray *rooms;
 
 @end

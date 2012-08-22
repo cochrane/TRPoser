@@ -9,22 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
 
+@class TRRenderLevelResources;
+@class TRRenderRoomGeometry;
 @class TR1Room;
-@class TRRenderLevel;
 
 @interface TRRenderRoom : NSObject
 
-- (id)initWithRoom:(TR1Room *)room inRenderLevel:(TRRenderLevel *)level;
+- (id)initWithRoomGeometry:(TRRenderRoomGeometry *)room;
 
-@property (nonatomic, retain) TR1Room *room;
-@property (nonatomic, retain) TRRenderLevel *level;
+@property (nonatomic, retain, readonly) TRRenderRoomGeometry *geometry;
+@property (nonatomic, retain, readonly) TR1Room *room;
+@property (nonatomic, weak, readonly) TRRenderLevelResources *level;
 
-// Returns the same geometry every time; it can and will be shared.
-- (SCNGeometry *)roomGeometry;
-
-// Returns a new node every time. Who knows what you might want to
-// do with it?
-- (SCNNode *)createNodeWithStaticGeometry;
+- (SCNNode *)node;
 
 @property (nonatomic, assign, readonly) SCNVector3 offset;
 

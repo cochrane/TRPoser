@@ -11,11 +11,14 @@
 #import "TR2Level.h"
 #import "TR2RoomVertex.h"
 #import "TRRenderLevel.h"
-#import "TRRenderRoom.h"
+#import "TRRenderLevelResources.h"
 
 @interface TRDocument ()
 
 @property (nonatomic, retain) TRRenderLevel *renderLevel;
+
+- (void)setupLevelWithURL:(NSURL *)url;
+- (void)setupGraphicsWithLevel:(TR1Level *)level;
 
 @end
 
@@ -80,20 +83,7 @@
 	[panel beginSheetModalForWindow:self.windowForSheet completionHandler:^(NSInteger result) {
 		if (result != NSOKButton) return;
 		
-		NSData *data = [NSData dataWithContentsOfURL:panel.URL];
-		NSAssert(data != nil, @"Can't find file %@", panel.URL);
-		TR2Level *level = [[TR2Level alloc] initWithData:data];
-		NSAssert(level != nil, @"Can't load level %@", panel.URL);
-		
-		self.renderLevel = [[TRRenderLevel alloc] initWithLevel:level];
-		
-		SCNNode *newNode = [self.renderLevel createLevelNode];
-		
-		if (self.sceneView.scene.rootNode.childNodes.count != 0)
-			[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];
-		
-		[self.sceneView.scene.rootNode addChildNode:newNode];
-
+		[self setupLevelWithURL:panel.URL];
 	}];
 }
 - (IBAction)saveLevel:(id)sender;
@@ -103,7 +93,7 @@
 	[panel beginSheetModalForWindow:self.windowForSheet completionHandler:^(NSInteger result){
 		if (result != NSOKButton) return;
 		
-		NSData *data = [self.renderLevel.level writeToData];
+		NSData *data = [self.renderLevel.resources.level writeToData];
 		[data writeToURL:panel.URL atomically:YES];
 	}];
 }
@@ -116,7 +106,7 @@
 		return;
 	}
 	
-	TR1Level *level = self.renderLevel.level;
+	TR1Level *level = self.renderLevel.resources.level;
 	self.renderLevel = nil;
 	
 	NSUInteger lighting = self.lightValueTextfield.integerValue;
@@ -127,14 +117,29 @@
 		vert.lighting2 = lighting;
 	}];
 	
-	self.renderLevel = [[TRRenderLevel alloc] initWithLevel:level];
+	[self setupGraphicsWithLevel:level];
+}
+
+- (void)setupLevelWithURL:(NSURL *)url;
+{
+	NSData *data = [NSData dataWithContentsOfURL:url];
+	NSAssert(data != nil, @"Can't load %@", url);
 	
-	SCNNode *newNode = [self.renderLevel createLevelNode];
+	TR2Level *level = [[TR2Level alloc] initWithData:data];
+	NSAssert(level != nil, @"Can't create level for %@", url);
+	
+	[self setupGraphicsWithLevel:level];
+}
+- (void)setupGraphicsWithLevel:(TR1Level *)level;
+{
+	TRRenderLevelResources *resources = [[TRRenderLevelResources alloc] initWithLevel:level];
+	
+	self.renderLevel = [resources createRenderLevel];
 	
 	if (self.sceneView.scene.rootNode.childNodes.count != 0)
 		[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];
 	
-	[self.sceneView.scene.rootNode addChildNode:newNode];
+	[self.sceneView.scene.rootNode addChildNode:self.renderLevel.rootNode];
 }
 
 @end

@@ -12,7 +12,7 @@
 @class TR1Room;
 @class TRRenderLevelResources;
 
-@interface TRRenderRoomGeometry : NSObject
+@interface TRRenderRoomGeometrySCN : NSObject
 
 - (id)initWithRoom:(TR1Room *)room inRenderLevel:(TRRenderLevelResources *)level;
 

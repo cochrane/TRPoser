@@ -10,14 +10,14 @@
 #import <SceneKit/SceneKit.h>
 
 @class TRRenderLevelResources;
-@class TRRenderRoomGeometry;
+@class TRRenderRoomGeometrySCN;
 @class TR1Room;
 
 @interface TRRenderRoom : NSObject
 
-- (id)initWithRoomGeometry:(TRRenderRoomGeometry *)room;
+- (id)initWithRoomGeometry:(TRRenderRoomGeometrySCN *)room;
 
-@property (nonatomic, retain, readonly) TRRenderRoomGeometry *geometry;
+@property (nonatomic, retain, readonly) TRRenderRoomGeometrySCN *geometry;
 @property (nonatomic, retain, readonly) TR1Room *room;
 @property (nonatomic, weak, readonly) TRRenderLevelResources *level;
 

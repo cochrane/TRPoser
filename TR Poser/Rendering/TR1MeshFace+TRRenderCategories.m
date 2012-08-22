@@ -11,7 +11,7 @@
 #import "TR1Mesh.h"
 #import "TR1Room.h"
 
-@implementation TR1MeshFace (TRRenderCategories)
+@implementation TR1MeshFace (TRRenderCategoriesSCN)
 
 - (SCNVector3)positionAtCorner:(NSUInteger)index;
 {
@@ -40,7 +40,7 @@
 
 @end
 
-@implementation TR1RoomFace (TRRenderCategories)
+@implementation TR1RoomFace (TRRenderCategoriesSCN)
 
 - (SCNVector3)positionAtCorner:(NSUInteger)index;
 {
@@ -61,7 +61,7 @@
 @end
 
 
-@implementation TR1Vertex (TRRenderCategories)
+@implementation TR1Vertex (TRRenderCategoriesSCN)
 
 - (SCNVector3)sceneKitVector;
 {
@@ -71,7 +71,7 @@
 @end
 
 
-@implementation TR1RoomVertex (TRRenderCategories)
+@implementation TR1RoomVertex (TRRenderCategoriesSCN)
 
 - (SCNVector3)sceneKitVector;
 {

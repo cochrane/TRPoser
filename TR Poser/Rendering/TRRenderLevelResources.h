@@ -13,7 +13,7 @@
 @class TR1Level;
 @class TR1Texture;
 @class TRRenderRoom;
-@class TRRenderLevel;
+@class TRRenderLevelSCN;
 @class TRRenderMoveableDescription;
 
 @interface TRRenderLevelResources : NSObject
@@ -38,6 +38,6 @@
 @property (nonatomic, readonly, retain) SCNMaterial *meshAlphaInternalLightingMaterial;
 @property (nonatomic, readonly, retain) SCNMaterial *meshAlphaExternalLightingMaterial;
 
-- (TRRenderLevel *)createRenderLevel;
+- (TRRenderLevelSCN *)createRenderLevel;
 
 @end

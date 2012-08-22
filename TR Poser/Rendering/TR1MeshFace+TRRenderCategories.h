@@ -13,7 +13,7 @@
 
 #import <SceneKit/SceneKit.h>
 
-@interface TR1MeshFace (TRRenderCategories)
+@interface TR1MeshFace (TRRenderCategoriesSCN)
 
 - (SCNVector3)positionAtCorner:(NSUInteger)index;
 - (SCNVector3)normalAtCorner:(NSUInteger)index;
@@ -21,20 +21,20 @@
 
 @end
 
-@interface TR1RoomFace (TRRenderCategories)
+@interface TR1RoomFace (TRRenderCategoriesSCN)
 
 - (SCNVector3)positionAtCorner:(NSUInteger)index;
 - (SCNVector3)lightAtCorner:(NSUInteger)index;
 
 @end
 
-@interface TR1Vertex (TRRenderCategories)
+@interface TR1Vertex (TRRenderCategoriesSCN)
 
 - (SCNVector3)sceneKitVector;
 
 @end
 
-@interface TR1RoomVertex (TRRenderCategories)
+@interface TR1RoomVertex (TRRenderCategoriesSCN)
 
 - (SCNVector3)sceneKitVector;
 

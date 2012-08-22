@@ -10,10 +10,10 @@
 
 #import <Accelerate/Accelerate.h>
 
-#import "TRRenderMesh.h"
+#import "TRRenderMeshSCN.h"
 #import "TRRenderMoveableDescription.h"
-#import "TRRenderRoomGeometry.h"
-#import "TRRenderLevel.h"
+#import "TRRenderRoomGeometrySCN.h"
+#import "TRRenderLevelSCN.h"
 #import "TRTexturePage.h"
 #import "TR1Level.h"
 #import "TR1MeshPointer.h"
@@ -155,7 +155,7 @@
 	
 	for (TR1MeshPointer *meshPointer in self.level.meshPointers)
 	{
-		TRRenderMesh *renderMesh = [[TRRenderMesh alloc] initWithMesh:meshPointer.mesh inRenderLevel:self];
+		TRRenderMeshSCN *renderMesh = [[TRRenderMeshSCN alloc] initWithMesh:meshPointer.mesh inRenderLevel:self];
 		[meshes addObject:renderMesh];
 	}
 	
@@ -167,7 +167,7 @@
 	
 	for (TR1Room *room in self.level.rooms)
 	{
-		TRRenderRoomGeometry *renderRoom = [[TRRenderRoomGeometry alloc] initWithRoom:room inRenderLevel:self];
+		TRRenderRoomGeometrySCN *renderRoom = [[TRRenderRoomGeometrySCN alloc] initWithRoom:room inRenderLevel:self];
 		[rooms addObject:renderRoom];
 	}
 	
@@ -223,9 +223,9 @@
 					   (CGFloat) pixelY / (CGFloat) (pagesHigh * 256));
 }
 
-- (TRRenderLevel *)createRenderLevel;
+- (TRRenderLevelSCN *)createRenderLevel;
 {
-	return [[TRRenderLevel alloc] initWithResources:self];
+	return [[TRRenderLevelSCN alloc] initWithResources:self];
 }
 
 - (NSArray *)moveables

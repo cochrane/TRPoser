@@ -57,7 +57,9 @@
 		if (tree.push)
 			[stack addObject:node.parent];
 		
-		node.offset = SCNVector3Make(tree.offsetX / 1024.0, tree.offsetY / 1024.0, tree.offsetZ / 1024.0);
+		node.offsetX = tree.offsetX / 1024.0;
+		node.offsetY = tree.offsetY / 1024.0;
+		node.offsetZ = tree.offsetZ / 1024.0;
 		
 		previous = node;
 	}

@@ -11,7 +11,7 @@
 
 @class TRRenderLevelResources;
 
-@interface TRRenderLevel : NSObject
+@interface TRRenderLevelSCN : NSObject
 
 - (id)initWithResources:(TRRenderLevelResources *)resources;
 

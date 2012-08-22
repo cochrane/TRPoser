@@ -8,7 +8,7 @@
 
 #import "TRRenderRoom.h"
 
-#import "TRRenderRoomGeometry.h"
+#import "TRRenderRoomGeometrySCN.h"
 #import "TR1Room.h"
 #import "TR1RoomFace.h"
 #import "TR1RoomLight.h"
@@ -16,7 +16,7 @@
 #import "TR1StaticMesh.h"
 #import "TR1StaticMeshInstance.h"
 #import "TRRenderLevelResources.h"
-#import "TRRenderMesh.h"
+#import "TRRenderMeshSCN.h"
 
 @interface TRRenderRoom ()
 {
@@ -27,7 +27,7 @@
 
 @implementation TRRenderRoom
 
-- (id)initWithRoomGeometry:(TRRenderRoomGeometry *)room;
+- (id)initWithRoomGeometry:(TRRenderRoomGeometrySCN *)room;
 {
 	if (!(self = [super init])) return nil;
 	
@@ -45,7 +45,7 @@
 	for (TR1StaticMeshInstance *instance in self.room.staticMeshes)
 	{
 		TR1StaticMesh *staticMesh = instance.mesh;
-		TRRenderMesh *mesh = [self.level.meshes objectAtIndex:staticMesh.meshIndex];
+		TRRenderMeshSCN *mesh = [self.level.meshes objectAtIndex:staticMesh.meshIndex];
 		
 		SCNVector3 offset = SCNVector3Make((CGFloat) (instance.x - self.room.x) / 1024.0, (CGFloat) instance.y / 1024.0, (CGFloat) (instance.z - self.room.z) / 1024.0);
 		

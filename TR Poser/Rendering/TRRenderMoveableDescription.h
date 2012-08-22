@@ -30,7 +30,9 @@
 @property (nonatomic, weak) TRRenderMoveableDescriptionNode *parent;
 @property (nonatomic, retain) NSMutableArray *children;
 
-@property (nonatomic, assign) SCNVector3 offset;
+@property (nonatomic, assign) double offsetX;
+@property (nonatomic, assign) double offsetY;
+@property (nonatomic, assign) double offsetZ;
 
 @property (nonatomic, assign) NSUInteger meshIndex;
 

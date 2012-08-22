@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SceneKit/SceneKit.h>
 
-@class TR1Moveable;
-@class TRRenderLevelResources;
+@class TRRenderMoveableDescription;
+@class TRRenderMoveableDescriptionNode;
 @class TRRenderMoveableNode;
 
 @interface TRRenderMoveable : NSObject
 
-- (id)initWithMoveable:(TR1Moveable *)moveable inRenderLevel:(TRRenderLevelResources *)level;
+- (id)initWithDescription:(TRRenderMoveableDescription *)description;
 
-@property (nonatomic, retain, readonly) TR1Moveable *moveable;
-@property (nonatomic, weak, readonly) TRRenderLevelResources *level;
+@property (nonatomic, retain, readonly) TRRenderMoveableDescription *description;
 
 @property (nonatomic, retain, readonly) TRRenderMoveableNode *rootNode;
 
@@ -25,5 +25,18 @@
 
 @interface TRRenderMoveableNode : NSObject
 
+- (id)initWithDescription:(TRRenderMoveableDescriptionNode *)node partOf:(TRRenderMoveable *)moveable;
+
+@property (nonatomic, copy, readonly) NSArray *children;
+
+@property (nonatomic, assign) double rotationX;
+@property (nonatomic, assign) double rotationY;
+@property (nonatomic, assign) double rotationZ;
+
+@property (nonatomic, assign) SCNVector3 offset;
+
+@property (nonatomic, assign, readonly) CATransform3D transformation;
+
+@property (nonatomic, retain, readonly) SCNNode *node;
 
 @end

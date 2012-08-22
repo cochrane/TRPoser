@@ -60,6 +60,7 @@
 	[self setupMaterials];
 	[self setupMeshes];
 	[self setupRooms];
+	[self setupMoveables];
 	
 	return self;
 }
@@ -179,7 +180,7 @@
 {
 	NSMutableArray *moveables = [[NSMutableArray alloc] initWithCapacity:self.level.moveables.count];
 	
-	for (TR1Moveable *moveable in moveables)
+	for (TR1Moveable *moveable in self.level.moveables)
 	{
 		TRRenderMoveableDescription *description = [[TRRenderMoveableDescription alloc] initWithMoveable:moveable inRenderLevel:self];
 		[moveables addObject:description];

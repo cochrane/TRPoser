@@ -12,10 +12,13 @@
 #import "TR2RoomVertex.h"
 #import "TRRenderLevel.h"
 #import "TRRenderLevelResources.h"
+#import "TRRenderMoveable.h"
+#import "TRRenderMoveableDescription.h"
 
 @interface TRDocument ()
 
-@property (nonatomic, retain) TRRenderLevel *renderLevel;
+@property (nonatomic, retain) TRRenderLevelResources *renderLevelResources;
+@property (nonatomic, assign) NSUInteger selectedMoveable;
 
 - (void)setupLevelWithURL:(NSURL *)url;
 - (void)setupGraphicsWithLevel:(TR1Level *)level;
@@ -93,31 +96,14 @@
 	[panel beginSheetModalForWindow:self.windowForSheet completionHandler:^(NSInteger result){
 		if (result != NSOKButton) return;
 		
-		NSData *data = [self.renderLevel.resources.level writeToData];
+		NSData *data = [self.renderLevelResources.level writeToData];
 		[data writeToURL:panel.URL atomically:YES];
 	}];
 }
 
-- (IBAction)setAllLightingTo:(id)sender;
+- (IBAction)setSelectedMesh:(id)sender
 {
-	if (!self.renderLevel)
-	{
-		NSBeep();
-		return;
-	}
-	
-	TR1Level *level = self.renderLevel.resources.level;
-	self.renderLevel = nil;
-	
-	NSUInteger lighting = self.lightValueTextfield.integerValue;
-	
-	[level enumerateRoomVertices:^(TR1RoomVertex *v) {
-		TR2RoomVertex *vert = (TR2RoomVertex *) v;
-		vert.lighting1 = lighting;
-		vert.lighting2 = lighting;
-	}];
-	
-	[self setupGraphicsWithLevel:level];
+	self.selectedMoveable = [sender integerValue];
 }
 
 - (void)setupLevelWithURL:(NSURL *)url;
@@ -132,14 +118,28 @@
 }
 - (void)setupGraphicsWithLevel:(TR1Level *)level;
 {
-	TRRenderLevelResources *resources = [[TRRenderLevelResources alloc] initWithLevel:level];
+	self.renderLevelResources = [[TRRenderLevelResources alloc] initWithLevel:level];
 	
-	self.renderLevel = [resources createRenderLevel];
+	self.selectedMoveable = 0;
+	
+	self.stepper.minValue = 0.0;
+	self.stepper.doubleValue = 0.0;
+	self.stepper.maxValue = self.renderLevelResources.meshes.count - 1;
+}
+
+- (void)setSelectedMoveable:(NSUInteger)selectedMoveable
+{
+	_selectedMoveable = selectedMoveable;
+	
+	TRRenderMoveableDescription *description = self.renderLevelResources.moveables[selectedMoveable];
+	
+	TRRenderMoveable *moveable = [[TRRenderMoveable alloc] initWithDescription:description];
 	
 	if (self.sceneView.scene.rootNode.childNodes.count != 0)
 		[self.sceneView.scene.rootNode.childNodes[0] removeFromParentNode];
 	
-	[self.sceneView.scene.rootNode addChildNode:self.renderLevel.rootNode];
+	[self.sceneView.scene.rootNode addChildNode:moveable.rootNode.node];
+	self.currentNumber.stringValue = [NSString stringWithFormat:@"Moveable %lu of %lu", selectedMoveable, self.renderLevelResources.moveables.count];
 }
 
 @end

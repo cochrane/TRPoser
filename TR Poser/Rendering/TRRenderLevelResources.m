@@ -32,7 +32,7 @@
 
 @property (nonatomic, copy, readwrite) NSArray *meshes;
 @property (nonatomic, copy, readwrite) NSArray *rooms;
-@property (nonatomic, copy, readwrite) NSArray *moveables;
+@property (nonatomic, copy, readwrite) NSDictionary *moveablesByObjectID;
 
 @property (nonatomic, readwrite, retain) SCNMaterial *meshInternalLightingMaterial;
 @property (nonatomic, readwrite, retain) SCNMaterial *meshExternalLightingMaterial;
@@ -178,15 +178,16 @@
 }
 - (void)setupMoveables;
 {
-	NSMutableArray *moveables = [[NSMutableArray alloc] initWithCapacity:self.level.moveables.count];
+	NSMutableDictionary *moveables = [[NSMutableDictionary alloc] initWithCapacity:self.level.moveables.count];
 	
 	for (TR1Moveable *moveable in self.level.moveables)
 	{
 		TRRenderMoveableDescription *description = [[TRRenderMoveableDescription alloc] initWithMoveable:moveable inRenderLevel:self];
-		[moveables addObject:description];
+		
+		[moveables setObject:description forKey:@(moveable.objectID)];
 	}
 	
-	self.moveables = moveables;
+	self.moveablesByObjectID = moveables;
 }
 
 - (void)getTextureCoords:(CGPoint *)fourPoints forObjectTexture:(TR1Texture *)texture;
@@ -228,6 +229,16 @@
 - (TRRenderLevel *)createRenderLevel;
 {
 	return [[TRRenderLevel alloc] initWithResources:self];
+}
+
+- (NSArray *)moveables
+{
+	return self.moveablesByObjectID.allValues;
+}
+
+- (TRRenderMoveableDescription *)moveableForObjectID:(NSUInteger)objectID;
+{
+	return [self.moveablesByObjectID objectForKey:@(objectID)];
 }
 
 @end

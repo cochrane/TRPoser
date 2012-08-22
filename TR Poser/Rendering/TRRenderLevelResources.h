@@ -14,6 +14,7 @@
 @class TR1Texture;
 @class TRRenderRoom;
 @class TRRenderLevel;
+@class TRRenderMoveableDescription;
 
 @interface TRRenderLevelResources : NSObject
 
@@ -26,6 +27,8 @@
 @property (nonatomic, copy, readonly) NSArray *meshes;
 @property (nonatomic, copy, readonly) NSArray *rooms;
 @property (nonatomic, copy, readonly) NSArray *moveables;
+
+- (TRRenderMoveableDescription *)moveableForObjectID:(NSUInteger)objectID;
 
 - (void)getTextureCoords:(CGPoint *)fourPoints forObjectTexture:(TR1Texture *)texture;
 - (CGPoint)textureCoordsForColorIndex:(NSUInteger)colorIndex;

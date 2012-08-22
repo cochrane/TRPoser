@@ -25,6 +25,7 @@
 
 @property (nonatomic, copy, readonly) NSArray *meshes;
 @property (nonatomic, copy, readonly) NSArray *rooms;
+@property (nonatomic, copy, readonly) NSArray *moveables;
 
 - (void)getTextureCoords:(CGPoint *)fourPoints forObjectTexture:(TR1Texture *)texture;
 - (CGPoint)textureCoordsForColorIndex:(NSUInteger)colorIndex;

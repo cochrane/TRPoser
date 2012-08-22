@@ -11,11 +11,13 @@
 #import <Accelerate/Accelerate.h>
 
 #import "TRRenderMesh.h"
+#import "TRRenderMoveableDescription.h"
 #import "TRRenderRoomGeometry.h"
 #import "TRRenderLevel.h"
 #import "TRTexturePage.h"
 #import "TR1Level.h"
 #import "TR1MeshPointer.h"
+#import "TR1Moveable.h"
 #import "TR1Palette8.h"
 #import "TR1Texture.h"
 #import "TR1TextureVertex.h"
@@ -30,6 +32,7 @@
 
 @property (nonatomic, copy, readwrite) NSArray *meshes;
 @property (nonatomic, copy, readwrite) NSArray *rooms;
+@property (nonatomic, copy, readwrite) NSArray *moveables;
 
 @property (nonatomic, readwrite, retain) SCNMaterial *meshInternalLightingMaterial;
 @property (nonatomic, readwrite, retain) SCNMaterial *meshExternalLightingMaterial;
@@ -40,6 +43,7 @@
 - (void)setupMaterials;
 - (void)setupMeshes;
 - (void)setupRooms;
+- (void)setupMoveables;
 
 @end
 
@@ -170,6 +174,18 @@
 	}
 	
 	self.rooms = rooms;
+}
+- (void)setupMoveables;
+{
+	NSMutableArray *moveables = [[NSMutableArray alloc] initWithCapacity:self.level.moveables.count];
+	
+	for (TR1Moveable *moveable in moveables)
+	{
+		TRRenderMoveableDescription *description = [[TRRenderMoveableDescription alloc] initWithMoveable:moveable inRenderLevel:self];
+		[moveables addObject:description];
+	}
+	
+	self.moveables = moveables;
 }
 
 - (void)getTextureCoords:(CGPoint *)fourPoints forObjectTexture:(TR1Texture *)texture;

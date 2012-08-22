@@ -13,6 +13,7 @@
 @class TRInDataStream;
 
 @class TR1AnimationCommandList;
+@class TR1FrameData;
 @class TR1FloorDataList;
 @class TR1Lightmap;
 @class TR1Mesh;
@@ -45,7 +46,7 @@
 @property (nonatomic, retain) NSMutableArray *animationDispatches;
 @property (nonatomic, retain) TR1AnimationCommandList *animationCommands;
 @property (nonatomic, retain) NSMutableArray *meshTrees;
-@property (nonatomic, retain) NSMutableArray *frames;
+@property (nonatomic, retain) TR1FrameData *frames;
 @property (nonatomic, retain) NSMutableArray *moveables;
 @property (nonatomic, retain) NSMutableArray *staticMeshes;
 @property (nonatomic, retain) NSMutableArray *objectTextures;

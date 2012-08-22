@@ -10,6 +10,8 @@
 
 #import "TR1Mesh.h"
 #import "TR1MeshFace.h"
+
+#import "TRRenderElement.h"
 #import "TRRenderLevelResourcesSCN.h"
 #import "TRRenderCategoriesSCN.h"
 
@@ -37,16 +39,16 @@
 												 floatComponents:YES
 											 componentsPerVector:3
 											   bytesPerComponent:sizeof(float)
-													  dataOffset:0
-													  dataStride:sizeof(float [8])]];
+													  dataOffset:offsetof(TRRenderElement, position)
+													  dataStride:sizeof(TRRenderElement)]];
 	[sources addObject:[SCNGeometrySource geometrySourceWithData:vertices
 														semantic:SCNGeometrySourceSemanticTexcoord
 													 vectorCount:numVertices
 												 floatComponents:YES
 											 componentsPerVector:2
 											   bytesPerComponent:sizeof(float)
-													  dataOffset:sizeof(float [6])
-													  dataStride:sizeof(float [8])]];
+													  dataOffset:offsetof(TRRenderElement, texCoord)
+													  dataStride:sizeof(TRRenderElement)]];
 	if (self.internalLighting)
 		[sources addObject:[SCNGeometrySource geometrySourceWithData:vertices
 															semantic:SCNGeometrySourceSemanticColor
@@ -54,8 +56,8 @@
 													 floatComponents:YES
 												 componentsPerVector:3
 												   bytesPerComponent:sizeof(float)
-														  dataOffset:sizeof(float [6])
-														  dataStride:sizeof(float [8])]];
+														  dataOffset:offsetof(TRRenderElement, normalOrColor)
+														  dataStride:sizeof(TRRenderElement)]];
 	else
 		[sources addObject:[SCNGeometrySource geometrySourceWithData:vertices
 															semantic:SCNGeometrySourceSemanticNormal
@@ -63,8 +65,8 @@
 													 floatComponents:YES
 												 componentsPerVector:3
 												   bytesPerComponent:sizeof(float)
-														  dataOffset:sizeof(float [6])
-														  dataStride:sizeof(float [8])]];
+														  dataOffset:offsetof(TRRenderElement, normalOrColor)
+														  dataStride:sizeof(TRRenderElement)]];
 	
 	NSUInteger opaqueCount, alphaCount;
 	NSData *indices = [self createElementsNormalCount:&opaqueCount alphaCount:&alphaCount];

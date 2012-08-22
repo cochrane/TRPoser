@@ -13,14 +13,9 @@
 #import "TR1MeshFace.h"
 #import "TR1Vertex.h"
 
+#import "TRRenderElement.h"
 #import "TRRenderLevelResources.h"
 #import "TRRenderTexture.h"
-
-typedef struct TRRenderMeshElement {
-	float position[3];
-	float normalOrColor[3];
-	float texCoord[2];
-} TRRenderMeshElement;
 
 @interface TRRenderMesh ()
 {
@@ -31,8 +26,8 @@ typedef struct TRRenderMeshElement {
 @property (nonatomic, retain, readwrite) TR1Mesh *mesh;
 @property (nonatomic, weak, readwrite) TRRenderLevelResources *resources;
 
-- (void)fillElement:(TRRenderMeshElement *)element fromTexturedFace:(TR1MeshFace *)face corner:(NSUInteger)corner;
-- (void)fillElement:(TRRenderMeshElement *)element fromColoredFace:(TR1MeshFace *)face corner:(NSUInteger)corner;
+- (void)fillElement:(TRRenderElement *)element fromTexturedFace:(TR1MeshFace *)face corner:(NSUInteger)corner;
+- (void)fillElement:(TRRenderElement *)element fromColoredFace:(TR1MeshFace *)face corner:(NSUInteger)corner;
 
 @end
 
@@ -51,7 +46,7 @@ typedef struct TRRenderMeshElement {
 	return self;
 }
 
-- (void)fillElement:(TRRenderMeshElement *)element fromTexturedFace:(TR1MeshFace *)face corner:(NSUInteger)corner;
+- (void)fillElement:(TRRenderElement *)element fromTexturedFace:(TR1MeshFace *)face corner:(NSUInteger)corner;
 {
 	NSUInteger index = [face.indices[corner] unsignedIntegerValue];
 	TR1Vertex *vertex = self.mesh.vertices[index];
@@ -83,7 +78,7 @@ typedef struct TRRenderMeshElement {
 		element->normalOrColor[2] /= length;
 	}
 }
-- (void)fillElement:(TRRenderMeshElement *)element fromColoredFace:(TR1MeshFace *)face corner:(NSUInteger)corner;
+- (void)fillElement:(TRRenderElement *)element fromColoredFace:(TR1MeshFace *)face corner:(NSUInteger)corner;
 {
 	NSUInteger index = [face.indices[corner] unsignedIntegerValue];
 	TR1Vertex *vertex = self.mesh.vertices[index];
@@ -122,9 +117,7 @@ typedef struct TRRenderMeshElement {
 	
 	*vectorCount = numVertices;
 	
-	// Setup geometry sources
-	
-	TRRenderMeshElement *elements = malloc(sizeof(TRRenderMeshElement) * numVertices);
+	TRRenderElement *elements = malloc(sizeof(TRRenderElement) * numVertices);
 	
 	doublesidedTriangles = 0;
 	alphaTriangles = 0;
@@ -163,7 +156,7 @@ typedef struct TRRenderMeshElement {
 			[self fillElement:&elements[i] fromTexturedFace:face corner:j];
 	}
 	
-	return [NSData dataWithBytesNoCopy:elements length:sizeof(TRRenderMeshElement) * numVertices freeWhenDone:YES];
+	return [NSData dataWithBytesNoCopy:elements length:sizeof(TRRenderElement) * numVertices freeWhenDone:YES];
 }
 
 - (NSData *)createElementsNormalCount:(NSUInteger *)normalCount alphaCount:(NSUInteger *)alphaCount;
@@ -268,6 +261,11 @@ typedef struct TRRenderMeshElement {
 	}
 	
 	return [NSData dataWithBytesNoCopy:elements length:sizeof(uint16_t) * triangleCount*3 freeWhenDone:YES];
+}
+
+- (BOOL)internalLighting
+{
+	return self.mesh.usesInternalLighting;
 }
 
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
 
-@class TRRenderLevelResources;
+@class TRRenderLevelResourcesSCN;
 @class TRRenderRoomGeometrySCN;
 @class TR1Room;
 
@@ -19,7 +19,7 @@
 
 @property (nonatomic, retain, readonly) TRRenderRoomGeometrySCN *geometry;
 @property (nonatomic, retain, readonly) TR1Room *room;
-@property (nonatomic, weak, readonly) TRRenderLevelResources *level;
+@property (nonatomic, weak, readonly) TRRenderLevelResourcesSCN *level;
 
 - (SCNNode *)node;
 

@@ -11,7 +11,7 @@
 #import "TR1Room.h"
 #import "TR1RoomFace.h"
 #import "TR1MeshFace+TRRenderCategories.h"
-#import "TRRenderLevelResources.h"
+#import "TRRenderLevelResourcesSCN.h"
 
 @interface TRRenderRoomGeometrySCN ()
 {
@@ -22,7 +22,7 @@
 
 @implementation TRRenderRoomGeometrySCN
 
-- (id)initWithRoom:(TR1Room *)room inRenderLevel:(TRRenderLevelResources *)level;
+- (id)initWithRoom:(TR1Room *)room inRenderLevel:(TRRenderLevelResourcesSCN *)level;
 {
 	if (!(self = [super init])) return nil;
 	

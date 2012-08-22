@@ -13,7 +13,7 @@
 		521F755615E01F1700AB0A73 /* TRStructureDescriptionSubstreamField.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F755515E01F1600AB0A73 /* TRStructureDescriptionSubstreamField.m */; };
 		521F755915E0232000AB0A73 /* TRStructureSubstreamTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F755815E0232000AB0A73 /* TRStructureSubstreamTest.m */; };
 		521F755C15E028A400AB0A73 /* TRStructureDescriptionArrayLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F755B15E028A300AB0A73 /* TRStructureDescriptionArrayLength.m */; };
-		526B670215E238ED00CAE40D /* TRRenderLevelResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 526B670115E238ED00CAE40D /* TRRenderLevelResources.m */; };
+		526B670215E238ED00CAE40D /* TRRenderLevelResourcesSCN.m in Sources */ = {isa = PBXBuildFile; fileRef = 526B670115E238ED00CAE40D /* TRRenderLevelResourcesSCN.m */; };
 		526B670415E276DB00CAE40D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526B670315E276DB00CAE40D /* Accelerate.framework */; };
 		527539EC15E055B400AF4324 /* TR1AnimationCommandList.m in Sources */ = {isa = PBXBuildFile; fileRef = 527539EB15E055B300AF4324 /* TR1AnimationCommandList.m */; };
 		527539F315E05C3E00AF4324 /* TR1MeshTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 527539F215E05C3D00AF4324 /* TR1MeshTree.m */; };
@@ -136,8 +136,8 @@
 		521F755815E0232000AB0A73 /* TRStructureSubstreamTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureSubstreamTest.m; sourceTree = "<group>"; };
 		521F755A15E028A200AB0A73 /* TRStructureDescriptionArrayLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionArrayLength.h; sourceTree = "<group>"; };
 		521F755B15E028A300AB0A73 /* TRStructureDescriptionArrayLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionArrayLength.m; sourceTree = "<group>"; };
-		526B670015E238ED00CAE40D /* TRRenderLevelResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderLevelResources.h; sourceTree = "<group>"; };
-		526B670115E238ED00CAE40D /* TRRenderLevelResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRenderLevelResources.m; sourceTree = "<group>"; };
+		526B670015E238ED00CAE40D /* TRRenderLevelResourcesSCN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderLevelResourcesSCN.h; sourceTree = "<group>"; };
+		526B670115E238ED00CAE40D /* TRRenderLevelResourcesSCN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRenderLevelResourcesSCN.m; sourceTree = "<group>"; };
 		526B670315E276DB00CAE40D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		527539EA15E055B200AF4324 /* TR1AnimationCommandList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1AnimationCommandList.h; sourceTree = "<group>"; };
 		527539EB15E055B300AF4324 /* TR1AnimationCommandList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1AnimationCommandList.m; sourceTree = "<group>"; };
@@ -356,8 +356,8 @@
 		526B66FE15E2323F00CAE40D /* Rendering */ = {
 			isa = PBXGroup;
 			children = (
-				526B670015E238ED00CAE40D /* TRRenderLevelResources.h */,
-				526B670115E238ED00CAE40D /* TRRenderLevelResources.m */,
+				526B670015E238ED00CAE40D /* TRRenderLevelResourcesSCN.h */,
+				526B670115E238ED00CAE40D /* TRRenderLevelResourcesSCN.m */,
 				52B6A27115E2CF50007EFC77 /* TRRenderMeshSCN.h */,
 				52B6A27215E2CF50007EFC77 /* TRRenderMeshSCN.m */,
 				52B6A27915E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.h */,
@@ -873,7 +873,7 @@
 				52AA11AB15E1A8C900895F44 /* TR3RoomVertex.m in Sources */,
 				52AA11AE15E1AB4E00895F44 /* TR3StaticMeshInstance.m in Sources */,
 				52AA11B115E1ACA700895F44 /* TR3Level.m in Sources */,
-				526B670215E238ED00CAE40D /* TRRenderLevelResources.m in Sources */,
+				526B670215E238ED00CAE40D /* TRRenderLevelResourcesSCN.m in Sources */,
 				52B6A27315E2CF50007EFC77 /* TRRenderMeshSCN.m in Sources */,
 				52B6A27B15E2E1A7007EFC77 /* TR1MeshFace+TRRenderCategories.m in Sources */,
 				52B6A29615E3E801007EFC77 /* TRRenderRoom.m in Sources */,

@@ -11,11 +11,11 @@
 #import "TR1Moveable.h"
 #import "TR1MeshTree.h"
 #import "TR1Level.h"
-#import "TRRenderLevelResources.h"
+#import "TRRenderLevelResourcesSCN.h"
 
 @implementation TRRenderMoveableDescription
 
-- (id)initWithMoveable:(TR1Moveable *)moveable inRenderLevel:(TRRenderLevelResources *)level;
+- (id)initWithMoveable:(TR1Moveable *)moveable inRenderLevel:(TRRenderLevelResourcesSCN *)level;
 {
 	if (!(self = [super init])) return nil;
 	

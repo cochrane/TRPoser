@@ -16,7 +16,7 @@
 @class TRRenderLevelSCN;
 @class TRRenderMoveableDescription;
 
-@interface TRRenderLevelResources : NSObject
+@interface TRRenderLevelResourcesSCN : NSObject
 
 - (id)initWithLevel:(TR1Level *)aLevel;
 

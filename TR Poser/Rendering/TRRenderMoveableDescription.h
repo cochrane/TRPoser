@@ -11,15 +11,15 @@
 #import <SceneKit/SceneKit.h>
 
 @class TR1Moveable;
-@class TRRenderLevelResources;
+@class TRRenderLevelResourcesSCN;
 @class TRRenderMoveableDescriptionNode;
 
 @interface TRRenderMoveableDescription : NSObject
 
-- (id)initWithMoveable:(TR1Moveable *)moveable inRenderLevel:(TRRenderLevelResources *)level;
+- (id)initWithMoveable:(TR1Moveable *)moveable inRenderLevel:(TRRenderLevelResourcesSCN *)level;
 
 @property (nonatomic, retain, readonly) TR1Moveable *moveable;
-@property (nonatomic, weak, readonly) TRRenderLevelResources *level;
+@property (nonatomic, weak, readonly) TRRenderLevelResourcesSCN *level;
 
 @property (nonatomic, retain, readonly) TRRenderMoveableDescriptionNode *rootNode;
 

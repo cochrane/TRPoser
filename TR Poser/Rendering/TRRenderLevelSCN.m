@@ -8,7 +8,7 @@
 
 #import "TRRenderLevelSCN.h"
 
-#import "TRRenderLevelResources.h"
+#import "TRRenderLevelResourcesSCN.h"
 #import "TRRenderRoom.h"
 #import "TRRenderMoveable.h"
 #import "TR1Level.h"
@@ -23,7 +23,7 @@
 
 @implementation TRRenderLevelSCN
 
-- (id)initWithResources:(TRRenderLevelResources *)resources;
+- (id)initWithResources:(TRRenderLevelResourcesSCN *)resources;
 {
 	if (!(self = [super init])) return nil;
 	

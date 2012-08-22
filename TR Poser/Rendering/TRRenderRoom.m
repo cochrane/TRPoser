@@ -15,7 +15,7 @@
 #import "TR1MeshFace+TRRenderCategories.h"
 #import "TR1StaticMesh.h"
 #import "TR1StaticMeshInstance.h"
-#import "TRRenderLevelResources.h"
+#import "TRRenderLevelResourcesSCN.h"
 #import "TRRenderMeshSCN.h"
 
 @interface TRRenderRoom ()
@@ -103,7 +103,7 @@
 	return self.geometry.room;
 }
 
-- (TRRenderLevelResources *)level
+- (TRRenderLevelResourcesSCN *)level
 {
 	return self.geometry.level;
 }

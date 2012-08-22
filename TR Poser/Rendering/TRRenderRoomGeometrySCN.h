@@ -10,14 +10,14 @@
 #import <SceneKit/SceneKit.h>
 
 @class TR1Room;
-@class TRRenderLevelResources;
+@class TRRenderLevelResourcesSCN;
 
 @interface TRRenderRoomGeometrySCN : NSObject
 
-- (id)initWithRoom:(TR1Room *)room inRenderLevel:(TRRenderLevelResources *)level;
+- (id)initWithRoom:(TR1Room *)room inRenderLevel:(TRRenderLevelResourcesSCN *)level;
 
 @property (nonatomic, retain) TR1Room *room;
-@property (nonatomic, retain) TRRenderLevelResources *level;
+@property (nonatomic, retain) TRRenderLevelResourcesSCN *level;
 
 // Returns the same geometry every time; it can and will be shared.
 - (SCNGeometry *)roomGeometry;

@@ -28,4 +28,29 @@
 
 @dynamic room;
 
+- (float)rotationInDegrees;
+{
+	return 90.0f * (self.angle >> 14);
+}
+- (void)setRotationInDegrees:(float)rotationInDegrees
+{
+	self.angle = (((NSUInteger) rotationInDegrees) % 90) << 14;
+}
+
+- (float)rotationInRad;
+{
+	return M_PI_2 * (self.angle >> 14);
+}
+- (void)setRotationInRad:(float)rotationInRad
+{
+	if (rotationInRad < M_PI_2)
+		self.angle = 0;
+	else if (rotationInRad < M_PI)
+		self.angle = 1 << 14;
+	else if (rotationInRad < 3*M_PI_2)
+		self.angle = 2 << 14;
+	else
+		self.angle = 3 << 14;
+}
+
 @end

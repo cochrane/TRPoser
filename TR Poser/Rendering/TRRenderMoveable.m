@@ -11,6 +11,14 @@
 #import "TRRenderMesh.h"
 #import "TRRenderMoveableDescription.h"
 #import "TRRenderLevelResources.h"
+#import "TRRenderRoom.h"
+
+@interface TRRenderMoveable ()
+{
+	SCNNode *sceneRoot;
+}
+
+@end
 
 @implementation TRRenderMoveable
 
@@ -22,6 +30,49 @@
 	_rootNode = [[TRRenderMoveableNode alloc] initWithDescription:description.rootNode partOf:self];
 	
 	return self;
+}
+
+- (void)setOffset:(SCNVector3)offset
+{
+	self.sceneRoot.position = offset;
+}
+- (SCNVector3)offset
+{
+	return self.sceneRoot.position;
+}
+
+- (void)setRotation:(double)rotation
+{
+	self.sceneRoot.rotation = SCNVector4Make(0, 1, 0, rotation);
+}
+
+- (double)rotation
+{
+	SCNVector4 rot = self.sceneRoot.rotation;
+	if (rot.x == 0.0 && rot.y == 1.0 && rot.z == 0.0)
+		return rot.w;
+	else
+		return NAN;
+}
+
+- (SCNNode *)sceneRoot
+{
+	if (!sceneRoot)
+	{
+		sceneRoot = [SCNNode node];
+		[sceneRoot addChildNode:self.rootNode.node];
+	}
+	return sceneRoot;
+}
+
+- (void)setRoom:(TRRenderRoom *)room
+{
+	if (_room)
+		[self.sceneRoot removeFromParentNode];
+	
+	_room = room;
+	if (_room)
+		[_room.node addChildNode:self.sceneRoot];
 }
 
 @end

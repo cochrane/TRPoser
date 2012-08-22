@@ -23,5 +23,7 @@
 
 // Derived properties
 @property (nonatomic, weak) TR1Room *room;
+@property (nonatomic, assign) float rotationInDegrees;
+@property (nonatomic, assign) float rotationInRad;
 
 @end

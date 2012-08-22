@@ -12,6 +12,7 @@
 @class TRRenderMoveableDescription;
 @class TRRenderMoveableDescriptionNode;
 @class TRRenderMoveableNode;
+@class TRRenderRoom;
 
 @interface TRRenderMoveable : NSObject
 
@@ -20,6 +21,12 @@
 @property (nonatomic, retain, readonly) TRRenderMoveableDescription *description;
 
 @property (nonatomic, retain, readonly) TRRenderMoveableNode *rootNode;
+
+@property (nonatomic, assign) SCNVector3 offset;
+@property (nonatomic, assign) double rotation;
+@property (nonatomic, retain) TRRenderRoom *room;
+
+@property (nonatomic, retain, readonly) SCNNode *sceneRoot;
 
 @end
 

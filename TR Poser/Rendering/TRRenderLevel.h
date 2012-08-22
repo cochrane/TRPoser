@@ -18,5 +18,6 @@
 @property (nonatomic, retain, readonly) TRRenderLevelResources *resources;
 @property (nonatomic, retain, readonly) SCNNode *rootNode;
 @property (nonatomic, retain, readonly) NSArray *rooms;
+@property (nonatomic, retain, readonly) NSArray *moveables;
 
 @end

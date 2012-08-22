@@ -120,7 +120,7 @@
 	
 	for (TR1Room *room in self.level.rooms)
 	{
-		TRRenderRoomGeometrySCN *renderRoom = [[TRRenderRoomGeometrySCN alloc] initWithRoom:room inRenderLevel:self];
+		TRRenderRoomGeometrySCN *renderRoom = [[TRRenderRoomGeometrySCN alloc] initWithRoom:room resources:self];
 		[rooms addObject:renderRoom];
 	}
 	

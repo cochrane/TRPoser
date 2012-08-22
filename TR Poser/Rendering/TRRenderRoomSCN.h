@@ -19,7 +19,6 @@
 
 @property (nonatomic, retain, readonly) TRRenderRoomGeometrySCN *geometry;
 @property (nonatomic, retain, readonly) TR1Room *room;
-@property (nonatomic, weak, readonly) TRRenderLevelResourcesSCN *level;
 
 - (SCNNode *)node;
 

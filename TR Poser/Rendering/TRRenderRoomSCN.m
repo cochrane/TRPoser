@@ -42,10 +42,12 @@
 	
 	node = [SCNNode nodeWithGeometry:self.geometry.roomGeometry];
 	
+	TRRenderLevelResourcesSCN *resourcesSCN = (TRRenderLevelResourcesSCN *) self.geometry.resources;
+	
 	for (TR1StaticMeshInstance *instance in self.room.staticMeshes)
 	{
 		TR1StaticMesh *staticMesh = instance.mesh;
-		TRRenderMeshSCN *mesh = [self.level.meshes objectAtIndex:staticMesh.meshIndex];
+		TRRenderMeshSCN *mesh = [resourcesSCN.meshes objectAtIndex:staticMesh.meshIndex];
 		
 		SCNVector3 offset = SCNVector3Make((CGFloat) (instance.x - self.room.x) / 1024.0, (CGFloat) instance.y / 1024.0, (CGFloat) (instance.z - self.room.z) / 1024.0);
 		
@@ -101,11 +103,6 @@
 - (TR1Room *)room
 {
 	return self.geometry.room;
-}
-
-- (TRRenderLevelResourcesSCN *)level
-{
-	return self.geometry.level;
 }
 
 - (SCNVector3)offset

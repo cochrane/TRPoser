@@ -65,11 +65,11 @@
 }
 - (double)rotationYInRadAtIndex:(NSUInteger)index;
 {
-	return (double)[self rotationXAtIndex:index] * M_PI / 512.0;
+	return (double)[self rotationYAtIndex:index] * M_PI / 512.0;
 }
 - (double)rotationZInRadAtIndex:(NSUInteger)index;
 {
-	return (double)[self rotationXAtIndex:index] * M_PI / 512.0;
+	return (double)[self rotationZAtIndex:index] * M_PI / 512.0;
 }
 
 @end

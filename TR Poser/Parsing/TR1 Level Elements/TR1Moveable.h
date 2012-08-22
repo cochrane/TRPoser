@@ -8,6 +8,8 @@
 
 #import "TRStructure.h"
 
+@class TR1Animation;
+
 @interface TR1Moveable : TRStructure
 
 @property (nonatomic, assign) NSUInteger objectID;
@@ -16,5 +18,7 @@
 @property (nonatomic, assign) NSUInteger meshTreeOffset;
 @property (nonatomic, assign) NSUInteger frameOffset;
 @property (nonatomic, assign) NSUInteger animationOffset;
+
+@property (nonatomic, weak) TR1Animation *firstAnimation;
 
 @end

@@ -17,7 +17,10 @@
 	bitu16 meshStart;\
 	bitu32 meshTreeOffset;\
 	bitu32 frameOffset;\
-	bitu16 animationOffset";
+	bitu16 animationOffset;\
+	@derived firstAnimation=level.animations[animationOffset]";
 }
+
+@dynamic firstAnimation;
 
 @end

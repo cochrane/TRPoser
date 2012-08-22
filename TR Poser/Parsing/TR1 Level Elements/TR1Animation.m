@@ -9,6 +9,7 @@
 #import "TR1Animation.h"
 
 #import "TR1Level.h"
+#import "TR1FrameData.h"
 
 @interface TR1Animation ()
 
@@ -47,6 +48,13 @@
 - (TR1StateChange *)objectInStateChangesAtIndex:(NSUInteger)index;
 {
 	return [self.level.stateChanges objectAtIndex:index + self.stateChangesOffset];
+}
+
+- (TRFrame *)frameAtIndex:(NSUInteger)index object:(TR1Moveable *)moveable;
+{
+	NSAssert(index >= self.frameStart && index <= self.frameEnd, @"Frame has to be in [%lu, %lu], is %lu", self.frameStart, self.frameEnd, index);
+	TR1FrameData *data = self.level.frames;
+	return [data frameAtIndex:index offset:self.frameOffset/2 forObject:moveable];
 }
 
 @end

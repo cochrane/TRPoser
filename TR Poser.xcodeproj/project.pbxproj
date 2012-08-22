@@ -33,6 +33,8 @@
 		52AA11AE15E1AB4E00895F44 /* TR3StaticMeshInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA11AD15E1AB4E00895F44 /* TR3StaticMeshInstance.m */; };
 		52AA11B115E1ACA700895F44 /* TR3Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA11B015E1ACA700895F44 /* TR3Level.m */; };
 		52AA11B415E1AE8000895F44 /* TRLevelTest_Jungle.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA11B315E1AE8000895F44 /* TRLevelTest_Jungle.m */; };
+		52AA11C815E4F9B700895F44 /* TRFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA11C715E4F9B700895F44 /* TRFrame.m */; };
+		52AA11CC15E4FC4800895F44 /* TR2FrameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA11CB15E4FC4800895F44 /* TR2FrameData.m */; };
 		52B6A27315E2CF50007EFC77 /* TRRenderMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A27215E2CF50007EFC77 /* TRRenderMesh.m */; };
 		52B6A27615E2CF5E007EFC77 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B6A27515E2CF5E007EFC77 /* SceneKit.framework */; };
 		52B6A27815E2CF64007EFC77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B6A27715E2CF64007EFC77 /* QuartzCore.framework */; };
@@ -173,6 +175,10 @@
 		52AA11B015E1ACA700895F44 /* TR3Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR3Level.m; sourceTree = "<group>"; };
 		52AA11B215E1AE8000895F44 /* TRLevelTest_Jungle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLevelTest_Jungle.h; sourceTree = "<group>"; };
 		52AA11B315E1AE8000895F44 /* TRLevelTest_Jungle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLevelTest_Jungle.m; sourceTree = "<group>"; };
+		52AA11C615E4F9B700895F44 /* TRFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRFrame.h; path = ../../Rendering/TRFrame.h; sourceTree = "<group>"; };
+		52AA11C715E4F9B700895F44 /* TRFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRFrame.m; path = ../../Rendering/TRFrame.m; sourceTree = "<group>"; };
+		52AA11CA15E4FC4800895F44 /* TR2FrameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2FrameData.h; sourceTree = "<group>"; };
+		52AA11CB15E4FC4800895F44 /* TR2FrameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2FrameData.m; sourceTree = "<group>"; };
 		52B6A27115E2CF50007EFC77 /* TRRenderMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderMesh.h; sourceTree = "<group>"; };
 		52B6A27215E2CF50007EFC77 /* TRRenderMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRenderMesh.m; sourceTree = "<group>"; };
 		52B6A27515E2CF5E007EFC77 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
@@ -534,6 +540,8 @@
 				52F8996715DA3C3400AD9031 /* TR2TexturePage16.m */,
 				52753A0B15E0E94E00AF4324 /* TR2SoundMap.h */,
 				52753A0C15E0E95000AF4324 /* TR2SoundMap.m */,
+				52AA11CA15E4FC4800895F44 /* TR2FrameData.h */,
+				52AA11CB15E4FC4800895F44 /* TR2FrameData.m */,
 			);
 			path = "TR2 Level Elements";
 			sourceTree = "<group>";
@@ -670,6 +678,8 @@
 		52F898B115D8766A00AD9031 /* Generic abstract elements */ = {
 			isa = PBXGroup;
 			children = (
+				52AA11C615E4F9B700895F44 /* TRFrame.h */,
+				52AA11C715E4F9B700895F44 /* TRFrame.m */,
 				52F8995A15DA2E7E00AD9031 /* TRPalette.h */,
 				52F8995B15DA2E7F00AD9031 /* TRPalette.m */,
 				52F8995E15DA393700AD9031 /* TRTexturePage.h */,
@@ -871,6 +881,8 @@
 				52B6A2A815E4575F007EFC77 /* TRRenderRoomGeometry.m in Sources */,
 				52B6A2AC15E459B2007EFC77 /* TRRenderLevel.m in Sources */,
 				52B6A2AF15E45D22007EFC77 /* TRRenderMoveableDescription.m in Sources */,
+				52AA11C815E4F9B700895F44 /* TRFrame.m in Sources */,
+				52AA11CC15E4FC4800895F44 /* TR2FrameData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

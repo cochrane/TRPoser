@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
 
+@class TR1Animation;
 @class TRRenderMoveableDescription;
 @class TRRenderMoveableDescriptionNode;
 @class TRRenderMoveableNode;
@@ -28,6 +29,9 @@
 
 @property (nonatomic, retain, readonly) SCNNode *sceneRoot;
 
+- (void)setFrame:(NSUInteger)frame ofAnimation:(TR1Animation *)animation;
+- (void)setFrame:(NSUInteger)frame ofRelativeAnimation:(NSUInteger)animation;
+
 @end
 
 @interface TRRenderMoveableNode : NSObject
@@ -45,5 +49,7 @@
 @property (nonatomic, assign, readonly) CATransform3D transformation;
 
 @property (nonatomic, retain, readonly) SCNNode *node;
+
+- (void)enumerate:(void(^)(TRRenderMoveableNode *))iterator;
 
 @end

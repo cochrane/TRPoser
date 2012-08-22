@@ -13,8 +13,10 @@
 @class TRInDataStream;
 @class TROutDataStream;
 
+@class TRFrame;
 @class TR1AnimationCommand;
 @class TR1Level;
+@class TR1Moveable;
 @class TR1StateChange;
 
 @interface TR1Animation : TRStructure
@@ -38,5 +40,7 @@
 
 - (NSUInteger)countOfStateChanges;
 - (TR1StateChange *)objectInStateChangesAtIndex:(NSUInteger)index;
+
+- (TRFrame *)frameAtIndex:(NSUInteger)index object:(TR1Moveable *)moveable;
 
 @end

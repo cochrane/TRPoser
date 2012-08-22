@@ -8,6 +8,11 @@
 
 #import "TRRenderMoveable.h"
 
+#import "TR1Animation.h"
+#import "TRFrame.h"
+#import "TR1Level.h"
+#import "TR1Moveable.h"
+
 #import "TRRenderMesh.h"
 #import "TRRenderMoveableDescription.h"
 #import "TRRenderLevelResources.h"
@@ -28,6 +33,8 @@
 	
 	_description = description;
 	_rootNode = [[TRRenderMoveableNode alloc] initWithDescription:description.rootNode partOf:self];
+	
+	[self setFrame:0 ofRelativeAnimation:0];
 	
 	return self;
 }
@@ -75,9 +82,37 @@
 		[_room.node addChildNode:self.sceneRoot];
 }
 
+- (void)setFrame:(NSUInteger)frameIndex ofAnimation:(TR1Animation *)animation;
+{
+	TRFrame *frame = [animation frameAtIndex:animation.frameStart + frameIndex object:self.description.moveable];
+	
+	__block NSUInteger angleSet = 0;
+	
+	self.offset = SCNVector3Make(frame.offsetX / 1024.0, frame.offsetY / 1024.0, frame.offsetZ / 1024);
+	
+	[self.rootNode enumerate:^(TRRenderMoveableNode *node){
+		node.rotationX = [frame rotationXInRadAtIndex:angleSet];
+		node.rotationY = [frame rotationYInRadAtIndex:angleSet];
+		node.rotationZ = [frame rotationZInRadAtIndex:angleSet];
+		angleSet += 1;
+	}];
+}
+- (void)setFrame:(NSUInteger)frame ofRelativeAnimation:(NSUInteger)animation;
+{
+	NSUInteger base = self.description.moveable.animationOffset;
+	TR1Animation *animationObject = self.description.level.level.animations[base + animation];
+	
+	[self setFrame:frame ofAnimation:animationObject];
+}
+
 @end
 
 @implementation TRRenderMoveableNode
+
++ (NSSet *)keyPathsForValuesAffectingTransformation
+{
+	return [NSSet setWithObjects:@"rotationX", @"rotationY", @"rotationZ", @"offset", nil];
+}
 
 - (id)initWithDescription:(TRRenderMoveableDescriptionNode *)node partOf:(TRRenderMoveable *)moveable;
 {
@@ -87,7 +122,7 @@
 	TRRenderLevelResources *resources = moveable.description.level;
 	TRRenderMesh *mesh = [[resources meshes] objectAtIndex:node.meshIndex];
 	_node = [SCNNode nodeWithGeometry:mesh.meshGeometry];
-	_node.transform = self.transformation;
+	[_node bind:@"transform" toObject:self withKeyPath:@"transformation" options:nil];
 	
 	NSMutableArray *children = [[NSMutableArray alloc] initWithCapacity:node.children.count];
 	for (TRRenderMoveableDescriptionNode *childNode in node.children)
@@ -109,10 +144,17 @@
 	//The Y-X-Z order is prescribed by TRosettaStone
 	CATransform3D transform = CATransform3DMakeTranslation(self.offset.x, self.offset.y, self.offset.z);
 	transform = CATransform3DRotate(transform, self.rotationY, 0.0, 1.0, 0.0);
-	transform = CATransform3DRotate(transform, self.rotationX, 1.0, 0.0, 0.0);
 	transform = CATransform3DRotate(transform, self.rotationZ, 0.0, 0.0, 1.0);
+	transform = CATransform3DRotate(transform, self.rotationX, 1.0, 0.0, 0.0);
 	
 	return transform;
+}
+
+- (void)enumerate:(void(^)(TRRenderMoveableNode *))iterator;
+{
+	iterator(self);
+	for (TRRenderMoveableNode *child in self.children)
+		[child enumerate:iterator];
 }
 
 @end

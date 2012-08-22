@@ -28,10 +28,19 @@
 	_rootNode = [[TRRenderMoveableDescriptionNode alloc] init];
 	_rootNode.meshIndex = moveable.meshStart;
 	TRRenderMoveableDescriptionNode *previous = _rootNode;
+	NSUInteger meshTreeStart = moveable.meshTreeOffset / 4;
 	
+	/*
+	 * TRosettaStone does not explain this part well. What happens is:
+	 * The root node is not in mesh trees, only the children (hence
+	 * the start at 1). Pop means take the last thing on the stack
+	 * and use it as a parent. Push means use the parent we have and
+	 * put it on the stack, too. Both can be on at the same time; then
+	 * Pop is executed first.
+	 */
 	for (NSUInteger i = 1; i < moveable.meshCount; i++)
 	{
-		TR1MeshTree *tree = self.level.level.meshTrees[i - 1];
+		TR1MeshTree *tree = self.level.level.meshTrees[meshTreeStart + i - 1];
 		
 		TRRenderMoveableDescriptionNode *node = [[TRRenderMoveableDescriptionNode alloc] init];
 		node.meshIndex = moveable.meshStart + i;
@@ -49,6 +58,8 @@
 			[stack addObject:node.parent];
 		
 		node.offset = SCNVector3Make(tree.offsetX / 1024.0, tree.offsetY / 1024.0, tree.offsetZ / 1024.0);
+		
+		previous = node;
 	}
 	
 	return self;

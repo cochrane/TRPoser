@@ -1,5 +1,5 @@
 //
-//  TRRenderLevel.h
+//  TRRenderRoomGeometry.h
 //  TR Poser
 //
 //  Created by Torsten Kammer on 22.08.12.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TRRenderLevel : NSObject
+@interface TRRenderRoomGeometry : NSObject
 
 @end

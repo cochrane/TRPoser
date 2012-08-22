@@ -8,12 +8,8 @@
 
 #import "TRRenderMeshSCN.h"
 
-#import "TR1Mesh.h"
-#import "TR1MeshFace.h"
-
 #import "TRRenderElement.h"
 #import "TRRenderLevelResourcesSCN.h"
-#import "TRRenderCategoriesSCN.h"
 
 @interface TRRenderMeshSCN ()
 {
@@ -87,14 +83,14 @@
 	geometry = [SCNGeometry geometryWithSources:sources elements:elements];
 	TRRenderLevelResourcesSCN *scnResources = (TRRenderLevelResourcesSCN *) self.resources;
 	
-	if (self.mesh.usesInternalLighting)
+	if (self.internalLighting)
 		[geometry insertMaterial:scnResources.meshInternalLightingMaterial atIndex:0];
 	else
 		[geometry insertMaterial:scnResources.meshExternalLightingMaterial atIndex:0];
 	
 	if (alphaCount > 0)
 	{
-		if (self.mesh.usesInternalLighting)
+		if (self.internalLighting)
 			[geometry insertMaterial:scnResources.meshAlphaInternalLightingMaterial atIndex:1];
 		else
 			[geometry insertMaterial:scnResources.meshAlphaExternalLightingMaterial atIndex:1];

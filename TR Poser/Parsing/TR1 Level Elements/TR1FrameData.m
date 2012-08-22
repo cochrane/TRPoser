@@ -82,9 +82,9 @@
 	frame.boundingBoxMaxY = self.frameData[position++];
 	frame.boundingBoxMaxZ = self.frameData[position++];
 	
-	frame.offsetX = self.frameData[position++];
-	frame.offsetY = self.frameData[position++];
-	frame.offsetZ = self.frameData[position++];
+	frame.offsetX = (int16_t) self.frameData[position++];
+	frame.offsetY = (int16_t) self.frameData[position++];
+	frame.offsetZ = (int16_t) self.frameData[position++];
 	
 	NSUInteger numSpecifiedAngles = self.frameData[position++];
 	

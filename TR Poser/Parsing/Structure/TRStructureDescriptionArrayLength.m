@@ -25,10 +25,16 @@
 
 - (id)initWithScanner:(NSScanner *)scanner;
 {
+	return [self initWithScanner:scanner inBrackets:YES];
+}
+
+- (id)initWithScanner:(NSScanner *)scanner inBrackets:(BOOL)requireBrackets;
+{
 	if (!(self = [super init])) return nil;
 	
-	if (![scanner scanString:@"[" intoString:NULL])
-		return nil;
+	if (requireBrackets)
+		if (![scanner scanString:@"[" intoString:NULL])
+			return nil;
 	
 	NSString *arrayLength;
 	TRStructureDescriptionPrimitiveType countFieldType;
@@ -67,8 +73,11 @@
 	if (self.fixedLength != 0)
 		self.fixedLength = self.fixedLength * self.factor / self.divisor;
 	
-	BOOL foundEndBracket = [scanner scanString:@"]" intoString:NULL];
-	NSAssert(foundEndBracket, @"array has to have end bracket!");
+	if (requireBrackets)
+	{
+		BOOL foundEndBracket = [scanner scanString:@"]" intoString:NULL];
+		NSAssert(foundEndBracket, @"array has to have end bracket!");
+	}
 	
 	return self;
 }

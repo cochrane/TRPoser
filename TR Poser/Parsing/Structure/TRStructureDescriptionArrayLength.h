@@ -16,6 +16,7 @@
 @interface TRStructureDescriptionArrayLength : NSObject
 
 - (id)initWithScanner:(NSScanner *)scanner;
+- (id)initWithScanner:(NSScanner *)scanner inBrackets:(BOOL)requireBrackets;
 
 @property (nonatomic, assign, readonly) NSUInteger fixedLength;
 @property (nonatomic, copy, readonly) NSString *lengthKeyPath;

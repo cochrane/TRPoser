@@ -16,6 +16,14 @@
 	const bitu8='R';\
 	const bitu8='4';\
 	const bitu8=0;\
+	bitu16 flatRoomTiles;\
+	bitu16 objectTiles;\
+	bitu16 bumpedRoomTiles;\
+	compressed texture32[u=bitu32, c=bitu32];\
+	compressed texture16[u=bitu32, c=bitu32];\
+	compressed textureFontAndSky[u=bitu32, c=bitu32];\
+	compressed geometry[u=bitu32, c=bitu32];\
+	*Sound sounds[bitu32];\
 	";
 }
 

@@ -10,4 +10,10 @@
 
 @interface TR4Level : TR3Level
 
+@property (nonatomic, assign) NSUInteger flatRoomTiles;
+@property (nonatomic, assign) NSUInteger objectTiles;
+@property (nonatomic, assign) NSUInteger bumpedRoomTiles;
+
+@property (nonatomic, retain) NSMutableArray *sounds;
+
 @end

@@ -54,6 +54,10 @@
 		52D8D93315DBA21C00374481 /* TR1SoundSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D93215DBA21900374481 /* TR1SoundSource.m */; };
 		52D8D93615DBA2C800374481 /* TR1SoundDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D93515DBA2C400374481 /* TR1SoundDetails.m */; };
 		52D8D93915DBA5C400374481 /* TR1Box.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8D93815DBA5C100374481 /* TR1Box.m */; };
+		52EC93D715EC17F6000CF949 /* TRLevelTest_Cleopal.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93D615EC17F6000CF949 /* TRLevelTest_Cleopal.m */; };
+		52EC93DB15EC18A5000CF949 /* TR4Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93DA15EC18A5000CF949 /* TR4Level.m */; };
+		52EC93DE15EC1C3E000CF949 /* TR4Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93DD15EC1C3E000CF949 /* TR4Sound.m */; };
+		52EC93E115EC1F78000CF949 /* TRStructureDescriptionCompressedField.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93E015EC1F78000CF949 /* TRStructureDescriptionCompressedField.m */; };
 		52F8987B15D8766400AD9031 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8987A15D8766400AD9031 /* Cocoa.framework */; };
 		52F8988515D8766400AD9031 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F8988315D8766400AD9031 /* InfoPlist.strings */; };
 		52F8988715D8766400AD9031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8988615D8766400AD9031 /* main.m */; };
@@ -220,6 +224,14 @@
 		52D8D93515DBA2C400374481 /* TR1SoundDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1SoundDetails.m; sourceTree = "<group>"; };
 		52D8D93715DBA5BE00374481 /* TR1Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR1Box.h; sourceTree = "<group>"; };
 		52D8D93815DBA5C100374481 /* TR1Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR1Box.m; sourceTree = "<group>"; };
+		52EC93D515EC17F6000CF949 /* TRLevelTest_Cleopal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLevelTest_Cleopal.h; sourceTree = "<group>"; };
+		52EC93D615EC17F6000CF949 /* TRLevelTest_Cleopal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLevelTest_Cleopal.m; sourceTree = "<group>"; };
+		52EC93D915EC18A5000CF949 /* TR4Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4Level.h; sourceTree = "<group>"; };
+		52EC93DA15EC18A5000CF949 /* TR4Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4Level.m; sourceTree = "<group>"; };
+		52EC93DC15EC1C3E000CF949 /* TR4Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4Sound.h; sourceTree = "<group>"; };
+		52EC93DD15EC1C3E000CF949 /* TR4Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4Sound.m; sourceTree = "<group>"; };
+		52EC93DF15EC1F78000CF949 /* TRStructureDescriptionCompressedField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionCompressedField.h; sourceTree = "<group>"; };
+		52EC93E015EC1F78000CF949 /* TRStructureDescriptionCompressedField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionCompressedField.m; sourceTree = "<group>"; };
 		52F8987615D8766400AD9031 /* TR Poser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TR Poser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F8987A15D8766400AD9031 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52F8987D15D8766400AD9031 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -433,6 +445,8 @@
 				52FB7BB815DC414500DB1E72 /* TRStructureDescriptionFactor.m */,
 				521F754E15E00FDE00AB0A73 /* TRStructureDescriptionPrimitiveType.h */,
 				521F754F15E00FDE00AB0A73 /* TRStructureDescriptionPrimitiveType.m */,
+				52EC93DF15EC1F78000CF949 /* TRStructureDescriptionCompressedField.h */,
+				52EC93E015EC1F78000CF949 /* TRStructureDescriptionCompressedField.m */,
 			);
 			path = Structure;
 			sourceTree = "<group>";
@@ -581,6 +595,10 @@
 			children = (
 				52F8991A15D95F9900AD9031 /* TR4MeshFace.h */,
 				52F8991B15D95F9900AD9031 /* TR4MeshFace.m */,
+				52EC93D915EC18A5000CF949 /* TR4Level.h */,
+				52EC93DA15EC18A5000CF949 /* TR4Level.m */,
+				52EC93DC15EC1C3E000CF949 /* TR4Sound.h */,
+				52EC93DD15EC1C3E000CF949 /* TR4Sound.m */,
 			);
 			path = "TR4 Level Elements";
 			sourceTree = "<group>";
@@ -692,6 +710,8 @@
 				52AA119815E18F5A00895F44 /* TRLevelTest_Caves.m */,
 				52AA11B215E1AE8000895F44 /* TRLevelTest_Jungle.h */,
 				52AA11B315E1AE8000895F44 /* TRLevelTest_Jungle.m */,
+				52EC93D515EC17F6000CF949 /* TRLevelTest_Cleopal.h */,
+				52EC93D615EC17F6000CF949 /* TRLevelTest_Cleopal.m */,
 			);
 			path = "TR PoserTests";
 			sourceTree = "<group>";
@@ -917,6 +937,9 @@
 				52B6A2C315E53892007EFC77 /* TRRenderLevelResources.m in Sources */,
 				52B6A2C615E53908007EFC77 /* TRRenderTexture.m in Sources */,
 				52B6A2D515E59E13007EFC77 /* TRRenderRoomGeometry.m in Sources */,
+				52EC93DB15EC18A5000CF949 /* TR4Level.m in Sources */,
+				52EC93DE15EC1C3E000CF949 /* TR4Sound.m in Sources */,
+				52EC93E115EC1F78000CF949 /* TRStructureDescriptionCompressedField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,6 +953,7 @@
 				521F755915E0232000AB0A73 /* TRStructureSubstreamTest.m in Sources */,
 				52AA119915E18F5A00895F44 /* TRLevelTest_Caves.m in Sources */,
 				52AA11B415E1AE8000895F44 /* TRLevelTest_Jungle.m in Sources */,
+				52EC93D715EC17F6000CF949 /* TRLevelTest_Cleopal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "TRStructureDescriptionField.h"
 
 #import "TRStructureDescriptionConstField.h"
+#import "TRStructureDescriptionCompressedField.h"
 #import "TRStructureDescriptionSubstreamField.h"
 #import "TRStructureDescriptionValueField.h"
 
@@ -20,6 +21,8 @@
 	
 	if ([fieldDescription hasPrefix:@"const"])
 		return [[TRStructureDescriptionConstField alloc] initWithString:fieldDescription];
+	else if ([fieldDescription hasPrefix:@"compressed"])
+		return [[TRStructureDescriptionCompressedField alloc] initWithString:fieldDescription];
 	else if ([fieldDescription hasPrefix:@"substream"])
 		return [[TRStructureDescriptionSubstreamField alloc] initWithString:fieldDescription];
 	else

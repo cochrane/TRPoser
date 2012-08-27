@@ -40,21 +40,21 @@
 
 - (TRInDataStream *)cleopatraPalaceData;
 {
-	NSURL *wallURL = [self greatWallURL];
+	NSURL *palaceURL = [self cleopatraPalaceURL];
 	
-	STAssertTrue(wallURL != nil, @"Tomb Raider 2 has to be installed on this computer for the test to work.");
-	if (wallURL == nil) return nil;
+	STAssertTrue(palaceURL != nil, @"Tomb Raider 4 or LE data has to be on this computer for the test to work.");
+	if (palaceURL == nil) return nil;
 	
-	NSData *wallData = [NSData dataWithContentsOfURL:wallURL];
-	STAssertTrue(wallData != nil, @"Cannot open WALL.TR2");
-	if (wallData == nil) return nil;
+	NSData *palaceData = [NSData dataWithContentsOfURL:palaceURL];
+	STAssertTrue(palaceData != nil, @"Cannot open cleopal.tr4");
+	if (palaceData == nil) return nil;
 	
-	return [[TRInDataStream alloc] initWithData:wallData];
+	return [[TRInDataStream alloc] initWithData:palaceData];
 }
 
 - (void)testCleopatraPalace;
 {
-	TRInDataStream *stream = [self greatWallData];
+	TRInDataStream *stream = [self cleopatraPalaceData];
 	if (!stream) return; // No TR2 on this computer
 	
 	TR4Level *level = [[TR4Level alloc] initFromDataStream:stream];
@@ -70,7 +70,7 @@
 
 - (void)testCleopatraPalaceTranscode
 {
-	TRInDataStream *originalStream = [self greatWallData];
+	TRInDataStream *originalStream = [self cleopatraPalaceData];
 	if (!originalStream) return; // No TR2 on this computer
 	
 	TR4Level *original = [[TR4Level alloc] initFromDataStream:originalStream];

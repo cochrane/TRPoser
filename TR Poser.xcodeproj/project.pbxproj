@@ -58,6 +58,7 @@
 		52EC93DB15EC18A5000CF949 /* TR4Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93DA15EC18A5000CF949 /* TR4Level.m */; };
 		52EC93DE15EC1C3E000CF949 /* TR4Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93DD15EC1C3E000CF949 /* TR4Sound.m */; };
 		52EC93E115EC1F78000CF949 /* TRStructureDescriptionCompressedField.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93E015EC1F78000CF949 /* TRStructureDescriptionCompressedField.m */; };
+		52EC93E815EC2770000CF949 /* TR4TexturePage32.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93E715EC2770000CF949 /* TR4TexturePage32.m */; };
 		52F8987B15D8766400AD9031 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8987A15D8766400AD9031 /* Cocoa.framework */; };
 		52F8988515D8766400AD9031 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F8988315D8766400AD9031 /* InfoPlist.strings */; };
 		52F8988715D8766400AD9031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8988615D8766400AD9031 /* main.m */; };
@@ -232,6 +233,8 @@
 		52EC93DD15EC1C3E000CF949 /* TR4Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4Sound.m; sourceTree = "<group>"; };
 		52EC93DF15EC1F78000CF949 /* TRStructureDescriptionCompressedField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionCompressedField.h; sourceTree = "<group>"; };
 		52EC93E015EC1F78000CF949 /* TRStructureDescriptionCompressedField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionCompressedField.m; sourceTree = "<group>"; };
+		52EC93E615EC276F000CF949 /* TR4TexturePage32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4TexturePage32.h; sourceTree = "<group>"; };
+		52EC93E715EC2770000CF949 /* TR4TexturePage32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4TexturePage32.m; sourceTree = "<group>"; };
 		52F8987615D8766400AD9031 /* TR Poser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TR Poser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F8987A15D8766400AD9031 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52F8987D15D8766400AD9031 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -599,6 +602,8 @@
 				52EC93DA15EC18A5000CF949 /* TR4Level.m */,
 				52EC93DC15EC1C3E000CF949 /* TR4Sound.h */,
 				52EC93DD15EC1C3E000CF949 /* TR4Sound.m */,
+				52EC93E615EC276F000CF949 /* TR4TexturePage32.h */,
+				52EC93E715EC2770000CF949 /* TR4TexturePage32.m */,
 			);
 			path = "TR4 Level Elements";
 			sourceTree = "<group>";
@@ -940,6 +945,7 @@
 				52EC93DB15EC18A5000CF949 /* TR4Level.m in Sources */,
 				52EC93DE15EC1C3E000CF949 /* TR4Sound.m in Sources */,
 				52EC93E115EC1F78000CF949 /* TRStructureDescriptionCompressedField.m in Sources */,
+				52EC93E815EC2770000CF949 /* TR4TexturePage32.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

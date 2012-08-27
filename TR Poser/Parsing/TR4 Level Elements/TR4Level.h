@@ -15,5 +15,7 @@
 @property (nonatomic, assign) NSUInteger bumpedRoomTiles;
 
 @property (nonatomic, retain) NSMutableArray *sounds;
+@property (nonatomic, retain) NSMutableArray *textureTiles32;
+@property (nonatomic, retain) NSMutableArray *specialTextureTiles;
 
 @end

@@ -10,4 +10,18 @@
 
 @implementation TR4Level
 
++ (NSString *)structureDescriptionSource
+{
+	return @"const bitu8='T';\
+	const bitu8='R';\
+	const bitu8='4';\
+	const bitu8=0;\
+	";
+}
+
+- (NSUInteger)gameVersion;
+{
+	return 4;
+}
+
 @end

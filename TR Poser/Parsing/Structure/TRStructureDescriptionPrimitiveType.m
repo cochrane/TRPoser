@@ -53,6 +53,8 @@
 
 - (BOOL)scanValueOfPrimitiveType:(TRStructureDescriptionPrimitiveType)type intoNumber:(NSNumber *__autoreleasing *)number;
 {
+	NSAssert(type != TRSDCP_invalid, @"Type %u is not a primitive data type", type);
+	
 	if (type == TRSDCP_float32)
 	{
 		float value;
@@ -60,10 +62,15 @@
 		if (result && number) *number = @(value);
 		return result;
 	}
-	else if (type == TRSDCP_invalid)
+	
+	if ([self scanString:@"'" intoString:NULL])
 	{
-		[NSException raise:NSInvalidArgumentException format:@"Value %u is no primitive data type", type];
-		return NO;
+		NSString *character;
+		bool scanned = [self scanUpToString:@"'" intoString:&character];
+		
+		*number = @([character characterAtIndex:0]);
+		
+		return scanned && [self scanString:@"'" intoString:NULL];
 	}
 	
 	NSInteger value;

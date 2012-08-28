@@ -10,6 +10,7 @@
 
 @interface TR4Texture : TR1Texture
 
+@property (nonatomic, assign) NSUInteger tileIndexField;
 @property (nonatomic, assign) NSUInteger flags;
 @property (nonatomic, assign) NSUInteger unknown1;
 @property (nonatomic, assign) NSUInteger unknown2;

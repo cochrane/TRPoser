@@ -185,7 +185,6 @@
 		array[element+4] = index + 0;
 		array[element+5] = index + 3;
 		element += 6;
-		index += 4;
 		
 		if (face.isTwoSided)
 		{
@@ -196,8 +195,8 @@
 			array[element+4] = index + 3;
 			array[element+5] = index + 0;
 			element += 6;
-			index += 4;
 		}
+		index += 4;
 	}
 	for (TR1MeshFace *face in self.mesh.coloredTriangles)
 	{
@@ -206,7 +205,6 @@
 		array[element+1] = index + 2;
 		array[element+2] = index + 1;
 		element += 3;
-		index += 3;
 		
 		if (face.isTwoSided)
 		{
@@ -214,8 +212,8 @@
 			array[element+1] = index + 1;
 			array[element+2] = index + 2;
 			element += 3;
-			index += 3;
 		}
+		index += 3;
 	}
 	for (TR1MeshFace *face in self.mesh.texturedRectangles)
 	{
@@ -227,7 +225,6 @@
 		array[element+4] = index + 2;
 		array[element+5] = index + 0;
 		element += 6;
-		index += 4;
 		
 		if (face.isTwoSided)
 		{
@@ -238,8 +235,8 @@
 			array[element+4] = index + 3;
 			array[element+5] = index + 0;
 			element += 6;
-			index += 4;
 		}
+		index += 4;
 	}
 	for (TR1MeshFace *face in self.mesh.texturedTriangles)
 	{
@@ -248,7 +245,6 @@
 		array[element+1] = index + 2;
 		array[element+2] = index + 1;
 		element += 3;
-		index += 3;
 		
 		if (face.isTwoSided)
 		{
@@ -256,8 +252,8 @@
 			array[element+1] = index + 1;
 			array[element+2] = index + 2;
 			element += 3;
-			index += 3;
 		}
+		index += 3;
 	}
 	
 	return [NSData dataWithBytesNoCopy:elements length:sizeof(uint16_t) * triangleCount*3 freeWhenDone:YES];

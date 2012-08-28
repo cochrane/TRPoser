@@ -76,7 +76,7 @@
 	for (TR1RoomFace *face in self.room.rectangles)
 	{
 		if (face.isTwoSided) doublesidedTriangles += 2;
-		if (face.hasAlpha) doublesidedTriangles += face.isTwoSided ? 4 : 2;
+		if (face.hasAlpha) alphaTriangles += face.isTwoSided ? 4 : 2;
 		
 		for (NSUInteger j = 0; j < 4; j++, i++)
 			[self fillElement:&elements[i] fromTexturedFace:face corner:j];
@@ -84,7 +84,7 @@
 	for (TR1RoomFace *face in self.room.triangles)
 	{
 		if (face.isTwoSided) doublesidedTriangles += 1;
-		if (face.hasAlpha) doublesidedTriangles += face.isTwoSided ? 2 : 1;
+		if (face.hasAlpha) alphaTriangles += face.isTwoSided ? 2 : 1;
 		
 		for (NSUInteger j = 0; j < 3; j++, i++)
 			[self fillElement:&elements[i] fromTexturedFace:face corner:j];
@@ -119,7 +119,6 @@
 		array[element+4] = index + 2;
 		array[element+5] = index + 0;
 		element += 6;
-		index += 4;
 		
 		if (face.isTwoSided)
 		{
@@ -130,8 +129,8 @@
 			array[element+4] = index + 3;
 			array[element+5] = index + 0;
 			element += 6;
-			index += 4;
 		}
+		index += 4;
 	}
 	for (TR1RoomFace *face in self.room.triangles)
 	{
@@ -140,7 +139,6 @@
 		array[element+1] = index + 2;
 		array[element+2] = index + 1;
 		element += 3;
-		index += 3;
 		
 		if (face.isTwoSided)
 		{
@@ -148,8 +146,8 @@
 			array[element+1] = index + 1;
 			array[element+2] = index + 2;
 			element += 3;
-			index += 3;
 		}
+		index += 3;
 	}
 	
 	return [NSData dataWithBytesNoCopy:elements length:sizeof(uint16_t) * triangleCount*3 freeWhenDone:YES];

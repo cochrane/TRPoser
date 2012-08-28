@@ -65,8 +65,8 @@
 	STAssertEquals((NSUInteger) 8+8+5, level.textureTiles16.count, @"Count of tex tiles (16 bit)");
 	STAssertEquals((NSUInteger) 8+8+5, level.textureTiles32.count, @"Count of tex tiles (32 bit)");
 	STAssertEquals((NSUInteger)2, level.specialTextureTiles.count, @"Count of tex tiles (font and sky)");
-	STAssertEquals((NSUInteger) 84, level.rooms.count, @"Count of rooms");
-	STAssertEquals((NSUInteger) 373, level.meshPointers.count, @"Count of mesh pointers");
+	STAssertEquals((NSUInteger) 116, level.rooms.count, @"Count of rooms");
+	STAssertEquals((NSUInteger) 520, level.meshPointers.count, @"Count of mesh pointers");
 }
 
 - (void)testCleopatraPalaceTranscode;
@@ -89,8 +89,8 @@
 	STAssertEquals((NSUInteger) 8+8+5, level.textureTiles16.count, @"Count of tex tiles (16 bit)");
 	STAssertEquals((NSUInteger) 8+8+5, level.textureTiles32.count, @"Count of tex tiles (32 bit)");
 	STAssertEquals((NSUInteger)2, level.specialTextureTiles.count, @"Count of tex tiles (font and sky)");
-	STAssertEquals((NSUInteger) 84, level.rooms.count, @"Count of rooms");
-	STAssertEquals((NSUInteger) 373, level.meshPointers.count, @"Count of mesh pointers");
+	STAssertEquals((NSUInteger) 116, level.rooms.count, @"Count of rooms");
+	STAssertEquals((NSUInteger) 520, level.meshPointers.count, @"Count of mesh pointers");
 }
 
 @end

@@ -65,6 +65,7 @@
 		52EC93F415ECA4F6000CF949 /* TR4Mesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93F315ECA4F6000CF949 /* TR4Mesh.m */; };
 		52EC93F715ECC6EB000CF949 /* TR4Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93F615ECC6EA000CF949 /* TR4Texture.m */; };
 		52EC93FA15ECC859000CF949 /* TR4Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93F915ECC858000CF949 /* TR4Animation.m */; };
+		52EC93FD15ECD5B6000CF949 /* TR3Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93FC15ECD5B6000CF949 /* TR3Texture.m */; };
 		52F8987B15D8766400AD9031 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8987A15D8766400AD9031 /* Cocoa.framework */; };
 		52F8988515D8766400AD9031 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F8988315D8766400AD9031 /* InfoPlist.strings */; };
 		52F8988715D8766400AD9031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8988615D8766400AD9031 /* main.m */; };
@@ -253,6 +254,8 @@
 		52EC93F615ECC6EA000CF949 /* TR4Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4Texture.m; sourceTree = "<group>"; };
 		52EC93F815ECC858000CF949 /* TR4Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4Animation.h; sourceTree = "<group>"; };
 		52EC93F915ECC858000CF949 /* TR4Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4Animation.m; sourceTree = "<group>"; };
+		52EC93FB15ECD5B6000CF949 /* TR3Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR3Texture.h; sourceTree = "<group>"; };
+		52EC93FC15ECD5B6000CF949 /* TR3Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR3Texture.m; sourceTree = "<group>"; };
 		52F8987615D8766400AD9031 /* TR Poser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TR Poser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F8987A15D8766400AD9031 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52F8987D15D8766400AD9031 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -607,6 +610,8 @@
 				52AA11AD15E1AB4E00895F44 /* TR3StaticMeshInstance.m */,
 				52AA11AF15E1ACA700895F44 /* TR3Level.h */,
 				52AA11B015E1ACA700895F44 /* TR3Level.m */,
+				52EC93FB15ECD5B6000CF949 /* TR3Texture.h */,
+				52EC93FC15ECD5B6000CF949 /* TR3Texture.m */,
 			);
 			path = "TR3 Level Elements";
 			sourceTree = "<group>";
@@ -982,6 +987,7 @@
 				52EC93F415ECA4F6000CF949 /* TR4Mesh.m in Sources */,
 				52EC93F715ECC6EB000CF949 /* TR4Texture.m in Sources */,
 				52EC93FA15ECC859000CF949 /* TR4Animation.m in Sources */,
+				52EC93FD15ECD5B6000CF949 /* TR3Texture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

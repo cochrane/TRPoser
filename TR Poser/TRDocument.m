@@ -8,8 +8,7 @@
 
 #import "TRDocument.h"
 
-#import "TR2Level.h"
-#import "TR2RoomVertex.h"
+#import "TR4Level.h"
 #import "TRRenderLevelSCN.h"
 #import "TRRenderLevelResourcesSCN.h"
 #import "TRRenderMoveableSCN.h"
@@ -102,7 +101,7 @@
 	NSData *data = [NSData dataWithContentsOfURL:url];
 	NSAssert(data != nil, @"Can't load %@", url);
 	
-	TR2Level *level = [[TR2Level alloc] initWithData:data];
+	TR4Level *level = [[TR4Level alloc] initWithData:data];
 	NSAssert(level != nil, @"Can't create level for %@", url);
 	
 	[self setupGraphicsWithLevel:level];

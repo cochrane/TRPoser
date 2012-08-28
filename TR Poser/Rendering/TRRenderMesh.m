@@ -126,7 +126,7 @@
 	for (TR1MeshFace *face in self.mesh.coloredRectangles)
 	{
 		if (face.isTwoSided) doublesidedTriangles += 2;
-		if (face.hasAlpha) doublesidedTriangles += face.isTwoSided ? 4 : 2;
+		if (face.hasAlpha) alphaTriangles += face.isTwoSided ? 4 : 2;
 		
 		for (NSUInteger j = 0; j < 4; j++, i++)
 			[self fillElement:&elements[i] fromColoredFace:face corner:j];
@@ -134,7 +134,7 @@
 	for (TR1MeshFace *face in self.mesh.coloredTriangles)
 	{
 		if (face.isTwoSided) doublesidedTriangles += 1;
-		if (face.hasAlpha) doublesidedTriangles += face.isTwoSided ? 2 : 1;
+		if (face.hasAlpha) alphaTriangles += face.isTwoSided ? 2 : 1;
 		
 		for (NSUInteger j = 0; j < 3; j++, i++)
 			[self fillElement:&elements[i] fromColoredFace:face corner:j];
@@ -142,7 +142,7 @@
 	for (TR1MeshFace *face in self.mesh.texturedRectangles)
 	{
 		if (face.isTwoSided) doublesidedTriangles += 2;
-		if (face.hasAlpha) doublesidedTriangles += face.isTwoSided ? 4 : 2;
+		if (face.hasAlpha) alphaTriangles += face.isTwoSided ? 4 : 2;
 		
 		for (NSUInteger j = 0; j < 4; j++, i++)
 			[self fillElement:&elements[i] fromTexturedFace:face corner:j];
@@ -150,7 +150,7 @@
 	for (TR1MeshFace *face in self.mesh.texturedTriangles)
 	{
 		if (face.isTwoSided) doublesidedTriangles += 1;
-		if (face.hasAlpha) doublesidedTriangles += face.isTwoSided ? 2 : 1;
+		if (face.hasAlpha) alphaTriangles += face.isTwoSided ? 2 : 1;
 		
 		for (NSUInteger j = 0; j < 3; j++, i++)
 			[self fillElement:&elements[i] fromTexturedFace:face corner:j];

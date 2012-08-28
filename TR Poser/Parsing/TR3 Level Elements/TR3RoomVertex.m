@@ -33,7 +33,10 @@
 	NSUInteger green = (self.colorField & 0x03E0) >> 0x5;
 	NSUInteger blue = (self.colorField & 0x001F) >> 0x0;
 	
-	return [NSColor colorWithCalibratedRed:(CGFloat) red / 31.0 green:(CGFloat) green / 31.0 blue:(CGFloat) blue / 31.0 alpha:(CGFloat) alpha];
+	return [NSColor colorWithCalibratedRed:(CGFloat) red / 31.0
+									 green:(CGFloat) green / 31.0
+									  blue:(CGFloat) blue / 31.0
+									 alpha:(CGFloat) alpha];
 }
 
 - (void)setColor:(NSColor *)color

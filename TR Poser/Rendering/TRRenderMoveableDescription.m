@@ -30,6 +30,8 @@
 	TRRenderMoveableDescriptionNode *previous = _rootNode;
 	NSUInteger meshTreeStart = moveable.meshTreeOffset / 4;
 	
+	[stack addObject:_rootNode];
+	
 	/*
 	 * TRosettaStone does not explain this part well. What happens is:
 	 * The root node is not in mesh trees, only the children (hence

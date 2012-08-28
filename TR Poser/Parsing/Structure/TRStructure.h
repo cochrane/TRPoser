@@ -32,8 +32,10 @@
 
 - (id)initFromDataStream:(TRInDataStream *)stream inLevel:(TR1Level *)level;
 - (id)initFromDataStream:(TRInDataStream *)stream inLevel:(TR1Level *)level substreams:(NSDictionary * __autoreleasing *)substreams;
+- (void)parseStream:(TRInDataStream *)stream description:(TRStructureDescription *)description substreams:(NSDictionary * __autoreleasing *)substreams;
 - (void)writeToStream:(TROutDataStream *)stream;
 - (void)writeToStream:(TROutDataStream *)stream substreams:(NSDictionary *)substreams;
+- (void)writeToStream:(TROutDataStream *)stream description:(TRStructureDescription *)description substreams:(NSDictionary *)substreams;
 
 @property (nonatomic, weak, readonly) TR1Level *level;
 

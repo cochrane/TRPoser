@@ -73,8 +73,14 @@ static NSMutableDictionary *structureDescriptions;
 	
 	_level = level;
 	
+	[self parseStream:stream description:self.class.structureDescription substreams:substreams];
+	
+	return self;
+}
+- (void)parseStream:(TRInDataStream *)stream description:(TRStructureDescription *)description substreams:(NSDictionary * __autoreleasing *)substreams;
+{
 	NSMutableDictionary *mutableSubstreams = [[NSMutableDictionary alloc] init];
-	for (TRStructureDescriptionField *field in self.class.structureDescription.fields)
+	for (TRStructureDescriptionField *field in description.fields)
 	{
 		NSDictionary *additionalSubstreams = nil;
 		[field parseFromStream:stream intoObject:self substreams:&additionalSubstreams];
@@ -82,8 +88,6 @@ static NSMutableDictionary *structureDescriptions;
 			[mutableSubstreams addEntriesFromDictionary: additionalSubstreams];
 	}
 	if (substreams) *substreams = mutableSubstreams;
-	
-	return self;
 }
 
 - (void)writeToStream:(TROutDataStream *)stream;
@@ -92,7 +96,11 @@ static NSMutableDictionary *structureDescriptions;
 }
 - (void)writeToStream:(TROutDataStream *)stream substreams:(NSDictionary *)substreams;
 {
-	for (TRStructureDescriptionField *field in self.class.structureDescription.fields)
+	[self writeToStream:stream description:self.class.structureDescription substreams:substreams];
+}
+- (void)writeToStream:(TROutDataStream *)stream description:(TRStructureDescription *)description substreams:(NSDictionary *)substreams;
+{
+	for (TRStructureDescriptionField *field in description.fields)
 	{
 		[field writeToStream:stream fromObject:self substreams:substreams];
 	}

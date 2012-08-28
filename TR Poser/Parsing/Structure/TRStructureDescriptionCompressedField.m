@@ -103,11 +103,11 @@
 	if (self.compressedComesFirst)
 	{
 		[self.compressedLength writeLengthToStream:stream object:structure actual:compressed.length];
-		[self.uncompressedLength writeLengthToStream:stream object:structure actual:compressed.length];
+		[self.uncompressedLength writeLengthToStream:stream object:structure actual:substream.length];
 	}
 	else
 	{
-		[self.uncompressedLength writeLengthToStream:stream object:structure actual:compressed.length];
+		[self.uncompressedLength writeLengthToStream:stream object:structure actual:substream.length];
 		[self.compressedLength writeLengthToStream:stream object:structure actual:compressed.length];
 	}
 	

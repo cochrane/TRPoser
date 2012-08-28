@@ -105,16 +105,19 @@
 	self.textureTiles32 = [[NSMutableArray alloc] initWithCapacity:regularTiles];
 	for (NSUInteger i = 0; i < regularTiles; i++)
 		[self.textureTiles32 addObject:[[TR4TexturePage32 alloc] initFromDataStream:texture32Stream inLevel:self]];
+	NSAssert(texture32Stream.isAtEnd, @"32 bit texture stream is too long.");
 	
 	TRInDataStream *texture16Stream = substreams[@"texture16"];
 	self.textureTiles16 = [[NSMutableArray alloc] initWithCapacity:regularTiles];
 	for (NSUInteger i = 0; i < regularTiles; i++)
 		[self.textureTiles16 addObject:[[TR2TexturePage16 alloc] initFromDataStream:texture16Stream inLevel:self]];
+	NSAssert(texture16Stream.isAtEnd, @"16 bit texture stream is too long.");
 	
 	TRInDataStream *specialTextureStream = substreams[@"textureFontAndSky"];
 	self.specialTextureTiles = [[NSMutableArray alloc] initWithCapacity:2];
 	for (NSUInteger i = 0; i < 2; i++)
 		[self.specialTextureTiles addObject:[[TR4TexturePage32 alloc] initFromDataStream:specialTextureStream inLevel:self]];
+	NSAssert(specialTextureStream.isAtEnd, @"font and sky texture stream is too long.");
 	
 	// Parse geometry
 	NSDictionary *geometrySubstreams = nil;
@@ -145,12 +148,6 @@
 	TROutDataStream *geometryStream = [[TROutDataStream alloc] init];
 	[self writeToStream:geometryStream description:self.class.geometryPartDescription substreams:@{ @"meshData" : meshStream }];
 	
-//	TROutDataStream *meshStream = [[TROutDataStream alloc] init];
-//	for (TR1MeshPointer *meshPointer in self.meshPointers)
-//	{
-//		meshPointer.meshStartOffset = meshStream.length;
-//		[meshPointer.mesh writeToStream:meshStream];
-//	}
 	[super writeToStream:stream substreams:@{ @"texture32" : texture32Stream,
 	 @"texture16" : texture16Stream,
 	 @"textureFontAndSky" : specialTextureStream,

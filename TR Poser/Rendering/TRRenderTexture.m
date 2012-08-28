@@ -54,15 +54,12 @@
 
 - (NSData *)create32BitData
 {
-	NSMutableArray *texturePages32 = [[NSMutableArray alloc] initWithCapacity:self.level.textureTiles8.count];
+	NSMutableArray *texturePages32 = [[NSMutableArray alloc] initWithCapacity:self.level.countOfTextureTiles];
 	if (usesPalette)
 		[texturePages32 addObject:[self.level.palette8 asTexturePage]];
 	
 	for (TRTexturePage *page in [self.level valueForKey:@"textureTiles"])
 		[texturePages32 addObject:[page pixels32Bit]];
-	
-	pagesWide = sqrt((double) texturePages32.count);
-	pagesHigh = ceil( (double) texturePages32.count / (double) pagesWide);
 	
 	const NSUInteger rowBytes = self.width * 4;
 	const NSUInteger pageRowBytes = rowBytes * 256;

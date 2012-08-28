@@ -90,9 +90,11 @@
 	NSUInteger page = texture.tileIndex;
 	if (usesPalette)
 		page += 1;
-	
+		
 	NSUInteger pageRow = page / pagesWide;
 	NSUInteger pageCol = page % pagesWide;
+	
+	NSAssert((pageRow < pagesHigh) && (pageCol < pagesWide), @"texture page %lu is too high!", page);
 	
 	NSUInteger pixels[2] = {
 		vertex.xPixel + pageCol*256,

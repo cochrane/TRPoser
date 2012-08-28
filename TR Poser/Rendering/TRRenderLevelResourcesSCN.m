@@ -89,17 +89,11 @@
 	self.meshExternalLightingMaterial.lightingModelName = SCNLightingModelLambert;
 	self.meshExternalLightingMaterial.locksAmbientWithDiffuse = YES;
 	
-	self.meshAlphaInternalLightingMaterial = [SCNMaterial material];
-//	self.meshAlphaInternalLightingMaterial.ambient.contents = [NSColor blackColor];
-//	self.meshAlphaInternalLightingMaterial.diffuse.contents = [NSColor blackColor];
-//	self.meshAlphaInternalLightingMaterial.specular.contents = [NSColor blackColor];
-//	self.meshAlphaInternalLightingMaterial.emission.contents = (__bridge id) textureImage;
-	self.meshAlphaInternalLightingMaterial.transparencyMode = SCNTransparencyModeRGBZero;
-	self.meshAlphaInternalLightingMaterial.diffuse.contents = (__bridge id) self.textureImage;
-	
-	self.meshAlphaExternalLightingMaterial = [SCNMaterial material];
-	self.meshAlphaExternalLightingMaterial.diffuse.contents = (__bridge id) self.textureImage;
+	self.meshAlphaExternalLightingMaterial = [self.meshExternalLightingMaterial copy];
 	self.meshAlphaExternalLightingMaterial.transparencyMode = SCNTransparencyModeRGBZero;
+	
+	self.meshAlphaInternalLightingMaterial = [self.meshInternalLightingMaterial copy];
+	self.meshAlphaInternalLightingMaterial.transparencyMode = SCNTransparencyModeRGBZero;
 }
 
 - (void)setupMeshes

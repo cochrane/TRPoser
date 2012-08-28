@@ -15,5 +15,6 @@
 
 - (IBAction)loadLevel:(id)sender;
 - (IBAction)saveLevel:(id)sender;
+- (IBAction)saveTexture:(id)sender;
 
 @end

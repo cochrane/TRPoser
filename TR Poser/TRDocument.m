@@ -95,6 +95,19 @@
 		[data writeToURL:panel.URL atomically:YES];
 	}];
 }
+- (IBAction)saveTexture:(id)sender
+{
+	NSSavePanel *panel = [NSSavePanel savePanel];
+	panel.allowedFileTypes = @[ (__bridge NSString *) kUTTypePNG ];
+	[panel beginSheetModalForWindow:self.windowForSheet completionHandler:^(NSInteger result){
+		if (result != NSOKButton) return;
+		
+		CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef) panel.URL, kUTTypePNG, 1, NULL);
+		CGImageDestinationAddImage(destination, self.renderLevel.resources.textureImage, NULL);
+		CGImageDestinationFinalize(destination);
+		CFRelease(destination);
+	}];
+}
 
 - (void)setupLevelWithURL:(NSURL *)url;
 {

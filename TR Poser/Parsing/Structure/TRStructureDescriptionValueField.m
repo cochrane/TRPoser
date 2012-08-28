@@ -81,6 +81,8 @@ static NSMutableCharacterSet *nameTerminatorSet;
 
 - (void)parseFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure;
 {
+	NSAssert(!stream.isAtEnd, @"Stream at end even though there is still field \"%@\" to read.", self.name);
+
 	if (self.arrayLength)
 	{
 		NSUInteger length = [self.arrayLength readLengthFromStream:stream object:structure];
@@ -97,6 +99,8 @@ static NSMutableCharacterSet *nameTerminatorSet;
 
 - (id)parseSingleValueFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure;
 {
+	NSAssert(!stream.isAtEnd, @"Stream at end even though there is still single value of field \"%@\" to read.", self.name);
+	
 	if (self.isPrimitive)
 		return [stream readNumberOfPrimitiveType:self.primitiveType];
 	else

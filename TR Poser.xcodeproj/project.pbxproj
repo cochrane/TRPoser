@@ -59,6 +59,12 @@
 		52EC93DE15EC1C3E000CF949 /* TR4Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93DD15EC1C3E000CF949 /* TR4Sound.m */; };
 		52EC93E115EC1F78000CF949 /* TRStructureDescriptionCompressedField.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93E015EC1F78000CF949 /* TRStructureDescriptionCompressedField.m */; };
 		52EC93E815EC2770000CF949 /* TR4TexturePage32.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93E715EC2770000CF949 /* TR4TexturePage32.m */; };
+		52EC93EB15ECA153000CF949 /* TR4RoomLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93EA15ECA153000CF949 /* TR4RoomLight.m */; };
+		52EC93EE15ECA241000CF949 /* TR4FlybyCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93ED15ECA240000CF949 /* TR4FlybyCamera.m */; };
+		52EC93F115ECA422000CF949 /* TR4AIObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93F015ECA422000CF949 /* TR4AIObject.m */; };
+		52EC93F415ECA4F6000CF949 /* TR4Mesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93F315ECA4F6000CF949 /* TR4Mesh.m */; };
+		52EC93F715ECC6EB000CF949 /* TR4Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93F615ECC6EA000CF949 /* TR4Texture.m */; };
+		52EC93FA15ECC859000CF949 /* TR4Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC93F915ECC858000CF949 /* TR4Animation.m */; };
 		52F8987B15D8766400AD9031 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8987A15D8766400AD9031 /* Cocoa.framework */; };
 		52F8988515D8766400AD9031 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F8988315D8766400AD9031 /* InfoPlist.strings */; };
 		52F8988715D8766400AD9031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8988615D8766400AD9031 /* main.m */; };
@@ -235,6 +241,18 @@
 		52EC93E015EC1F78000CF949 /* TRStructureDescriptionCompressedField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionCompressedField.m; sourceTree = "<group>"; };
 		52EC93E615EC276F000CF949 /* TR4TexturePage32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4TexturePage32.h; sourceTree = "<group>"; };
 		52EC93E715EC2770000CF949 /* TR4TexturePage32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4TexturePage32.m; sourceTree = "<group>"; };
+		52EC93E915ECA153000CF949 /* TR4RoomLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4RoomLight.h; sourceTree = "<group>"; };
+		52EC93EA15ECA153000CF949 /* TR4RoomLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4RoomLight.m; sourceTree = "<group>"; };
+		52EC93EC15ECA240000CF949 /* TR4FlybyCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4FlybyCamera.h; sourceTree = "<group>"; };
+		52EC93ED15ECA240000CF949 /* TR4FlybyCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4FlybyCamera.m; sourceTree = "<group>"; };
+		52EC93EF15ECA421000CF949 /* TR4AIObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4AIObject.h; sourceTree = "<group>"; };
+		52EC93F015ECA422000CF949 /* TR4AIObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4AIObject.m; sourceTree = "<group>"; };
+		52EC93F215ECA4F6000CF949 /* TR4Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4Mesh.h; sourceTree = "<group>"; };
+		52EC93F315ECA4F6000CF949 /* TR4Mesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4Mesh.m; sourceTree = "<group>"; };
+		52EC93F515ECC6EA000CF949 /* TR4Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4Texture.h; sourceTree = "<group>"; };
+		52EC93F615ECC6EA000CF949 /* TR4Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4Texture.m; sourceTree = "<group>"; };
+		52EC93F815ECC858000CF949 /* TR4Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR4Animation.h; sourceTree = "<group>"; };
+		52EC93F915ECC858000CF949 /* TR4Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR4Animation.m; sourceTree = "<group>"; };
 		52F8987615D8766400AD9031 /* TR Poser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TR Poser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F8987A15D8766400AD9031 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52F8987D15D8766400AD9031 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -604,6 +622,18 @@
 				52EC93DD15EC1C3E000CF949 /* TR4Sound.m */,
 				52EC93E615EC276F000CF949 /* TR4TexturePage32.h */,
 				52EC93E715EC2770000CF949 /* TR4TexturePage32.m */,
+				52EC93E915ECA153000CF949 /* TR4RoomLight.h */,
+				52EC93EA15ECA153000CF949 /* TR4RoomLight.m */,
+				52EC93EC15ECA240000CF949 /* TR4FlybyCamera.h */,
+				52EC93ED15ECA240000CF949 /* TR4FlybyCamera.m */,
+				52EC93EF15ECA421000CF949 /* TR4AIObject.h */,
+				52EC93F015ECA422000CF949 /* TR4AIObject.m */,
+				52EC93F215ECA4F6000CF949 /* TR4Mesh.h */,
+				52EC93F315ECA4F6000CF949 /* TR4Mesh.m */,
+				52EC93F515ECC6EA000CF949 /* TR4Texture.h */,
+				52EC93F615ECC6EA000CF949 /* TR4Texture.m */,
+				52EC93F815ECC858000CF949 /* TR4Animation.h */,
+				52EC93F915ECC858000CF949 /* TR4Animation.m */,
 			);
 			path = "TR4 Level Elements";
 			sourceTree = "<group>";
@@ -946,6 +976,12 @@
 				52EC93DE15EC1C3E000CF949 /* TR4Sound.m in Sources */,
 				52EC93E115EC1F78000CF949 /* TRStructureDescriptionCompressedField.m in Sources */,
 				52EC93E815EC2770000CF949 /* TR4TexturePage32.m in Sources */,
+				52EC93EB15ECA153000CF949 /* TR4RoomLight.m in Sources */,
+				52EC93EE15ECA241000CF949 /* TR4FlybyCamera.m in Sources */,
+				52EC93F115ECA422000CF949 /* TR4AIObject.m in Sources */,
+				52EC93F415ECA4F6000CF949 /* TR4Mesh.m in Sources */,
+				52EC93F715ECC6EB000CF949 /* TR4Texture.m in Sources */,
+				52EC93FA15ECC859000CF949 /* TR4Animation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

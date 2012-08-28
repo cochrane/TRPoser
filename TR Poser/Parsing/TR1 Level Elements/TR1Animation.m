@@ -13,9 +13,6 @@
 
 @interface TR1Animation ()
 
-@property (nonatomic, assign) NSUInteger unknown1;
-@property (nonatomic, assign) NSUInteger unknown2;
-
 @end
 
 @implementation TR1Animation
@@ -26,8 +23,10 @@
 	bitu8 frameRate;\
 	bitu8 frameSize;\
 	bitu16 stateID;\
-	bitu32 unknown1;\
-	bitu32 unknown2;\
+	bitu16 unknown1;\
+	bit16 speed;\
+	bitu16 accelLo;\
+	bit16 accelHi;\
 	bitu16 frameStart;\
 	bitu16 frameEnd;\
 	bitu16 nextAnimationIndex;\

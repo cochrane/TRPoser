@@ -109,7 +109,7 @@
 	NSUInteger maxCompressedLength = compressBound(streamData.length);
 	Bytef *destination = malloc(maxCompressedLength);
 	
-	NSUInteger destinationLength;
+	NSUInteger destinationLength = maxCompressedLength;
 	int result = compress(destination, &destinationLength, streamData.bytes, streamData.length);
 	
 	NSAssert(result == Z_OK, @"Compression result not ok, is %d", result);

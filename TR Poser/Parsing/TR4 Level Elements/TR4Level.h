@@ -17,5 +17,9 @@
 @property (nonatomic, retain) NSMutableArray *sounds;
 @property (nonatomic, retain) NSMutableArray *textureTiles32;
 @property (nonatomic, retain) NSMutableArray *specialTextureTiles;
+@property (nonatomic, retain) NSMutableArray *flybyCameras;
+@property (nonatomic, retain) NSMutableArray *aiObjects;
+
+@property (nonatomic, assign) NSUInteger unused2;
 
 @end

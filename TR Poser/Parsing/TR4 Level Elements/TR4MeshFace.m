@@ -13,6 +13,9 @@
 
 @implementation TR4MeshFace
 
+@synthesize hasAlpha;
+@synthesize shininess;
+
 - (id)initFromDataStream:(TRInDataStream *)stream inMesh:(TR1Mesh *)mesh corners:(NSUInteger)corners isTextured:(BOOL)isTextured;
 {
 	if (!(self = [super initFromDataStream:stream inMesh:mesh corners:corners isTextured:isTextured])) return nil;

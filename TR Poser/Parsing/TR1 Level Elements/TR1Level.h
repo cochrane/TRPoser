@@ -70,6 +70,9 @@
 // Not sure about this one
 @property (nonatomic, assign) NSUInteger unused1;
 
+// For subclasses
+- (void)parseMeshesFromStream:(TRInDataStream *)substream;
+- (void)writeMeshesToStream:(TROutDataStream *)substream;
 
 // Derived
 - (TR1StaticMesh *)staticMeshWithObjectID:(NSUInteger)objectID;

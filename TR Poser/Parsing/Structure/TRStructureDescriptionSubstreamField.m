@@ -43,6 +43,8 @@
 - (void)parseFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure substreams:(NSDictionary *__autoreleasing*)substreams;
 {
 	NSAssert(substreams != NULL, @"Gotta have substreams!");
+	NSAssert(!stream.isAtEnd, @"Stream at end even though there is still field \"%@\" to read.", self.name);
+	
 	NSUInteger bytes = [self.arrayLength readLengthFromStream:stream object:structure];
 	
 	*substreams = @{ self.name : [stream substreamWithLength:bytes] };

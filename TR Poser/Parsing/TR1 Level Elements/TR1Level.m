@@ -93,12 +93,26 @@
 	NSDictionary *substreams = nil;
 	if (!(self = [super initFromDataStream:stream inLevel:self substreams:&substreams])) return nil;
 	
+	[self parseMeshesFromStream:substreams[@"meshData"]];
+	
+	return self;
+}
+- (void)writeToStream:(TROutDataStream *)stream;
+{
+	TROutDataStream *meshStream = [[TROutDataStream alloc] init];
+	[self writeMeshesToStream:meshStream];
+	[super writeToStream:stream substreams:@{ @"meshData" : meshStream }];
+}
+
+- (void)parseMeshesFromStream:(TRInDataStream *)meshStream;
+{
+	Class meshClass = [self versionedClassForName:@"Mesh"];
+	
 	// Parse meshes
-	TRInDataStream *meshStream = [substreams objectForKey:@"meshData"];
 	for (TR1MeshPointer *meshPointer in self.meshPointers)
 	{
 		meshStream.position = meshPointer.meshStartOffset;
-		TR1Mesh *mesh = [[TR1Mesh alloc] initFromDataStream:meshStream inLevel:self];
+		TR1Mesh *mesh = [[meshClass alloc] initFromDataStream:meshStream inLevel:self];
 		meshPointer.mesh = mesh;
 	}
 	
@@ -106,18 +120,14 @@
 	_staticMeshesByObjectID = [[NSMutableDictionary alloc] initWithCapacity:self.staticMeshes.count];
 	for (TR1StaticMesh *mesh in self.staticMeshes)
 		[_staticMeshesByObjectID setObject:mesh forKey:@(mesh.objectID)];
-	
-	return self;
 }
-- (void)writeToStream:(TROutDataStream *)stream;
+- (void)writeMeshesToStream:(TROutDataStream *)meshStream;
 {
-	TROutDataStream *meshStream = [[TROutDataStream alloc] init];
 	for (TR1MeshPointer *meshPointer in self.meshPointers)
 	{
 		meshPointer.meshStartOffset = meshStream.length;
 		[meshPointer.mesh writeToStream:meshStream];
 	}
-	[super writeToStream:stream substreams:@{ @"meshData" : meshStream }];
 }
 
 - (TR1StaticMesh *)staticMeshWithObjectID:(NSUInteger)objectID;

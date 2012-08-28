@@ -20,19 +20,19 @@
 - (id)initFromDataStream:(TRInDataStream *)stream inLevel:(TR1Level *)level;
 - (void)writeToStream:(TROutDataStream *)stream;
 
-@property (nonatomic, weak, readonly) TR1Level *level;
+@property (nonatomic, weak) TR1Level *level;
 
 @property (nonatomic, retain) TR1Vertex *collisionSphereCenter;
 @property (nonatomic, assign) NSInteger collisionSphereRadius;
 
-@property (nonatomic, retain, readonly) NSMutableArray *vertices;
-@property (nonatomic, retain, readonly) NSMutableArray *normals;
-@property (nonatomic, retain, readonly) NSMutableArray *lightIntensities;
+@property (nonatomic, retain) NSMutableArray *vertices;
+@property (nonatomic, retain) NSMutableArray *normals;
+@property (nonatomic, retain) NSMutableArray *lightIntensities;
 
-@property (nonatomic, retain, readonly) NSMutableArray *texturedTriangles;
-@property (nonatomic, retain, readonly) NSMutableArray *texturedRectangles;
-@property (nonatomic, retain, readonly) NSMutableArray *coloredTriangles;
-@property (nonatomic, retain, readonly) NSMutableArray *coloredRectangles;
+@property (nonatomic, retain) NSMutableArray *texturedTriangles;
+@property (nonatomic, retain) NSMutableArray *texturedRectangles;
+@property (nonatomic, retain) NSMutableArray *coloredTriangles;
+@property (nonatomic, retain) NSMutableArray *coloredRectangles;
 
 @property (readonly, nonatomic, assign) NSUInteger number;
 @property (readonly, nonatomic, assign) BOOL usesInternalLighting;

@@ -72,6 +72,7 @@
 - (void)parseFromStream:(TRInDataStream *)stream intoObject:(TRStructure *)structure substreams:(NSDictionary *__autoreleasing*)substreams;
 {
 	NSAssert(substreams != NULL, @"Gotta have substreams!");
+	NSAssert(!stream.isAtEnd, @"Stream at end even though there is still field \"%@\" to read.", self.name);
 	
 	NSUInteger uncompressed, compressed;
 	if (self.compressedComesFirst)
@@ -84,8 +85,14 @@
 		uncompressed = [self.uncompressedLength readLengthFromStream:stream object:structure];
 		compressed = [self.compressedLength readLengthFromStream:stream object:structure];
 	}
-	
-	*substreams = @{ self.name : [stream decompressStreamCompressedLength:compressed uncompressedLength:uncompressed] };
+	if (compressed == uncompressed)
+	{
+		*substreams = @{ self.name : [stream substreamWithLength:compressed] };
+	}
+	else
+	{
+		*substreams = @{ self.name : [stream decompressStreamCompressedLength:compressed uncompressedLength:uncompressed] };
+	}
 }
 - (void)writeToStream:(TROutDataStream *)stream fromObject:(TRStructure *)structure substreams:(NSDictionary *)substreams;
 {

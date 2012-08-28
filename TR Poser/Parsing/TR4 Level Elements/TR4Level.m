@@ -8,8 +8,15 @@
 
 #import "TR4Level.h"
 
+#import "TRInDataStream.h"
+#import "TROutDataStream.h"
+
+#import "TRStructureDescription.h"
+
+#import "TR1MeshPointer.h"
 #import "TR2TexturePage16.h"
 #import "TR4TexturePage32.h"
+#import "TR4Mesh.h"
 
 @implementation TR4Level
 
@@ -28,6 +35,59 @@
 	compressed geometry[u=bitu32, c=bitu32];\
 	*Sound sounds[bitu32];\
 	";
+}
+
++ (NSString *)geometryPartDescriptionSource
+{
+	return @"bitu32 unused1;\
+	*Room rooms[bitu16];\
+	*FloorDataList floorData;\
+	substream meshData[bitu32*2];\
+	*MeshPointer meshPointers[bitu32];\
+	*Animation animations[bitu32];\
+	*StateChange stateChanges[bitu32];\
+	*AnimationDispatch animationDispatches[bitu32];\
+	*AnimationCommandList animationCommands;\
+	*MeshTree meshTrees[bitu32/4];\
+	*FrameData frames;\
+	*Moveable moveables[bitu32];\
+	*StaticMesh staticMeshes[bitu32];\
+	const bitu8='S';\
+	const bitu8='P';\
+	const bitu8='R';\
+	*SpriteTexture spriteTextures[bitu32];\
+	*SpriteSequence spriteSequences[bitu32];\
+	*Camera cameras[bitu32];\
+	*FlybyCamera flybyCameras[bitu32];\
+	*SoundSource soundSources[bitu32];\
+	*Box boxes[bitu32];\
+	bitu16 overlaps[bitu32];\
+	*Zone zones[boxes.@count];\
+	bitu16 animatedTextures[bitu32];\
+	bitu8 unused2;\
+	const bitu8='T';\
+	const bitu8='E';\
+	const bitu8='X';\
+	*Texture objectTextures[bitu32];\
+	*Item items[bitu32];\
+	*AIObject aiObjects[bitu32];\
+	bitu8 demoData[bitu16];\
+	*SoundMap soundMap;\
+	*SoundDetail soundDetails[bitu32];\
+	bitu32 sampleIndices[bitu32];\
+	const bitu16=0;\
+	const bitu16=0;\
+	const bitu16=0;";
+}
+
++ (TRStructureDescription *)geometryPartDescription
+{
+	static TRStructureDescription *description = nil;
+	if (!description)
+	{
+		description = [[TRStructureDescription alloc] initWithSource:self.geometryPartDescriptionSource];
+	}
+	return description;
 }
 
 - (NSUInteger)gameVersion;
@@ -56,31 +116,45 @@
 	for (NSUInteger i = 0; i < 2; i++)
 		[self.specialTextureTiles addObject:[[TR4TexturePage32 alloc] initFromDataStream:specialTextureStream inLevel:self]];
 	
-//	// Parse meshes
-//	TRInDataStream *meshStream = [substreams objectForKey:@"meshData"];
-//	for (TR1MeshPointer *meshPointer in self.meshPointers)
-//	{
-//		meshStream.position = meshPointer.meshStartOffset;
-//		TR1Mesh *mesh = [[TR1Mesh alloc] initFromDataStream:meshStream inLevel:self];
-//		meshPointer.mesh = mesh;
-//	}
-//	
-//	// Set up things by key
-//	_staticMeshesByObjectID = [[NSMutableDictionary alloc] initWithCapacity:self.staticMeshes.count];
-//	for (TR1StaticMesh *mesh in self.staticMeshes)
-//		[_staticMeshesByObjectID setObject:mesh forKey:@(mesh.objectID)];
+	// Parse geometry
+	NSDictionary *geometrySubstreams = nil;
+	TRInDataStream *geometryStream = substreams[@"geometry"];
+	[self parseStream:geometryStream description:self.class.geometryPartDescription substreams:&geometrySubstreams];
+	
+	[self parseMeshesFromStream:geometrySubstreams[@"meshData"]];
 	
 	return self;
 }
 - (void)writeToStream:(TROutDataStream *)stream;
 {
+	TROutDataStream *texture32Stream = [[TROutDataStream alloc] init];
+	for (TRTexturePage *page in self.textureTiles32)
+		[page writeToStream:texture32Stream];
+	
+	TROutDataStream *texture16Stream = [[TROutDataStream alloc] init];
+	for (TRTexturePage *page in self.textureTiles16)
+		[page writeToStream:texture16Stream];
+	
+	TROutDataStream *specialTextureStream = [[TROutDataStream alloc] init];
+	for (TRTexturePage *page in self.specialTextureTiles)
+		[page writeToStream:specialTextureStream];
+	
+	TROutDataStream *meshStream = [[TROutDataStream alloc] init];
+	[self writeMeshesToStream:meshStream];
+	
+	TROutDataStream *geometryStream = [[TROutDataStream alloc] init];
+	[self writeToStream:geometryStream description:self.class.geometryPartDescription substreams:@{ @"meshData" : meshStream }];
+	
 //	TROutDataStream *meshStream = [[TROutDataStream alloc] init];
 //	for (TR1MeshPointer *meshPointer in self.meshPointers)
 //	{
 //		meshPointer.meshStartOffset = meshStream.length;
 //		[meshPointer.mesh writeToStream:meshStream];
 //	}
-//	[super writeToStream:stream substreams:@{ @"meshData" : meshStream }];
+	[super writeToStream:stream substreams:@{ @"texture32" : texture32Stream,
+	 @"texture16" : texture16Stream,
+	 @"textureFontAndSky" : specialTextureStream,
+	 @"geometry" : geometryStream }];
 }
 
 - (NSUInteger)countOfTextureTiles;

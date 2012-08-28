@@ -25,6 +25,9 @@
 @property (nonatomic, assign) NSUInteger frameRate;
 @property (nonatomic, assign) NSUInteger frameSize;
 @property (nonatomic, assign) NSUInteger stateID;
+@property (nonatomic, assign) NSUInteger speed;
+@property (nonatomic, assign) NSUInteger accelLo;
+@property (nonatomic, assign) NSUInteger accelHi;
 @property (nonatomic, assign) NSUInteger frameStart;
 @property (nonatomic, assign) NSUInteger frameEnd;
 @property (nonatomic, assign) NSUInteger nextAnimationIndex;
@@ -33,6 +36,8 @@
 @property (nonatomic, assign) NSUInteger stateChangesOffset;
 @property (nonatomic, assign) NSUInteger animCommandCount;
 @property (nonatomic, assign) NSUInteger animCommandOffset;
+
+@property (nonatomic, assign) NSUInteger unknown1;
 
 // Derived attributes
 @property (nonatomic, assign, readonly) NSUInteger number;

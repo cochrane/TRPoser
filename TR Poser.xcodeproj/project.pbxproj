@@ -13,6 +13,7 @@
 		521F755615E01F1700AB0A73 /* TRStructureDescriptionSubstreamField.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F755515E01F1600AB0A73 /* TRStructureDescriptionSubstreamField.m */; };
 		521F755915E0232000AB0A73 /* TRStructureSubstreamTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F755815E0232000AB0A73 /* TRStructureSubstreamTest.m */; };
 		521F755C15E028A400AB0A73 /* TRStructureDescriptionArrayLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F755B15E028A300AB0A73 /* TRStructureDescriptionArrayLength.m */; };
+		521F987915F02E4000692AB4 /* TRRenderIndexUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = 521F987815F02E4000692AB4 /* TRRenderIndexUtilities.c */; };
 		526B670215E238ED00CAE40D /* TRRenderLevelResourcesSCN.m in Sources */ = {isa = PBXBuildFile; fileRef = 526B670115E238ED00CAE40D /* TRRenderLevelResourcesSCN.m */; };
 		526B670415E276DB00CAE40D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526B670315E276DB00CAE40D /* Accelerate.framework */; };
 		527539EC15E055B400AF4324 /* TR1AnimationCommandList.m in Sources */ = {isa = PBXBuildFile; fileRef = 527539EB15E055B300AF4324 /* TR1AnimationCommandList.m */; };
@@ -152,6 +153,8 @@
 		521F755815E0232000AB0A73 /* TRStructureSubstreamTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureSubstreamTest.m; sourceTree = "<group>"; };
 		521F755A15E028A200AB0A73 /* TRStructureDescriptionArrayLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRStructureDescriptionArrayLength.h; sourceTree = "<group>"; };
 		521F755B15E028A300AB0A73 /* TRStructureDescriptionArrayLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRStructureDescriptionArrayLength.m; sourceTree = "<group>"; };
+		521F987715F02E4000692AB4 /* TRRenderIndexUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderIndexUtilities.h; sourceTree = "<group>"; };
+		521F987815F02E4000692AB4 /* TRRenderIndexUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TRRenderIndexUtilities.c; sourceTree = "<group>"; };
 		526B670015E238ED00CAE40D /* TRRenderLevelResourcesSCN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderLevelResourcesSCN.h; sourceTree = "<group>"; };
 		526B670115E238ED00CAE40D /* TRRenderLevelResourcesSCN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRRenderLevelResourcesSCN.m; sourceTree = "<group>"; };
 		526B670315E276DB00CAE40D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -417,6 +420,8 @@
 				52B6A2C415E53905007EFC77 /* TRRenderTexture.h */,
 				52B6A2C515E53906007EFC77 /* TRRenderTexture.m */,
 				52B6A2D615E59F20007EFC77 /* TRRenderElement.h */,
+				521F987715F02E4000692AB4 /* TRRenderIndexUtilities.h */,
+				521F987815F02E4000692AB4 /* TRRenderIndexUtilities.c */,
 			);
 			path = Rendering;
 			sourceTree = "<group>";
@@ -988,6 +993,7 @@
 				52EC93F715ECC6EB000CF949 /* TR4Texture.m in Sources */,
 				52EC93FA15ECC859000CF949 /* TR4Animation.m in Sources */,
 				52EC93FD15ECD5B6000CF949 /* TR3Texture.m in Sources */,
+				521F987915F02E4000692AB4 /* TRRenderIndexUtilities.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

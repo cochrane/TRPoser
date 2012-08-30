@@ -16,6 +16,7 @@
 #import "TRRenderElement.h"
 #import "TRRenderLevelResources.h"
 #import "TRRenderTexture.h"
+#import "TRRenderIndexUtilities.h"
 
 @interface TRRenderMesh ()
 {
@@ -174,86 +175,34 @@
 	*normalCount = standardTriangleCount*3;
 	*alphaCount = alphaTriangles*3;
 	
-	NSUInteger index = 0, element = 0;
+	NSUInteger index = 0, element = 0, alphaElement = 0;
 	for (TR1MeshFace *face in self.mesh.coloredRectangles)
 	{
-		uint16_t *array = face.hasAlpha ? alphaElements : standardElements;
-		array[element+0] = index + 0;
-		array[element+1] = index + 2;
-		array[element+2] = index + 1;
-		array[element+3] = index + 2;
-		array[element+4] = index + 0;
-		array[element+5] = index + 3;
-		element += 6;
-		
-		if (face.isTwoSided)
-		{
-			array[element+0] = index + 0;
-			array[element+1] = index + 1;
-			array[element+2] = index + 2;
-			array[element+3] = index + 2;
-			array[element+4] = index + 3;
-			array[element+5] = index + 0;
-			element += 6;
-		}
-		index += 4;
+		if (face.hasAlpha)
+			TRFillRectangle(alphaElements, &alphaElement, &index, face.isTwoSided);
+		else
+			TRFillRectangle(standardElements, &element, &index, face.isTwoSided);
 	}
 	for (TR1MeshFace *face in self.mesh.coloredTriangles)
 	{
-		uint16_t *array = face.hasAlpha ? alphaElements : standardElements;
-		array[element+0] = index + 0;
-		array[element+1] = index + 2;
-		array[element+2] = index + 1;
-		element += 3;
-		
-		if (face.isTwoSided)
-		{
-			array[element+0] = index + 0;
-			array[element+1] = index + 1;
-			array[element+2] = index + 2;
-			element += 3;
-		}
-		index += 3;
+		if (face.hasAlpha)
+			TRFillTriangle(alphaElements, &alphaElement, &index, face.isTwoSided);
+		else
+			TRFillTriangle(standardElements, &element, &index, face.isTwoSided);
 	}
 	for (TR1MeshFace *face in self.mesh.texturedRectangles)
 	{
-		uint16_t *array = face.hasAlpha ? alphaElements : standardElements;
-		array[element+0] = index + 0;
-		array[element+1] = index + 2;
-		array[element+2] = index + 1;
-		array[element+3] = index + 3;
-		array[element+4] = index + 2;
-		array[element+5] = index + 0;
-		element += 6;
-		
-		if (face.isTwoSided)
-		{
-			array[element+0] = index + 0;
-			array[element+1] = index + 1;
-			array[element+2] = index + 2;
-			array[element+3] = index + 2;
-			array[element+4] = index + 3;
-			array[element+5] = index + 0;
-			element += 6;
-		}
-		index += 4;
+		if (face.hasAlpha)
+			TRFillRectangle(alphaElements, &alphaElement, &index, face.isTwoSided);
+		else
+			TRFillRectangle(standardElements, &element, &index, face.isTwoSided);
 	}
 	for (TR1MeshFace *face in self.mesh.texturedTriangles)
 	{
-		uint16_t *array = face.hasAlpha ? alphaElements : standardElements;
-		array[element+0] = index + 0;
-		array[element+1] = index + 2;
-		array[element+2] = index + 1;
-		element += 3;
-		
-		if (face.isTwoSided)
-		{
-			array[element+0] = index + 0;
-			array[element+1] = index + 1;
-			array[element+2] = index + 2;
-			element += 3;
-		}
-		index += 3;
+		if (face.hasAlpha)
+			TRFillTriangle(alphaElements, &alphaElement, &index, face.isTwoSided);
+		else
+			TRFillTriangle(standardElements, &element, &index, face.isTwoSided);
 	}
 	
 	return [NSData dataWithBytesNoCopy:elements length:sizeof(uint16_t) * triangleCount*3 freeWhenDone:YES];

@@ -59,7 +59,7 @@
 			else
 			{
 				rgba[i*4+0] = 255;
-				[palette getColor:&rgba[i*4+1] atIndex:indices[0]];
+				[palette getColor:&rgba[i*4+1] atIndex:indices[i]];
 			}
 		}
 		transformedPixels = [NSData dataWithBytes:rgba length:sizeof(rgba)];

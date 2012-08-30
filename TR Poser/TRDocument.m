@@ -8,7 +8,7 @@
 
 #import "TRDocument.h"
 
-#import "TR3Level.h"
+#import "TR1Level.h"
 #import "TRRenderLevelSCN.h"
 #import "TRRenderLevelResourcesSCN.h"
 #import "TRRenderMoveableSCN.h"
@@ -114,7 +114,7 @@
 	NSData *data = [NSData dataWithContentsOfURL:url];
 	NSAssert(data != nil, @"Can't load %@", url);
 	
-	TR3Level *level = [[TR3Level alloc] initWithData:data];
+	TR1Level *level = [[TR1Level alloc] initWithData:data];
 	NSAssert(level != nil, @"Can't create level for %@", url);
 	
 	[self setupGraphicsWithLevel:level];

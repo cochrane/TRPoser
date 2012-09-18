@@ -23,6 +23,8 @@
 - (void)appendUint8Array:(const uint8_t *)array count:(NSUInteger)count;
 - (void)appendFloat32Array:(const Float32 *)array count:(NSUInteger)count;
 
+- (void)appendPascalString:(NSString *)string;
+
 - (NSData *)compressed;
 - (void)appendData:(NSData *)data;
 - (void)appendStream:(TROutDataStream *)stream;

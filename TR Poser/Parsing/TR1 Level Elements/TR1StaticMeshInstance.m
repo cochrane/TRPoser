@@ -8,6 +8,8 @@
 
 #import "TR1StaticMeshInstance.h"
 
+#import <AppKit/NSColorSpace.h>
+
 #import "TR1Level.h"
 #import "TR1StaticMesh.h"
 

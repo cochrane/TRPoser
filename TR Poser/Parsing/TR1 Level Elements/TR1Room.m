@@ -8,6 +8,8 @@
 
 #import "TR1Room.h"
 
+#import <AppKit/NSColorSpace.h>
+
 #import "TRInDataStream.h"
 #import "TROutDataStream.h"
 

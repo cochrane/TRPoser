@@ -100,6 +100,22 @@
 	[self readUint32Array:uint32array count:count];
 }
 
+- (NSString *)readPascalString;
+{
+	NSUInteger length = 0;
+	uint8_t lengthByte = 0;
+	NSUInteger shiftAmount = 0;
+	do {
+		lengthByte = [self readUint8];
+		length += (lengthByte & 0x7F) << (7*shiftAmount);
+		shiftAmount += 1;
+	} while (lengthByte & 0x80);
+	
+	uint8_t buffer[length];
+	[self readUint8Array:buffer count:length];
+	return [[NSString alloc] initWithBytes:buffer length:length encoding:NSUTF8StringEncoding];
+}
+
 - (void)skipBytes:(NSUInteger)count;
 {
 	_position += count;

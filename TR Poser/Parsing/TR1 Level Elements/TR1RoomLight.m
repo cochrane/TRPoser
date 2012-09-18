@@ -8,6 +8,8 @@
 
 #import "TR1RoomLight.h"
 
+#import <AppKit/NSColorSpace.h>
+
 #import "TR1Level.h"
 
 @implementation TR1RoomLight

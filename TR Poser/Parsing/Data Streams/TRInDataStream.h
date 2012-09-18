@@ -25,6 +25,8 @@
 - (void)readUint8Array:(uint8_t *)array count:(NSUInteger)count;
 - (void)readFloat32Array:(Float32 *)array count:(NSUInteger)count;
 
+- (NSString *)readPascalString;
+
 - (void)skipBytes:(NSUInteger)count;
 - (void)skipField16:(NSUInteger)elementWidth;
 - (void)skipField32:(NSUInteger)elementWidth;

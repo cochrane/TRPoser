@@ -75,6 +75,17 @@
 	[self appendUint8Array:(uint8_t *) array count:count*4];
 }
 
+- (void)appendPascalString:(NSString *)string;
+{
+	uint8_t buffer[255];
+	NSUInteger usedLength;
+	
+	[string getBytes:buffer maxLength:255 usedLength:&usedLength encoding:NSUTF8StringEncoding options:NSStringEncodingConversionAllowLossy range:NSMakeRange(0, [string length]) remainingRange:NULL];
+	
+	[self appendUint8:(uint8_t) usedLength];
+	[self appendUint8Array:buffer count:usedLength];
+}
+
 - (void)appendData:(NSData *)data
 {
 	[streamData appendData:data];

@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Torsten Kammer. All rights reserved.
 //
 
+#import <AppKit/NSColor.h>
 #import <Foundation/Foundation.h>
 
 #import "TRStructure.h"

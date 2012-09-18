@@ -8,6 +8,8 @@
 
 #import "TR1RoomVertex.h"
 
+#import <AppKit/NSColorSpace.h>
+
 #import "TRInDataStream.h"
 #import "TROutDataStream.h"
 #import "TR1Level.h"

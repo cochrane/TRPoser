@@ -8,6 +8,8 @@
 
 #import "TR3RoomLight.h"
 
+#import <AppKit/NSColorSpace.h>
+
 @implementation TR3RoomLight
 
 + (NSString *)structureDescriptionSource

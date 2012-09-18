@@ -88,7 +88,7 @@
 	
 	__block NSUInteger angleSet = 0;
 	
-	self.rootNode.offset = SCNVector3Make(frame.offsetX / 1024.0, frame.offsetY / 1024.0, frame.offsetZ / 1024);
+	self.rootNode.offset = SCNVector3Make((CGFloat) frame.offsetX / 1024.0, (CGFloat) frame.offsetY / 1024.0, (CGFloat) frame.offsetZ / 1024.0);
 	
 	[self.rootNode enumerate:^(TRRenderMoveableNode *node){
 		node.rotationX = [frame rotationXInRadAtIndex:angleSet];

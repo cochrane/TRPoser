@@ -194,8 +194,8 @@
 		52AA11B015E1ACA700895F44 /* TR3Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR3Level.m; sourceTree = "<group>"; };
 		52AA11B215E1AE8000895F44 /* TRLevelTest_Jungle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRLevelTest_Jungle.h; sourceTree = "<group>"; };
 		52AA11B315E1AE8000895F44 /* TRLevelTest_Jungle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRLevelTest_Jungle.m; sourceTree = "<group>"; };
-		52AA11C615E4F9B700895F44 /* TRFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRFrame.h; path = ../../Rendering/TRFrame.h; sourceTree = "<group>"; };
-		52AA11C715E4F9B700895F44 /* TRFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRFrame.m; path = ../../Rendering/TRFrame.m; sourceTree = "<group>"; };
+		52AA11C615E4F9B700895F44 /* TRFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRFrame.h; sourceTree = "<group>"; };
+		52AA11C715E4F9B700895F44 /* TRFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRFrame.m; sourceTree = "<group>"; };
 		52AA11CA15E4FC4800895F44 /* TR2FrameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TR2FrameData.h; sourceTree = "<group>"; };
 		52AA11CB15E4FC4800895F44 /* TR2FrameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TR2FrameData.m; sourceTree = "<group>"; };
 		52B6A27115E2CF50007EFC77 /* TRRenderMeshSCN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRRenderMeshSCN.h; sourceTree = "<group>"; };

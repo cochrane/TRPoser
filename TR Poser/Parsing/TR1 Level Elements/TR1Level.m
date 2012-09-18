@@ -16,6 +16,10 @@
 #import "TR1Room.h"
 #import "TR1StaticMesh.h"
 
+#import "TR2Level.h"
+#import "TR3Level.h"
+#import "TR4Level.h"
+
 @interface TR1Level ()
 
 @property (nonatomic, readonly, retain) NSMutableDictionary *staticMeshesByObjectID;
@@ -61,6 +65,31 @@
 	bitu32 sampleIndices[bitu32];";
 }
 
++ (Class)classForLevelWithData:(NSData *)data;
+{
+	if (data.length < 4) return nil; // There's no TR file that is _this_ short
+	
+	uint32_t identifier;
+	[data getBytes:&identifier length:sizeof(identifier)];
+	
+	switch (identifier)
+	{
+		case 32:
+			return [TR1Level class];
+		case 45:
+			return [TR2Level class];
+		case 4278714424:
+		case 4279763000:
+			return [TR3Level class];
+			
+		case 3428948:
+			return [TR4Level class];
+			
+		default:
+			return nil;
+	}
+}
+
 - (NSUInteger)gameVersion;
 {
 	return 1;
@@ -79,7 +108,7 @@
 
 - (id)initWithData:(NSData *)data;
 {
-	return [self initFromDataStream:[[TRInDataStream alloc] initWithData:data]];
+	return [[[[self class] classForLevelWithData:data] alloc] initFromDataStream:[[TRInDataStream alloc] initWithData:data]];
 }
 - (NSData *)writeToData;
 {

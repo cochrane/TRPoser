@@ -26,6 +26,8 @@
 
 @interface TR1Level : TRStructure
 
++ (Class)classForLevelWithData:(NSData *)data;
+
 - (id)initWithData:(NSData *)data;
 - (NSData *)writeToData;
 

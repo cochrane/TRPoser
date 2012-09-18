@@ -667,6 +667,7 @@
 				52B6A2AB15E459B1007EFC77 /* TRRenderLevelSCN.m */,
 			);
 			name = SceneKit;
+			path = ../SceneKit;
 			sourceTree = "<group>";
 		};
 		52F8986B15D8766400AD9031 = {
